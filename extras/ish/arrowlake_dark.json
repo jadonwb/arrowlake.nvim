@@ -1,0 +1,28 @@
+{
+  "name": "Arrowlake",
+  "version": 1,
+  "shared": {
+    "backgroundColor": "#0D0C25",
+    "colorPaletteOverrides": [
+      "#070614",
+      "#E50050",
+      "#2A8A6B",
+      "#FFD888",
+      "#3F3BF5",
+      "#D91C87",
+      "#33D4B4",
+      "#5c6296",
+      "#312e55",
+      "#fd0059",
+      "#009a74",
+      "#ffe8c2",
+      "#4f4cff",
+      "#f50097",
+      "#00e5c0",
+      "#bec8e8",
+    ],
+    "cursorColor": "#bec8e8",
+    "foregroundColor": "#bec8e8"
+  }
+}
+

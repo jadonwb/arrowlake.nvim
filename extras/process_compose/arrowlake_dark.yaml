@@ -1,0 +1,36 @@
+style:
+  name: arrowlake_dark
+  body:
+    fgColor: '#bec8e8'
+    bgColor: '#0D0C25'
+    secondaryTextColor: '#7e85b8'
+    tertiaryTextColor: '#5c6296'
+    borderColor: '#312e55'
+  stat_table:
+    keyFgColor: '#FFD888'
+    valueFgColor: '#bec8e8'
+    logoColor: '#FFD888'
+  proc_table:
+    fgColor: '#3F3BF5'
+    fgWarning: '#FB9B00'
+    fgPending: '#5c6296'
+    fgCompleted: '#2A8A6B'
+    fgError: '#E50050'
+    headerFgColor: '#bec8e8'
+  help:
+    fgColor: '#5352CD'
+    keyColor: '#bec8e8'
+    hlColor: '#2A8A6B'
+    categoryFgColor: '#9AC1E5'
+  dialog:
+    fgColor: '#5352CD'
+    bgColor: '#070614'
+    contrastBgColor: '#0D0C25'
+    attentionBgColor: '#E50050'
+    buttonFgColor: '#070614'
+    buttonBgColor: '#161440'
+    buttonFocusFgColor: '#070614'
+    buttonFocusBgColor: '#3F3BF5'
+    labelFgColor: '#FFD888'
+    fieldFgColor: '#070614'
+    fieldBgColor: '#1e1e3b'

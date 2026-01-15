@@ -1,0 +1,63 @@
+{
+  "$schema": "https://raw.githubusercontent.com/badlogic/pi-mono/main/packages/coding-agent/src/modes/interactive/theme/theme-schema.json",
+  "name": "Arrowlake",
+  "colors": {
+    "accent": "#3F3BF5",
+    "border": "#09081a",
+    "borderAccent": "#3F3BF5",
+    "borderMuted": "#5c6296",
+    "success": "#2A8A6B",
+    "error": "#E50050",
+    "warning": "#FB9B00",
+    "muted": "#5c6296",
+    "dim": "#5c6296",
+    "text": "",
+    "thinkingText": "#5c6296",
+
+    "selectedBg": "#161440",
+    "userMessageBg": "#09081a",
+    "userMessageText": "",
+    "customMessageBg": "#09081a",
+    "customMessageText": "",
+    "customMessageLabel": "#D91C87",
+    "toolPendingBg": "#09081a",
+    "toolSuccessBg": "#09081a",
+    "toolErrorBg": "#230720",
+    "toolTitle": "",
+    "toolOutput": "#5c6296",
+
+    "mdHeading": "#3F3BF5",
+    "mdLink": "#33D4B4",
+    "mdLinkUrl": "#5c6296",
+    "mdCode": "#FFD888",
+    "mdCodeBlock": "#7e85b8",
+    "mdCodeBlockBorder": "#5c6296",
+    "mdQuote": "#5c6296",
+    "mdQuoteBorder": "#5c6296",
+    "mdHr": "#FB9B00",
+    "mdListBullet": "#FB9B00",
+
+    "toolDiffAdded": "#206353",
+    "toolDiffRemoved": "#98033d",
+    "toolDiffContext": "#bec8e8",
+
+    "syntaxComment": "#5c6296",
+    "syntaxKeyword": "#D91C87",
+    "syntaxFunction": "#3F3BF5",
+    "syntaxVariable": "#bec8e8",
+    "syntaxString": "#2A8A6B",
+    "syntaxNumber": "#FB9B00",
+    "syntaxType": "#5352CD",
+    "syntaxOperator": "#9AC1E5",
+    "syntaxPunctuation": "#7e85b8",
+
+    "thinkingOff": "#bec8e8",
+    "thinkingMinimal": "#33D4B4",
+    "thinkingLow": "#2A8A6B",
+    "thinkingMedium": "#FFD888",
+    "thinkingHigh": "#FB9B00",
+    "thinkingXhigh": "#E50050",
+
+    "bashMode": "#FB9B00"
+  }
+}

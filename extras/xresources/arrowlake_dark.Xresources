@@ -1,0 +1,23 @@
+! Arrowlake colors for Xresources
+
+*background: #0D0C25
+*foreground: #bec8e8
+
+*color0: #070614
+*color1: #E50050
+*color2: #2A8A6B
+*color3: #FFD888
+*color4: #3F3BF5
+*color5: #D91C87
+*color6: #33D4B4
+*color7: #7e85b8
+
+*color8: #312e55
+*color9: #E50050
+*color10: #2A8A6B
+*color11: #FFD888
+*color12: #3F3BF5
+*color13: #D91C87
+*color14: #33D4B4
+*color15: #bec8e8
+ 

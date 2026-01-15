@@ -1,0 +1,17 @@
+# Arrowlake colors for dunst
+# For more configuration options see https://github.com/dunst-project/dunst/blob/master/dunstrc
+
+[urgency_low]
+    background = "#e3d7c7"
+    foreground = "#54473f"
+    frame_color = "#54473f"
+
+[urgency_normal]
+    background = "#ebe0cf"
+    foreground = "#54473f"
+    frame_color = "#54473f"
+
+[urgency_critical]
+    background = "#d4c6b3"
+    foreground = "#BC495D"
+    frame_color = "#BC495D"

@@ -1,0 +1,16 @@
+assistant-output-color: "#bec8e8"
+
+# see the aider extra README for more information about setting the `code-theme`
+# https://github.com/jadonwb/arrowlake.nvim/blob/extras/aider/README.md
+# code-theme: arrowlake-dark
+
+completion-menu-color: "#bec8e8"
+completion-menu-bg-color: "#070614"
+completion-menu-current-color: "#bec8e8"
+completion-menu-current-bg-color: "#161440"
+
+tool-error-color: "#E50050"
+tool-output-color: "#3F3BF5"
+tool-warning-color: "#FB9B00"
+
+user-input-color: "#2A8A6B"

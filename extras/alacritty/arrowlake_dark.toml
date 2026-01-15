@@ -1,0 +1,32 @@
+# -----------------------------------------------------------------------------
+# Arrowlake Alacritty Colors
+# Theme: Arrowlake
+# Upstream: https://github.com/jadonwb/arrowlake.nvim/raw/main/extras/alacritty/arrowlake_dark.toml
+# -----------------------------------------------------------------------------
+
+# Default colors
+[colors.primary]
+background = '#0D0C25'
+foreground = '#bec8e8'
+
+# Normal colors
+[colors.normal]
+black = '#070614'
+red = '#E50050'
+green = '#2A8A6B'
+yellow = '#FFD888'
+blue = '#3F3BF5'
+magenta = '#D91C87'
+cyan = '#33D4B4'
+white = '#5c6296'
+
+# Bright colors
+[colors.bright]
+black = '#312e55'
+red = '#fd0059'
+green = '#009a74'
+yellow = '#ffe8c2'
+blue = '#4f4cff'
+magenta = '#f50097'
+cyan = '#00e5c0'
+white = '#bec8e8'

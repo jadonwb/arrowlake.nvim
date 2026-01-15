@@ -1,0 +1,28 @@
+{
+  "name": "Arrowlake Light",
+  "version": 1,
+  "shared": {
+    "backgroundColor": "#ebe0cf",
+    "colorPaletteOverrides": [
+      "#dccdba",
+      "#BC495D",
+      "#4E7469",
+      "#AD8A5A",
+      "#4A74A8",
+      "#C16C90",
+      "#56AEA9",
+      "#87786c",
+      "#ad9b88",
+      "#e43b5f",
+      "#448474",
+      "#c59546",
+      "#3782cb",
+      "#db719f",
+      "#2dc0ba",
+      "#54473f",
+    ],
+    "cursorColor": "#54473f",
+    "foregroundColor": "#54473f"
+  }
+}
+

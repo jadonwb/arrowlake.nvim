@@ -1,0 +1,38 @@
+# Arrowlake color theme for Zathura
+# Swaps Foreground for Background to get a light version if the user prefers
+#
+# Arrowlake color theme
+#
+set notification-error-bg "#E50050"
+set notification-error-fg "#bec8e8"
+set notification-warning-bg "#FB9B00"
+set notification-warning-fg "#312e55"
+set notification-bg "#0D0C25"
+set notification-fg "#bec8e8"
+set completion-bg "#0D0C25"
+set completion-fg "#7e85b8"
+set completion-group-bg "#0D0C25"
+set completion-group-fg "#7e85b8"
+set completion-highlight-bg "#312e55"
+set completion-highlight-fg "#bec8e8"
+set index-bg "#0D0C25"
+set index-fg "#bec8e8"
+set index-active-bg "#312e55"
+set index-active-fg "#bec8e8"
+set inputbar-bg "#0D0C25"
+set inputbar-fg "#bec8e8"
+set statusbar-bg "#0D0C25"
+set statusbar-fg "#bec8e8"
+set highlight-color "#FFD888"
+set highlight-active-color "#2A8A6B"
+set default-bg "#0D0C25"
+set default-fg "#bec8e8"
+set render-loading true
+set render-loading-fg "#0D0C25"
+set render-loading-bg "#bec8e8"
+#
+# Recolor mode settings
+# <C-r> to switch modes
+#
+set recolor-lightcolor "#0D0C25"
+set recolor-darkcolor "#bec8e8"

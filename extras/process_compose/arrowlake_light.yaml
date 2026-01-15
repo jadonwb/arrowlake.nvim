@@ -1,0 +1,36 @@
+style:
+  name: arrowlake_light
+  body:
+    fgColor: '#54473f'
+    bgColor: '#ebe0cf'
+    secondaryTextColor: '#6c5e55'
+    tertiaryTextColor: '#87786c'
+    borderColor: '#ad9b88'
+  stat_table:
+    keyFgColor: '#AD8A5A'
+    valueFgColor: '#54473f'
+    logoColor: '#AD8A5A'
+  proc_table:
+    fgColor: '#6660AF'
+    fgWarning: '#AD8A5A'
+    fgPending: '#87786c'
+    fgCompleted: '#4E7469'
+    fgError: '#BC495D'
+    headerFgColor: '#54473f'
+  help:
+    fgColor: '#4A74A8'
+    keyColor: '#54473f'
+    hlColor: '#4E7469'
+    categoryFgColor: '#6a8b89'
+  dialog:
+    fgColor: '#4A74A8'
+    bgColor: '#dccdba'
+    contrastBgColor: '#ebe0cf'
+    attentionBgColor: '#BC495D'
+    buttonFgColor: '#dccdba'
+    buttonBgColor: '#d4c6b3'
+    buttonFocusFgColor: '#dccdba'
+    buttonFocusBgColor: '#4A74A8'
+    labelFgColor: '#AD8A5A'
+    fieldFgColor: '#dccdba'
+    fieldBgColor: '#c2c4b4'

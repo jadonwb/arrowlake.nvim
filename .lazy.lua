@@ -1,14 +1,14 @@
 local M = {
-  module = "tokyonight",
-  colorscheme = "tokyonight",
-  opts = { style = "moon", plugins = { all = true } },
+  module = "arrowlake",
+  colorscheme = "arrowlake",
+  opts = { style = "dark", plugins = { all = true } },
   globals = { vim = vim },
   cache = {}, ---@type table<string, boolean>
 }
 
 function M.reset()
-  require("tokyonight.util").cache.clear()
-  local colors = require("tokyonight.colors").setup()
+  require("arrowlake.util").cache.clear()
+  local colors = require("arrowlake.colors").setup()
   M.globals.colors = colors
   M.globals.c = colors
 end
@@ -103,6 +103,25 @@ return {
           end,
         },
       })
+    end,
+  },
+  { --ignore generated extras when searching for keys
+    "folke/snacks.nvim",
+    opts = function(_, opts)
+      opts.picker = opts.picker or {}
+      opts.picker.sources = opts.picker.sources or {}
+
+      for _, source in ipairs({ "files", "grep" }) do
+        opts.picker.sources[source] = opts.picker.sources[source] or {}
+
+        local exclude = opts.picker.sources[source].exclude or {}
+
+        vim.list_extend(exclude, {
+          "extras/**",
+        })
+
+        opts.picker.sources[source].exclude = exclude
+      end
     end,
   },
 }
