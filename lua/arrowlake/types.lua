@@ -88,6 +88,7 @@
 ---@field type string
 ---@field type_builtin string
 ---@field functions string
+---@field functions_builtin string
 ---@field constructor string
 ---@field operator string
 ---@field punctuation string

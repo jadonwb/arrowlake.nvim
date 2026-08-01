@@ -49,7 +49,7 @@ function M.get(c, opts)
     ["@diff.minus"]                 = "DiffDelete",
     ["@diff.plus"]                  = "DiffAdd",
     ["@function"]                   = "Function",
-    ["@function.builtin"]           = "Special",
+    ["@function.builtin"]           = { fg = c.functions_builtin, style = opts.styles.functions },
     ["@function.call"]              = "@function",
     ["@function.macro"]             = "Macro",
     ["@function.method"]            = "Function",

@@ -77,6 +77,7 @@ local M = {
   type = secondary,
   type_builtin = Util.blend_bg(secondary, 0.85, bg),
   functions = primary,
+  functions_builtin = Util.blend_bg(primary, 0.85, bg),
   constructor = magenta,
   operator = operator,
   punctuation = fg_dark,
