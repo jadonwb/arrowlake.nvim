@@ -26,3 +26,5 @@ allows for auto-theming external things, can define other autocmds based on even
 5. in each of the two main tables, color, and schema, the user can set option to completely disable everything it sets and redefine the whole thing, or they can just pick and choose individual things in each
 
 6. extend the mini-hipatterns thing so user's can see the highlights of the keys they are setting in their configs
+
+7. retry the plugin defaults idea to custom configure things like todo-comments for instance, allow users to opt in or out
