@@ -3,6 +3,8 @@ local Util = require("arrowlake.util")
 local M = {}
 
 ---@type arrowlake.HighlightsFn
+---@param c arrowlake.ColorScheme
+---@param opts arrowlake.Config
 function M.get(c, opts)
   local pmenu_sbar_bg = c.bg_float == c.none and c.none or Util.blend_fg(c.bg_float, 0.95)
 

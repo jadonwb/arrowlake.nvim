@@ -3,6 +3,8 @@ local M = {}
 M.url = "https://github.com/dmtrKovalenko/fff.nvim"
 
 ---@type arrowlake.HighlightsFn
+---@param c arrowlake.ColorScheme
+---@param opts arrowlake.Config
 function M.get(c, opts)
   -- stylua: ignore
   return {
@@ -36,7 +38,7 @@ function M.get(c, opts)
     FFFFileInfoLabel            = { fg = c.comment, bg = c.bg_float },
     FFFFileInfoValue            = { fg = c.fg, bg = c.bg_float },
     FFFFileInfoValueDim         = { fg = c.fg_gutter, bg = c.bg_float },
-    FFFFileInfoSize             = { fg = c.number, bg = c.bg_float },
+    FFFFileInfoSize             = { fg = c.constant, bg = c.bg_float },
     FFFFileInfoType             = { fg = c.type, bg = c.bg_float },
     FFFFileInfoPath             = { fg = c.primary, bg = c.bg_float },
     FFFFileInfoScorePos         = { fg = c.success, bg = c.bg_float },

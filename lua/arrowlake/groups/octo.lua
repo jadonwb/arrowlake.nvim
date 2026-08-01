@@ -5,6 +5,7 @@ local M = {}
 M.url = "https://github.com/pwntester/octo.nvim"
 
 ---@type arrowlake.HighlightsFn
+---@param c arrowlake.ColorScheme
 function M.get(c)
   -- stylua: ignore
   return {

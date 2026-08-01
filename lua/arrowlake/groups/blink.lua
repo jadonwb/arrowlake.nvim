@@ -3,6 +3,8 @@ local M = {}
 M.url = "https://github.com/Saghen/blink.cmp"
 
 ---@type arrowlake.HighlightsFn
+---@param c arrowlake.ColorScheme
+---@param opts arrowlake.Config
 function M.get(c, opts)
   -- stylua: ignore
   local ret = {

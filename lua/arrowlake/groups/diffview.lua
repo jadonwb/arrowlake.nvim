@@ -2,6 +2,8 @@ local M = {}
 
 M.url = "https://github.com/sindrets/diffview.nvim"
 
+---@param c arrowlake.ColorScheme
+---@param opts arrowlake.Config
 function M.get(c, opts)
   local Util = require("arrowlake.util")
 

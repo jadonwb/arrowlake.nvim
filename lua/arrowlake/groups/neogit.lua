@@ -5,6 +5,7 @@ local M = {}
 M.url = "https://github.com/TimUntersberger/neogit"
 
 ---@type arrowlake.HighlightsFn
+---@param c arrowlake.ColorScheme
 function M.get(c)
   -- stylua: ignore
   return {

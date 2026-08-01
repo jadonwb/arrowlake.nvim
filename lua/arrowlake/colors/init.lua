@@ -17,11 +17,17 @@ function M.setup(opts)
 
   local palette = M.styles[opts.style]
   if type(palette) == "function" then
-    palette = palette(opts) --[[@as Palette]]
+    palette = palette(opts) --[[@as arrowlake.Palette]]
   end
 
+  -- Validate palette has required top-level keys
+  -- TODO: maybe this can be done a different way
+  -- assert(palette.bg, "arrowlake: palette missing 'bg'")
+  -- assert(palette.fg, "arrowlake: palette missing 'fg'")
+  -- assert(palette.error, "arrowlake: palette missing 'error'")
+
   -- Color Palette
-  ---@class ColorScheme: Palette
+  ---@type arrowlake.ColorScheme
   local colors = palette
 
   Util.bg = colors.bg

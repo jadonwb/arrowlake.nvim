@@ -2,6 +2,8 @@ local M = {}
 
 M.url = "https://github.com/alex35mil/pi.nvim"
 
+---@param c arrowlake.ColorScheme
+---@param opts arrowlake.Config
 function M.get(c, opts)
   return {
     -- Chat message labels (pill badges)

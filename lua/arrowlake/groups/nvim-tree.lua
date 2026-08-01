@@ -3,6 +3,8 @@ local M = {}
 M.url = "https://github.com/kyazdani42/nvim-tree.lua"
 
 ---@type arrowlake.HighlightsFn
+---@param c arrowlake.ColorScheme
+---@param opts arrowlake.Config
 function M.get(c, opts)
   -- stylua: ignore
   return {

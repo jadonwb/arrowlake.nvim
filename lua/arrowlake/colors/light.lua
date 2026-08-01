@@ -1,6 +1,3 @@
-local M = {}
-
-local Schema = require("arrowlake.colors.schema")
 local Util = require("arrowlake.util")
 
 local bg = "#ebe0cf"
@@ -28,7 +25,8 @@ local focus = cyan
 
 local operator = "#6a8b89"
 
-M = Schema.new({
+---@type arrowlake.Palette
+local M = {
   bg = bg,
   bg_dark = bg_dark,
   bg_darker = bg_darker,
@@ -134,6 +132,6 @@ M = Schema.new({
     replace = red,
     terminal = cyan,
   },
-}, "light")
+}
 
 return M

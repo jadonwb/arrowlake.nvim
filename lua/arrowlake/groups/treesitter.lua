@@ -3,6 +3,8 @@ local Util = require("arrowlake.util")
 local M = {}
 
 ---@type arrowlake.HighlightsFn
+---@param c arrowlake.ColorScheme
+---@param opts arrowlake.Config
 function M.get(c, opts)
   -- stylua: ignore
   local ret = {

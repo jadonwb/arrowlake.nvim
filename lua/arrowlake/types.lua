@@ -1,9 +1,123 @@
+---@class arrowlake.PaletteGit
+---@field add string
+---@field change string
+---@field delete string
+---@field ignore string
+
+---@class arrowlake.PaletteDiff
+---@field add string
+---@field change string
+---@field delete string
+---@field text string
+
+---@class arrowlake.PaletteTerminal
+---@field black string
+---@field black_bright string
+---@field red string
+---@field red_bright string
+---@field green string
+---@field green_bright string
+---@field yellow string
+---@field yellow_bright string
+---@field blue string
+---@field blue_bright string
+---@field magenta string
+---@field magenta_bright string
+---@field cyan string
+---@field cyan_bright string
+---@field white string
+---@field white_bright string
+
+---@class arrowlake.PaletteStatus
+---@field bg string
+---@field normal string
+---@field insert string
+---@field command string
+---@field visual string
+---@field replace string
+---@field terminal string
+
+---@class arrowlake.Palette
+---@field bg string
+---@field bg_dark string
+---@field bg_darker string
+---@field bg_code string
+---@field bg_notification string
+---@field bg_highlight string
+---@field bg_visual string
+---@field bg_hover string
+---@field bg_search string
+---@field bg_search_current string
+---@field bg_active_parameter string
+---@field bg_sidebar string
+---@field bg_float string
+---@field fg string
+---@field fg_dark string
+---@field fg_darker string
+---@field fg_gutter string
+---@field fg_sidebar string
+---@field comment string
+---@field muted string
+---@field black string
+---@field terminal_black string
+---@field border string
+---@field border_color string
+---@field border_subtle string
+---@field primary string
+---@field secondary string
+---@field selection string
+---@field red string
+---@field orange string
+---@field yellow string
+---@field green string
+---@field blue string
+---@field purple string
+---@field magenta string
+---@field cyan string
+---@field title string
+---@field keyword string
+---@field macro string
+---@field string string
+---@field string_doc string
+---@field string_escape string
+---@field md_inline string
+---@field parameter string
+---@field variable string
+---@field member string
+---@field constant string
+---@field type string
+---@field type_builtin string
+---@field functions string
+---@field constructor string
+---@field operator string
+---@field punctuation string
+---@field markup string
+---@field link string
+---@field focus string
+---@field error string
+---@field warning string
+---@field info string
+---@field hint string
+---@field success string
+---@field todo string
+---@field trace string
+---@field attention string
+---@field ai string
+---@field rainbow string[]
+---@field git arrowlake.PaletteGit
+---@field diff arrowlake.PaletteDiff
+---@field terminal arrowlake.PaletteTerminal
+---@field status arrowlake.PaletteStatus
+
+---@class arrowlake.ColorScheme: arrowlake.Palette
+---@field none "NONE"
+
 ---@class arrowlake.Highlight: vim.api.keyset.highlight
 ---@field style? vim.api.keyset.highlight
 
----@alias arrowlake.Highlights table<string,arrowlake.Highlight|string>
+---@alias arrowlake.Highlights table<string, arrowlake.Highlight|string>
 
----@alias arrowlake.HighlightsFn fun(colors: ColorScheme, opts:arrowlake.Config):arrowlake.Highlights
+---@alias arrowlake.HighlightsFn fun(colors: arrowlake.ColorScheme, opts: arrowlake.Config): arrowlake.Highlights
 
 ---@class arrowlake.Cache
 ---@field groups arrowlake.Highlights

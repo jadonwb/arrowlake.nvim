@@ -2,6 +2,8 @@ local M = {}
 
 M.url = "https://github.com/alex35mil/delta.nvim"
 
+---@param c arrowlake.ColorScheme
+---@param opts arrowlake.Config
 function M.get(c, opts)
   local Util = require("arrowlake.util")
   return {

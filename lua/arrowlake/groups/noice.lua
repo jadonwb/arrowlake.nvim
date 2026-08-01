@@ -3,6 +3,7 @@ local M = {}
 M.url = "https://github.com/folke/noice.nvim"
 
 ---@type arrowlake.HighlightsFn
+---@param c arrowlake.ColorScheme
 function M.get(c)
   -- stylua: ignore
   local ret = {
