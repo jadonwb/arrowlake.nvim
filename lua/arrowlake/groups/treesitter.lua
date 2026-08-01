@@ -2,6 +2,24 @@ local Util = require("arrowlake.util")
 
 local M = {}
 
+--[[
+
+TODO: I want to make this be able to go even further, and possibly allow a dynamic way to override per language specific elements
+this would allow me to to overcome the keyword vs operator issue for things like sizeof, new, delete, etc. in cpp
+based on the .tsx examples below it feels very possible, can supply table like:
+
+opts = {
+  -- or could say languages/sematic_tokens, whatever
+  treesitter = {
+    cpp = {
+      ["@
+    }
+  }
+
+  -- this is just the basic idea, could be different
+
+--]]
+
 ---@type arrowlake.HighlightsFn
 ---@param c arrowlake.ColorScheme
 ---@param opts arrowlake.Config
@@ -22,7 +40,7 @@ function M.get(c, opts)
     ["@comment.todo"]               = { fg = c.todo },
     ["@comment.warning"]            = { fg = c.warning },
     ["@constant"]                   = "Constant",
-    ["@constant.builtin"]           = "Special",
+    ["@constant.builtin"]           = "Special", -- TODO: consider making "Constant", or a blended version of it
     ["@constant.macro"]             = "Define",
     ["@constructor"]                = { fg = c.constructor }, -- For constructor calls and definitions: `= { }` in Lua, and Java constructors.
     ["@constructor.tsx"]            = { fg = c.secondary },
