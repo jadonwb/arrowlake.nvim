@@ -16,13 +16,13 @@ M.defaults = {
     comments = { italic = true },
     keywords = { italic = true, bold = true },
     preproc = { bold = true },
-    functions = {},
+    functions = { bold = true },
     variables = {},
     statusline = nil, -- can be either unset or 'normal' to override global transparency
     float = nil,
     sidebar = nil,
   },
-  -- FIXME: hsv unused
+  -- FIXME: hsv/invert unused right now
   light_brightness = 0.3, -- Adjusts the brightness of the colors of the **Light** style. Number between 0 and 1, from dull to vibrant colors
   dim_inactive = false, -- dims inactive windows
   lualine_bold = false, -- When `true`, section headers in the lualine theme will be bold
