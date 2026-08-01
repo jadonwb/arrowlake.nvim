@@ -24,3 +24,5 @@ allows for auto-theming external things, can define other autocmds based on even
 4. allow user to define any number of tables of color themes, and they can pass that to an arrowlake function and reload with that theme, or specify a directory of .lua files that return the table of the tweaks they want made with that theme.
 
 5. in each of the two main tables, color, and schema, the user can set option to completely disable everything it sets and redefine the whole thing, or they can just pick and choose individual things in each
+
+6. extend the mini-hipatterns thing so user's can see the highlights of the keys they are setting in their configs
