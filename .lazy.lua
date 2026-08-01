@@ -1,7 +1,7 @@
 local M = {
   module = "arrowlake",
   colorscheme = "arrowlake",
-  opts = { style = "dark", plugins = { all = true } },
+  opts = { style = "light", plugins = { all = true } },
   globals = { vim = vim },
   cache = {}, ---@type table<string, boolean>
 }
