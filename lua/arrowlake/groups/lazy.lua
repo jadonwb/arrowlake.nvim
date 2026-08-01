@@ -21,7 +21,7 @@ function M.get(c, opts)
     LazyError             = { fg = c.error },
     LazyH1                = { fg = c.title, bg = c.bg_visual, bold = true },
     LazyH2                = { fg = c.secondary, bold = true },
-    LazyInfo              = { fg = c.info },
+    LazyInfo              = { fg = c.hint },
     LazyItalic            = { italic = true },
     LazyLocal             = { fg = c.constant },
     LazyNoCond            = { fg = c.warning },

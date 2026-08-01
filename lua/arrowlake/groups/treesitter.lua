@@ -81,7 +81,7 @@ function M.get(c, opts)
     ["@markup.list"]                = { fg = c.markup }, -- For special punctutation that does not fall in the categories before.
     ["@markup.list.checked"]        = { fg = c.success }, -- For brackets and parens.
     ["@markup.list.markdown"]       = { fg = c.markup, bold = true },
-    ["@markup.list.unchecked"]      = { fg = c.info }, -- For brackets and parens.
+    ["@markup.list.unchecked"]      = { fg = c.hint }, -- For brackets and parens.
     ["@markup.math"]                = "Special",
     ["@markup.raw"]                 = "String",
     ["@markup.raw.markdown_inline"] = { bg = c.bg_code, fg = c.md_inline },
