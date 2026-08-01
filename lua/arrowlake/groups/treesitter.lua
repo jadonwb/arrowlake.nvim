@@ -17,6 +17,7 @@ opts = {
   }
 
   -- this is just the basic idea, could be different
+  -- also need to think about how to do the same thing for semantic_tokens from lsp
 
 --]]
 
