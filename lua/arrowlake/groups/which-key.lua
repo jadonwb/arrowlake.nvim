@@ -13,7 +13,7 @@ function M.get(c, opts)
 
   -- stylua: ignore
   return {
-    WhichKey          = { fg = c.link },
+    WhichKey          = { fg = c.focus },
     WhichKeyGroup     = { fg = c.primary },
     WhichKeyDesc      = { fg = c.secondary },
     WhichKeySeparator = { fg = c.comment },
