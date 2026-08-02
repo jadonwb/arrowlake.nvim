@@ -1,11 +1,21 @@
 local M = {}
 
+-- TODO: comment/document each item
+
+-- TODO: make a todo comment subtable in here, or make it part of foregrounds/comment?
+
+-- TODO: make markdown and markup and help type grouping
+
+-- TODO: need to make groupings for winbar / tab stuff
+
 ---@param c arrowlake.Palette
 function M.apply(c)
   local U = require("arrowlake.util")
 
   c.none = "NONE"
 
+  -- TODO: find each direct use of bg_dark and bg_darker and come up with real semantic name for it
+  -- then make a new subtable c.backgrounds.code ...
   -- ═══ UI Backgrounds ═══
   c.bg_code = c.bg_dark
   c.bg_notification = c.bg_dark
@@ -22,13 +32,13 @@ function M.apply(c)
   c.fg_sidebar = c.fg_darker
   c.comment = c.fg_darker
   c.muted = c.fg_darker
-  c.black = c.bg_darker
-  c.terminal_black = c.fg_gutter
+  c.black = c.bg_darker -- TODO: rename to actual purpose
+  c.terminal_black = c.fg_gutter -- TODO: rename to actual purpose
 
   -- ═══ Borders ═══
-  c.border = c.bg_dark
-  c.border_color = c.primary
-  c.border_subtle = c.fg_darker
+  c.border = c.bg_dark -- # TODO: rename to split/window? c.border.split?
+  c.border_color = c.primary -- # TODO: rename to border? or c.border.color?
+  c.border_subtle = c.fg_darker -- rename to c.border.subtle?
 
   -- ═══ Syntax ═══
   c.title = c.primary
@@ -47,7 +57,7 @@ function M.apply(c)
   c.functions = c.primary
   c.functions_builtin = U.blend_bg(c.primary, 0.85, c.bg)
   c.constructor = c.magenta
-  c.punctuation = c.fg_dark
+  c.punctuation = c.fg_dark -- TODO?: move to fg section, or make a new semantic key for text, and put it here? or make a c.foregrounds.text,comment,linenumber,etc.?
   c.markup = c.magenta
   c.link = c.orange
 
