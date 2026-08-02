@@ -10,8 +10,8 @@ function M.get(c)
     GlyphPalette1 = { fg = c.error },
     GlyphPalette2 = { fg = c.success },
     GlyphPalette3 = { fg = c.warning },
-    GlyphPalette4 = { fg = c.title },
-    GlyphPalette6 = { fg = c.success },
+    GlyphPalette4 = { fg = c.info },
+    GlyphPalette6 = { fg = c.comment },
     GlyphPalette7 = { fg = c.fg },
     GlyphPalette9 = { fg = c.error },
   }

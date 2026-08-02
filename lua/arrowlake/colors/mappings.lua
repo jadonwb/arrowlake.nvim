@@ -54,7 +54,7 @@ function M.apply(c)
   -- ═══ Diagnostics ═══
   c.error = c.red
   c.warning = c.yellow
-  c.info = c.green
+  c.info = c.blue
   c.hint = c.cyan
   c.success = c.green
   c.todo = c.green
