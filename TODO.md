@@ -1,4 +1,4 @@
-# Fixes
+# TODO
 
 1. allow user defined themes, or custom changes to output any or all extras they so choose to any path they so choose:
 
@@ -19,7 +19,7 @@ allows for auto-theming external things, can define other autocmds based on even
 2. allow nice auto-reload api, can send notifications if it detects a change, can do the reload itself, etc.
    - pretty sure already partially works with the transparency toggle I added?
 
-3. allow the internal Utils functionality to be accessible to the user in their configuration (if it isn't already), so they can blend colors if they need/want to, can lighten and darken with the internal hsluv library functionality, and can even invert their whole color theme with the invert feature, my idea is that they define either a dark or a light theme (or both)
+3. allow the internal Utils functionality to be accessible to the user in their configuration (if it isn't already), so they can blend colors if they need/want to, can lighten and darken with the internal hsluv library functionality, and can even invert their whole color theme with the invert feature, my idea is that they define either a dark or a light theme (or both), and can toggle between, can invert a theme of their choosing, can cycle their themes, etc.
 
 4. allow user to define any number of tables of color themes, and they can pass that to an arrowlake function and reload with that theme, or specify a directory of .lua files that return the table of the tweaks they want made with that theme.
 
@@ -28,3 +28,4 @@ allows for auto-theming external things, can define other autocmds based on even
 6. extend the mini-hipatterns thing so user's can see the highlights of the keys they are setting in their configs
 
 7. retry the plugin defaults idea to custom configure things like todo-comments for instance, allow users to opt in or out
+    - this uses lazy.nvim specs with `optional = true` to configure certain plugins directly
