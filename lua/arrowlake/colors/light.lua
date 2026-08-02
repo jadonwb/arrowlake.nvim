@@ -15,7 +15,7 @@ M.fg_gutter = "#ad9b88"
 -- Core colors
 M.red = "#BC495D"
 M.orange = "#CF9978"
-M.yellow = "#AD8A5A"
+M.yellow = "#C7B269"
 M.green = "#4E7469"
 M.blue = "#4A74A8"
 M.purple = "#6660AF"
