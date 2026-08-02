@@ -6,7 +6,7 @@ local M = {}
 ---@param c arrowlake.ColorScheme
 ---@param opts arrowlake.Config
 function M.get(c, opts)
-  local pmenu_sbar_bg = c.bg_float == c.none and c.none or Util.blend_fg(c.bg_float, 0.95)
+  local pmenu_sbar_bg = Util.blend_fg(c.bg_float, 0.95)
 
   -- stylua: ignore
   return {

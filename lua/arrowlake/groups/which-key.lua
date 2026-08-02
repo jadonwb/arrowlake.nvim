@@ -7,9 +7,6 @@ M.url = "https://github.com/folke/which-key.nvim"
 ---@param opts arrowlake.Config
 function M.get(c, opts)
   local which_key_bg = c.bg_float
-  if opts.dim_inactive and c.bg_float == c.none then
-    which_key_bg = c.bg
-  end
 
   -- stylua: ignore
   return {

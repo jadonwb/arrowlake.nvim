@@ -21,9 +21,9 @@ M.defaults = {
     functions = { bold = true },
     variables = {},
     -- TODO: see init.lua
-    statusline = nil, -- can be either unset or 'normal' to override global transparency
-    float = nil,
-    sidebar = nil,
+    statusline = nil, -- nil (default) | "transparent" | "normal" | "darker"
+    float = nil,      -- nil (default) | "transparent" | "normal" | "darker"
+    sidebar = nil,    -- nil (default) | "transparent" | "normal" | "darker"
   },
   -- FIXME: hsv/invert unused right now
   light_brightness = 0.3, -- Adjusts the brightness of the colors of the **Light** style. Number between 0 and 1, from dull to vibrant colors

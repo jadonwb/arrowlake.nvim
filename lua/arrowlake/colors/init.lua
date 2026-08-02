@@ -49,23 +49,35 @@ function M.setup(opts)
     opts.on_colors(colors)
   end
 
-  -- 6. Transparency / style overrides
-  -- TODO: make transparency only control the bg, and make the individual styles toggle between transparent (bg), normal (fg_dark), and darker (fg_darker)
-  if opts.transparent then
-    colors.bg_sidebar = colors.none
-    colors.bg_float = colors.none
-    colors.status.bg = colors.none
-  end
+  -- 6. Style overrides for sidebar, float, and statusline backgrounds.
+  -- Each can be: nil (keep mapping default), "transparent" (use bg),
+  -- "normal" (use bg_dark), or "darker" (use bg_darker).
+  -- transparency now only controls the main Normal bg (handled in groups/base.lua).
 
-  if opts.styles.statusline == "normal" then
+  -- statusline
+  if opts.styles.statusline == "transparent" then
+    colors.status.bg = colors.bg
+  elseif opts.styles.statusline == "normal" then
     colors.status.bg = colors.bg_dark
+  elseif opts.styles.statusline == "darker" then
+    colors.status.bg = colors.bg_darker
   end
 
-  if opts.styles.float == "normal" then
+  -- float
+  if opts.styles.float == "transparent" then
+    colors.bg_float = colors.bg
+  elseif opts.styles.float == "normal" then
+    colors.bg_float = colors.bg_dark
+  elseif opts.styles.float == "darker" then
     colors.bg_float = colors.bg_darker
   end
 
-  if opts.styles.sidebar == "normal" then
+  -- sidebar
+  if opts.styles.sidebar == "transparent" then
+    colors.bg_sidebar = colors.bg
+  elseif opts.styles.sidebar == "normal" then
+    colors.bg_sidebar = colors.bg_dark
+  elseif opts.styles.sidebar == "darker" then
     colors.bg_sidebar = colors.bg_darker
   end
 
