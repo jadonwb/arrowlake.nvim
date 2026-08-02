@@ -10,7 +10,7 @@
     "ignoreDir": ["/extras"]
   },
   "diagnostics": {
-    "globals": ["vim"],
+    "globals": ["vim", "before_each", "describe", "it"],
     "disable": ["lowercase-global"]
   },
   "hint": {

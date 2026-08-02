@@ -5,7 +5,7 @@ assistant-output-color: "#54473f"
 # code-theme: arrowlake-light
 
 completion-menu-color: "#54473f"
-completion-menu-bg-color: "#dccdba"
+completion-menu-bg-color: "#DED0BF"
 completion-menu-current-color: "#54473f"
 completion-menu-current-bg-color: "#d4c6b3"
 

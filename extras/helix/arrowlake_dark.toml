@@ -16,24 +16,24 @@ constructor = { fg = "#5352cd" }
 "diagnostic.warning" = { underline = { style = "curl" } }
 "diff.delta" = { bg = "#42393b", fg = "#ffd888" }
 "diff.delta.moved" = { fg = "#3f3bf5" }
-"diff.minus" = { bg = "#430930", fg = "#e50050" }
-"diff.plus" = { bg = "#132834", fg = "#2a8a6b" }
+"diff.minus" = { bg = "#2d0a2b", fg = "#e50050" }
+"diff.plus" = { bg = "#111f30", fg = "#2a8a6b" }
 error = { fg = "#e50050" }
-function = { fg = "#3f3bf5" }
-"function.builtin" = { fg = "#4241a3" }
+function = { fg = "#3f3bf5", modifiers = ["bold"] }
+"function.builtin" = { fg = "#332fc1", modifiers = ["bold"] }
 "function.macro" = { fg = "#33d4b4", modifiers = ["bold"] }
-"function.method" = { fg = "#3f3bf5" }
+"function.method" = { fg = "#3f3bf5", modifiers = ["bold"] }
 "function.special" = { fg = "#33d4b4", modifiers = ["bold"] }
 hint = { fg = "#33d4b4" }
 info = { fg = "#5352cd" }
-keyword = { fg = "#d91c87", modifiers = ["bold", "italic"] }
+keyword = { fg = "#d91c87", modifiers = ["italic"] }
 "keyword.control" = { fg = "#d91c87" }
 "keyword.control.conditional" = { fg = "#d91c87" }
 "keyword.control.exception" = { fg = "#d91c87" }
 "keyword.control.repeat" = { fg = "#d91c87" }
-"keyword.control.return" = { fg = "#d91c87", modifiers = ["bold", "italic"] }
+"keyword.control.return" = { fg = "#d91c87", modifiers = ["italic"] }
 "keyword.directive" = { fg = "#33d4b4", modifiers = ["bold"] }
-"keyword.function" = { fg = "#3f3bf5" }
+"keyword.function" = { fg = "#3f3bf5", modifiers = ["bold"] }
 "keyword.operator" = { fg = "#d91c87" }
 label = { fg = "#5352cd" }
 "markup.bold" = { fg = "#bec8e8", modifiers = ["bold"] }
@@ -113,10 +113,10 @@ comment = "#5c6296"
 constant = "#FB9B00"
 constructor = "#D91C87"
 cyan = "#33D4B4"
-"diff.add" = "#132834"
+"diff.add" = "#111f30"
 "diff.change" = "#42393b"
-"diff.delete" = "#430930"
-"diff.text" = "#1e1e3b"
+"diff.delete" = "#2d0a2b"
+"diff.text" = "#152d37"
 error = "#E50050"
 fg = "#bec8e8"
 fg_dark = "#7e85b8"
@@ -125,6 +125,7 @@ fg_gutter = "#312e55"
 fg_sidebar = "#5c6296"
 focus = "#FB9B00"
 functions = "#3F3BF5"
+functions_builtin = "#332fc1"
 "git.add" = "#2A8A6B"
 "git.change" = "#FFD888"
 "git.delete" = "#E50050"

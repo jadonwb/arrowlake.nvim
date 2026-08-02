@@ -3,29 +3,39 @@ local M = {}
 M.version = "4.14.1" -- x-release-please-version
 
 ---@class arrowlake.Config
----@field on_colors fun(colors: ColorScheme)
----@field on_highlights fun(highlights: arrowlake.Highlights, colors: ColorScheme)
+---@field on_colors? fun(colors: ColorScheme)
+---@field on_highlights? fun(highlights: arrowlake.Highlights, colors: ColorScheme)
 M.defaults = {
   style = "dark", -- The theme comes in two styles, `dark` and `light`
   light_style = "light", -- The theme is used when the background is set to light
+  -- FIXME: reimplement
   transparent = false, -- Enable this to disable setting the background color
   terminal_colors = true, -- Configure the colors used when opening a `:terminal` in Neovim
   styles = {
     -- Style to be applied to different syntax groups
     -- Value is any valid attr-list value for `:help nvim_set_hl`
+    -- TODO: add parameters? some other types of things?
     comments = { italic = true },
-    keywords = { italic = true, bold = true },
+    keywords = { italic = true },
     preproc = { bold = true },
     functions = { bold = true },
     variables = {},
+    -- TODO: see init.lua
     statusline = nil, -- can be either unset or 'normal' to override global transparency
     float = nil,
     sidebar = nil,
   },
   -- FIXME: hsv/invert unused right now
   light_brightness = 0.3, -- Adjusts the brightness of the colors of the **Light** style. Number between 0 and 1, from dull to vibrant colors
+  -- FIXME: this needs to be reimplemented/fixed
   dim_inactive = false, -- dims inactive windows
   lualine_bold = false, -- When `true`, section headers in the lualine theme will be bold
+
+  ---@type table<string, string>
+  ---Simple hex color overrides (e.g. { red = "#ff0000", bg = "#111122" }).
+  ---Merged before mappings are derived, so changes cascade
+  ---automatically (changing `red` updates `error`, `git.delete`, etc.).
+  colors = {},
 
   --- You can override specific color groups to use other groups or a hex color
   --- function will be called with a ColorScheme table

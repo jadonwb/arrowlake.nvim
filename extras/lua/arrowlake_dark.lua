@@ -26,10 +26,10 @@ local colors = {
   constructor = "#D91C87",
   cyan = "#33D4B4",
   diff = {
-    add = "#132834",
+    add = "#111f30",
     change = "#42393b",
-    delete = "#430930",
-    text = "#1e1e3b"
+    delete = "#2d0a2b",
+    text = "#152d37"
   },
   error = "#E50050",
   fg = "#bec8e8",
@@ -39,6 +39,7 @@ local colors = {
   fg_sidebar = "#5c6296",
   focus = "#FB9B00",
   functions = "#3F3BF5",
+  functions_builtin = "#332fc1",
   git = {
     add = "#2A8A6B",
     change = "#FFD888",
@@ -148,13 +149,15 @@ local highlights = {
   ["@diff.minus"] = "DiffDelete",
   ["@diff.plus"] = "DiffAdd",
   ["@function"] = "Function",
-  ["@function.builtin"] = "Special",
+  ["@function.builtin"] = {
+    bold = true,
+    fg = "#332fc1"
+  },
   ["@function.call"] = "@function",
   ["@function.macro"] = "Macro",
   ["@function.method"] = "Function",
   ["@function.method.call"] = "@function.method",
   ["@keyword"] = {
-    bold = true,
     fg = "#D91C87",
     italic = true
   },
@@ -165,6 +168,7 @@ local highlights = {
   ["@keyword.directive.define"] = "Define",
   ["@keyword.exception"] = "Exception",
   ["@keyword.function"] = {
+    bold = true,
     fg = "#3F3BF5"
   },
   ["@keyword.import"] = "Include",
@@ -291,7 +295,7 @@ local highlights = {
     fg = "#FB9B00"
   },
   ["@markup.list.unchecked"] = {
-    fg = "#5352CD"
+    fg = "#33D4B4"
   },
   ["@markup.math"] = "Special",
   ["@markup.raw"] = "String",
@@ -436,6 +440,24 @@ local highlights = {
     fg = "#FB9B00"
   },
   AlphaShortcut = {
+    fg = "#FB9B00"
+  },
+  ArrowlakeCommentFixme = {
+    fg = "#E50050"
+  },
+  ArrowlakeCommentNote = {
+    fg = "#33D4B4"
+  },
+  ArrowlakeCommentPerf = {
+    fg = "#D91C87"
+  },
+  ArrowlakeCommentTest = {
+    fg = "#FFD888"
+  },
+  ArrowlakeCommentTodo = {
+    fg = "#5352CD"
+  },
+  ArrowlakeCommentWarn = {
     fg = "#FB9B00"
   },
   BlinkCmpDoc = {
@@ -938,43 +960,28 @@ local highlights = {
     fg = "#3F3BF5"
   },
   Delimiter = "Special",
-  DeltaDiffFileWinbar = {
-    bg = "#070614"
-  },
   DeltaDiffFileWinbarBase = {
-    bg = "#070614",
+    bg = "#0D0C25",
     bold = true,
     fg = "#3F3BF5"
   },
   DeltaDiffFileWinbarCurrent = {
-    bg = "#070614",
+    bg = "#0D0C25",
     bold = true,
     fg = "#FB9B00"
   },
-  DeltaDiffFileWinbarHint = {
-    bg = "#070614",
-    fg = "#5c6296"
-  },
   DeltaPickerBorder = {
-    bg = "#070614",
+    bg = "#0D0C25",
     fg = "#3F3BF5"
   },
   DeltaPickerCursorLine = {
     bg = "#161440"
   },
-  DeltaPickerDialog = {
-    bg = "#070614",
-    fg = "#bec8e8"
-  },
   DeltaPickerDirectory = {
     fg = "#5352CD"
   },
-  DeltaPickerPrompt = {
-    bg = "#070614",
-    fg = "#bec8e8"
-  },
   DeltaPickerSectionHeader = {
-    bg = "#070614",
+    bg = "#0D0C25",
     bold = true,
     fg = "#3F3BF5"
   },
@@ -983,64 +990,28 @@ local highlights = {
     bold = true,
     fg = "#3F3BF5"
   },
-  DeltaPickerTreeConnector = {
-    bg = "#070614",
-    fg = "#5c6296"
-  },
-  DeltaSpotlightPopup = {
-    bg = "#070614",
-    fg = "#bec8e8"
-  },
-  DeltaSpotlightPopupAdded = {
-    bg = "#132834"
-  },
   DeltaSpotlightPopupAddedText = {
-    bg = "#1e1e3b"
-  },
-  DeltaSpotlightPopupBorder = {
-    bg = "#070614",
-    fg = "#3F3BF5"
+    bg = "#152d37"
   },
   DeltaSpotlightPopupLineNr = {
     fg = "#312e55"
   },
-  DeltaSpotlightPopupNeutral = {
-    bg = "#070614",
-    fg = "#bec8e8"
-  },
-  DeltaSpotlightPopupRemoved = {
-    bg = "#430930"
-  },
   DeltaSpotlightPopupRemovedText = {
-    bg = "#1e1e3b"
+    bg = "#450930"
   },
   DeltaSpotlightPopupTitle = {
+    bg = "#070614",
     bold = true,
     fg = "#3F3BF5"
   },
   DeltaSpotlightScratchDiffAdd = {
-    bg = "#132834"
+    bg = "#111f30"
   },
   DeltaSpotlightScratchDiffChange = {
     bg = "#42393b"
   },
   DeltaSpotlightScratchDiffDelete = {
-    bg = "#430930"
-  },
-  DeltaSpotlightStatusClean = {
-    fg = "#5c6296"
-  },
-  DeltaSpotlightStatusConflict = {
-    fg = "#E50050"
-  },
-  DeltaSpotlightStatusError = {
-    fg = "#E50050"
-  },
-  DeltaSpotlightStatusMixed = {
-    fg = "#FB9B00"
-  },
-  DeltaSpotlightStatusOutsider = {
-    fg = "#FB9B00"
+    bg = "#2d0a2b"
   },
   DeltaSpotlightStatusStaged = {
     fg = "#2A8A6B"
@@ -1051,19 +1022,8 @@ local highlights = {
   DeltaSpotlightStatusUntracked = {
     fg = "#2A8A6B"
   },
-  DeltaSpotlightWinbar = {
-    bg = "#070614",
-    fg = "#bec8e8"
-  },
-  DeltaSpotlightWinbarLabel = {
-    fg = "#5c6296"
-  },
   DeltaSpotlightWinbarNumericValue = {
     fg = "#5352CD"
-  },
-  DeltaSpotlightWinbarTitle = {
-    bold = true,
-    fg = "#bec8e8"
   },
   DeltaStatusAdded = {
     fg = "#2A8A6B"
@@ -1079,9 +1039,6 @@ local highlights = {
   },
   DeltaStatusRenamed = {
     fg = "#FFD888"
-  },
-  DeltaStatusUnmerged = {
-    fg = "#FB9B00"
   },
   DeltaStatusUntracked = {
     fg = "#2A8A6B"
@@ -1152,19 +1109,23 @@ local highlights = {
   },
   DiagnosticWarning = "DiagnosticWarn",
   DiffAdd = {
-    bg = "#132834"
+    bg = "#111f30"
   },
   DiffChange = {
     bg = "#42393b"
   },
   DiffDelete = {
-    bg = "#430930"
+    bg = "#2d0a2b"
   },
   DiffText = {
-    bg = "#1e1e3b"
+    bg = "#152d37"
+  },
+  DiffviewCommitSelected = {
+    bold = true,
+    fg = "#FB9B00"
   },
   DiffviewDiffAddText = {
-    bg = "#1e1e3b"
+    bg = "#152d37"
   },
   DiffviewDiffDeleteText = {
     bg = "#450930"
@@ -1195,7 +1156,13 @@ local highlights = {
   DiffviewFolderSign = {
     fg = "#5352CD"
   },
+  DiffviewPrimary = {
+    fg = "#3F3BF5"
+  },
   DiffviewReference = {
+    fg = "#5352CD"
+  },
+  DiffviewSecondary = {
     fg = "#5352CD"
   },
   DiffviewSignColumn = "SignColumn",
@@ -1260,7 +1227,7 @@ local highlights = {
   },
   FFFFileInfoScorePos = {
     bg = "#070614",
-    fg = "#5352CD"
+    fg = "#2A8A6B"
   },
   FFFFileInfoSection = {
     bg = "#070614",
@@ -1271,7 +1238,8 @@ local highlights = {
     fg = "#3F3BF5"
   },
   FFFFileInfoSize = {
-    bg = "#070614"
+    bg = "#070614",
+    fg = "#FB9B00"
   },
   FFFFileInfoTotalScore = {
     bg = "#070614",
@@ -1300,7 +1268,7 @@ local highlights = {
     fg = "#FFD888"
   },
   FFFGitRenamed = {
-    fg = "#5352CD"
+    fg = "#FFD888"
   },
   FFFGitSignDeleted = {
     fg = "#E50050"
@@ -1324,11 +1292,11 @@ local highlights = {
     fg = "#FFD888"
   },
   FFFGitSignRenamed = {
-    fg = "#5352CD"
+    fg = "#FFD888"
   },
   FFFGitSignRenamedSelected = {
     bg = "#161440",
-    fg = "#5352CD"
+    fg = "#FFD888"
   },
   FFFGitSignStaged = {
     fg = "#2A8A6B"
@@ -1350,7 +1318,9 @@ local highlights = {
   FFFGitUntracked = {
     fg = "#2A8A6B"
   },
-  FFFSelected = "Directory",
+  FFFSelected = {
+    fg = "#D91C87"
+  },
   FFFSelectedActive = {
     bg = "#161440",
     fg = "#FB9B00"
@@ -1361,7 +1331,7 @@ local highlights = {
   FlashLabel = {
     bg = "#D91C87",
     bold = true,
-    fg = "#bec8e8"
+    fg = "#0D0C25"
   },
   FloatBorder = {
     bg = "#070614",
@@ -1383,6 +1353,7 @@ local highlights = {
     fg = "#bec8e8"
   },
   Function = {
+    bold = true,
     fg = "#3F3BF5"
   },
   FzfLuaBorder = {
@@ -1562,6 +1533,8 @@ local highlights = {
     bg = "#D91C87",
     fg = "#bec8e8"
   },
+  InclineNormal = "StatusLine",
+  InclineNormalNC = "StatusLineNC",
   IndentBlanklineChar = {
     fg = "#312e55",
     nocombine = true
@@ -1583,7 +1556,6 @@ local highlights = {
     italic = true
   },
   Keyword = {
-    bold = true,
     fg = "#D91C87",
     italic = true
   },
@@ -1602,10 +1574,10 @@ local highlights = {
     fg = "#5c6296"
   },
   LazyCommit = {
-    fg = "#3F3BF5"
+    fg = "#2A8A6B"
   },
   LazyCommitIssue = {
-    fg = "#FB9B00"
+    fg = "#FFD888"
   },
   LazyCommitScope = {
     italic = true
@@ -1630,10 +1602,10 @@ local highlights = {
   },
   LazyH2 = {
     bold = true,
-    fg = "#3F3BF5"
+    fg = "#5352CD"
   },
   LazyInfo = {
-    fg = "#5352CD"
+    fg = "#33D4B4"
   },
   LazyItalic = {
     italic = true
@@ -1678,10 +1650,10 @@ local highlights = {
     fg = "#3F3BF5"
   },
   LazyReasonRequire = {
-    fg = "#FFD888"
+    fg = "#5352CD"
   },
   LazyReasonRuntime = {
-    fg = "#33D4B4"
+    fg = "#FFD888"
   },
   LazyReasonSource = {
     fg = "#2A8A6B"
@@ -1690,7 +1662,7 @@ local highlights = {
     fg = "#7e85b8"
   },
   LazySpecial = {
-    fg = "#FB9B00"
+    fg = "#D91C87"
   },
   LazyTaskOutput = {
     fg = "#7e85b8"
@@ -2193,6 +2165,7 @@ local highlights = {
     fg = "#FB9B00"
   },
   NeoTreeTabInactive = {
+    bg = "#070614",
     fg = "#3F3BF5"
   },
   NeoTreeTabSeparatorActive = {
@@ -2200,13 +2173,14 @@ local highlights = {
     fg = "#3F3BF5"
   },
   NeoTreeTabSeparatorInactive = {
+    bg = "#070614",
     fg = "#0D0C25"
   },
   NeogitBranch = {
     fg = "#3F3BF5"
   },
   NeogitDiffAddHighlight = {
-    bg = "#132834",
+    bg = "#111f30",
     fg = "#2A8A6B"
   },
   NeogitDiffContextHighlight = {
@@ -2214,7 +2188,7 @@ local highlights = {
     fg = "#7e85b8"
   },
   NeogitDiffDeleteHighlight = {
-    bg = "#430930",
+    bg = "#2d0a2b",
     fg = "#E50050"
   },
   NeogitHunkHeader = {
@@ -2524,10 +2498,10 @@ local highlights = {
     fg = "#3F3BF5"
   },
   PiDiffAdd = {
-    bg = "#132834"
+    bg = "#111f30"
   },
   PiDiffDelete = {
-    bg = "#430930"
+    bg = "#2d0a2b"
   },
   PiDiffLineNr = {
     fg = "#312e55"
@@ -2876,12 +2850,18 @@ local highlights = {
     nocombine = true
   },
   SnacksInputBorder = {
+    bg = "#070614",
     fg = "#FB9B00"
   },
   SnacksInputIcon = {
     fg = "#5352CD"
   },
+  SnacksInputNormal = {
+    bg = "#070614",
+    fg = "#bec8e8"
+  },
   SnacksInputTitle = {
+    bg = "#070614",
     fg = "#FB9B00"
   },
   SnacksNotifierBorderDebug = {
@@ -2913,18 +2893,23 @@ local highlights = {
     fg = "#bec8e8"
   },
   SnacksNotifierIconDebug = {
+    bg = "#09081a",
     fg = "#5c6296"
   },
   SnacksNotifierIconError = {
+    bg = "#09081a",
     fg = "#E50050"
   },
   SnacksNotifierIconInfo = {
+    bg = "#09081a",
     fg = "#5352CD"
   },
   SnacksNotifierIconTrace = {
+    bg = "#09081a",
     fg = "#834CCF"
   },
   SnacksNotifierIconWarn = {
+    bg = "#09081a",
     fg = "#FB9B00"
   },
   SnacksNotifierInfo = {
@@ -2932,18 +2917,23 @@ local highlights = {
     fg = "#bec8e8"
   },
   SnacksNotifierTitleDebug = {
+    bg = "#09081a",
     fg = "#5c6296"
   },
   SnacksNotifierTitleError = {
+    bg = "#09081a",
     fg = "#E50050"
   },
   SnacksNotifierTitleInfo = {
+    bg = "#09081a",
     fg = "#5352CD"
   },
   SnacksNotifierTitleTrace = {
+    bg = "#09081a",
     fg = "#834CCF"
   },
   SnacksNotifierTitleWarn = {
+    bg = "#09081a",
     fg = "#FB9B00"
   },
   SnacksNotifierTrace = {
@@ -2955,7 +2945,7 @@ local highlights = {
     fg = "#bec8e8"
   },
   SnacksPickerBoxTitle = {
-    bg = "#0D0C25",
+    bg = "#070614",
     fg = "#3F3BF5"
   },
   SnacksPickerInputBorder = {
@@ -2963,7 +2953,7 @@ local highlights = {
     fg = "#FB9B00"
   },
   SnacksPickerInputTitle = {
-    bg = "#0D0C25",
+    bg = "#070614",
     fg = "#3F3BF5"
   },
   SnacksPickerPickWin = {
@@ -3234,7 +3224,7 @@ local highlights = {
     bg = "#070614"
   },
   diffAdded = {
-    bg = "#132834",
+    bg = "#111f30",
     fg = "#2A8A6B"
   },
   diffChanged = {
@@ -3251,15 +3241,15 @@ local highlights = {
     fg = "#5c6296"
   },
   diffNewFile = {
-    bg = "#132834",
+    bg = "#111f30",
     fg = "#5352CD"
   },
   diffOldFile = {
-    bg = "#430930",
+    bg = "#2d0a2b",
     fg = "#5352CD"
   },
   diffRemoved = {
-    bg = "#430930",
+    bg = "#2d0a2b",
     fg = "#E50050"
   },
   dosIniLabel = "@property",

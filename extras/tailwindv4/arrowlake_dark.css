@@ -24,10 +24,10 @@
   --color-arrowlake-dark-cyan: oklch(from #33D4B4 l c h);
   --color-arrowlake-dark-cyan-bright: oklch(from #00e5c0 l c h);
   --color-arrowlake-dark-directory: oklch(from #3F3BF5 l c h);
-  --color-arrowlake-dark-diff-add: oklch(from #132834 l c h);
+  --color-arrowlake-dark-diff-add: oklch(from #111f30 l c h);
   --color-arrowlake-dark-diff-change: oklch(from #42393b l c h);
-  --color-arrowlake-dark-diff-delete: oklch(from #430930 l c h);
-  --color-arrowlake-dark-diff-text: oklch(from #1e1e3b l c h);
+  --color-arrowlake-dark-diff-delete: oklch(from #2d0a2b l c h);
+  --color-arrowlake-dark-diff-text: oklch(from #152d37 l c h);
   --color-arrowlake-dark-error: oklch(from #E50050 l c h);
   --color-arrowlake-dark-fg: oklch(from #bec8e8 l c h);
   --color-arrowlake-dark-fg-dark: oklch(from #7e85b8 l c h);

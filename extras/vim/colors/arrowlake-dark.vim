@@ -51,10 +51,10 @@ hi DiagnosticVirtualTextHint guibg=#112033 guifg=#33D4B4
 hi DiagnosticVirtualTextInfo guibg=#141336 guifg=#5352CD
 hi DiagnosticVirtualTextWarn guibg=#191323 guifg=#FB9B00
 hi DiagnosticWarn guibg=NONE guifg=#FB9B00
-hi DiffAdd guibg=#132834
+hi DiffAdd guibg=#111f30
 hi DiffChange guibg=#42393b
-hi DiffDelete guibg=#430930
-hi DiffText guibg=#1e1e3b
+hi DiffDelete guibg=#2d0a2b
+hi DiffText guibg=#152d37
 hi Directory guibg=NONE guifg=#3F3BF5
 hi EndOfBuffer guibg=NONE guifg=#0D0C25
 hi Error guibg=NONE guifg=#E50050
@@ -64,7 +64,7 @@ hi FloatTitle guibg=#070614 guifg=#3F3BF5
 hi FoldColumn guibg=NONE guifg=#5c6296
 hi Folded guibg=#070614 guifg=#3F3BF5
 hi Foo guibg=#D91C87 guifg=#bec8e8
-hi Function guibg=NONE guifg=#3F3BF5
+hi Function gui=bold guibg=NONE guifg=#3F3BF5
 hi FzfLuaBorder guibg=#070614 guifg=#3F3BF5
 hi FzfLuaDirPart guibg=NONE guifg=#7e85b8
 hi FzfLuaFzfNormal guibg=NONE guifg=#bec8e8
@@ -92,7 +92,7 @@ hi IlluminatedWordText guibg=#312e55
 hi IlluminatedWordWrite guibg=#312e55
 hi IncSearch guibg=#D91C87 guifg=#bec8e8
 hi Italic gui=italic guibg=NONE guifg=#bec8e8
-hi Keyword gui=bold,italic guibg=NONE guifg=#D91C87
+hi Keyword gui=italic guibg=NONE guifg=#D91C87
 hi LineNr guibg=NONE guifg=#312e55
 hi LineNrAbove guibg=NONE guifg=#312e55
 hi LineNrBelow guibg=NONE guifg=#312e55
@@ -172,9 +172,9 @@ hi ModeMsg gui=bold guibg=NONE guifg=#7e85b8
 hi MoreMsg guibg=NONE guifg=#3F3BF5
 hi MsgArea guibg=NONE guifg=#7e85b8
 hi NeogitBranch guibg=NONE guifg=#3F3BF5
-hi NeogitDiffAddHighlight guibg=#132834 guifg=#2A8A6B
+hi NeogitDiffAddHighlight guibg=#111f30 guifg=#2A8A6B
 hi NeogitDiffContextHighlight guibg=#1f1d3d guifg=#7e85b8
-hi NeogitDiffDeleteHighlight guibg=#430930 guifg=#E50050
+hi NeogitDiffDeleteHighlight guibg=#2d0a2b guifg=#E50050
 hi NeogitHunkHeader guibg=#161440 guifg=#bec8e8
 hi NeogitHunkHeaderHighlight guibg=#312e55 guifg=#3F3BF5
 hi NeogitRemote guibg=NONE guifg=#D91C87
@@ -255,14 +255,14 @@ hi WildMenu guibg=#161440
 hi WinSeparator gui=bold guibg=NONE guifg=#09081a
 hi debugBreakpoint guibg=#141336 guifg=#5352CD
 hi debugPC guibg=#070614
-hi diffAdded guibg=#132834 guifg=#2A8A6B
+hi diffAdded guibg=#111f30 guifg=#2A8A6B
 hi diffChanged guibg=#42393b guifg=#FFD888
 hi diffFile guibg=NONE guifg=#3F3BF5
 hi diffIndexLine guibg=NONE guifg=#3F3BF5
 hi diffLine guibg=NONE guifg=#5c6296
-hi diffNewFile guibg=#132834 guifg=#5352CD
-hi diffOldFile guibg=#430930 guifg=#5352CD
-hi diffRemoved guibg=#430930 guifg=#E50050
+hi diffNewFile guibg=#111f30 guifg=#5352CD
+hi diffOldFile guibg=#2d0a2b guifg=#5352CD
+hi diffRemoved guibg=#2d0a2b guifg=#E50050
 hi healthError guibg=NONE guifg=#E50050
 hi healthSuccess guibg=NONE guifg=#2A8A6B
 hi healthWarning guibg=NONE guifg=#FB9B00

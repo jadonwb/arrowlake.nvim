@@ -1,139 +1,62 @@
-local Util = require("arrowlake.util")
 
-local bg = "#0D0C25"
-local bg_dark = "#09081a"
-local bg_darker = "#070614"
+local M = {}
 
-local fg = "#bec8e8"
-local fg_dark = "#7e85b8"
-local fg_darker = "#5c6296"
-local fg_gutter = "#312e55"
+-- Backgrounds
+M.bg = "#0D0C25"
+M.bg_dark = "#09081a"
+M.bg_darker = "#070614"
 
-local selection = "#161440"
+-- Foregrounds
+M.fg = "#bec8e8"
+M.fg_dark = "#7e85b8"
+M.fg_darker = "#5c6296"
+M.fg_gutter = "#312e55"
 
-local red = "#E50050"
-local orange = "#FB9B00"
-local yellow = "#FFD888"
-local green = "#2A8A6B"
-local blue = "#3F3BF5"
-local purple = "#834CCF"
-local magenta = "#D91C87"
-local cyan = "#33D4B4"
+-- Core colors
+M.red = "#E50050"
+M.orange = "#FB9B00"
+M.yellow = "#FFD888"
+M.green = "#2A8A6B"
+M.blue = "#3F3BF5"
+M.purple = "#834CCF"
+M.magenta = "#D91C87"
+M.cyan = "#33D4B4"
 
-local primary = blue
-local secondary = "#5352CD"
-local focus = orange
+-- Accent choices
+M.primary = M.blue
+M.secondary = "#5352CD"
+M.selection = "#161440"
+M.focus = M.orange
+M.operator = "#9AC1E5"
 
-local operator = "#9AC1E5"
+---@param c arrowlake.Palette
+function M.map(c)
+  local U = require("arrowlake.util")
 
----@type arrowlake.Palette
-local M = {
-  bg = bg,
-  bg_dark = bg_dark,
-  bg_darker = bg_darker,
-  bg_code = bg_dark,
-  bg_notification = bg_dark,
-  bg_highlight = selection,
-  bg_visual = selection,
-  bg_hover = fg_gutter,
-  bg_search = fg_gutter,
-  bg_search_current = magenta,
-  bg_active_parameter = selection,
-  bg_sidebar = bg_darker,
-  bg_float = bg_darker,
-  fg = fg,
-  fg_darker = fg_darker,
-  fg_dark = fg_dark,
-  fg_gutter = fg_gutter,
-  fg_sidebar = fg_darker,
-  comment = fg_darker,
-  muted = fg_darker,
-  black = bg_darker,
-  terminal_black = fg_gutter,
-  border = bg_dark,
-  border_color = primary,
-  border_subtle = fg_darker,
-  primary = primary,
-  secondary = secondary,
-  selection = selection,
-  red = red,
-  orange = orange,
-  yellow = yellow,
-  green = green,
-  blue = blue,
-  purple = purple,
-  magenta = magenta,
-  cyan = cyan,
-  title = primary,
-  keyword = magenta,
-  macro = cyan,
-  string = green,
-  string_doc = yellow,
-  string_escape = magenta,
-  md_inline = yellow,
-  parameter = yellow,
-  variable = fg,
-  member = fg_dark,
-  constant = orange,
-  type = secondary,
-  type_builtin = Util.blend_bg(secondary, 0.75, bg),
-  functions = primary,
-  functions_builtin = Util.blend_bg(primary, 0.75, bg),
-  constructor = magenta,
-  operator = operator,
-  punctuation = fg_dark,
-  markup = orange,
-  link = cyan,
-  focus = focus,
-  error = red,
-  warning = orange,
-  info = secondary,
-  hint = cyan,
-  success = green,
-  todo = secondary,
-  trace = purple,
-  attention = magenta,
-  ai = cyan,
-  rainbow = { blue, yellow, magenta, green, cyan, red, purple, orange },
-  git = {
-    add = green,
-    change = yellow,
-    delete = red,
-    ignore = fg_darker,
-  },
-  diff = {
-    add = Util.blend_bg(green, 0.22, bg),
-    change = Util.blend_bg(yellow, 0.22, bg),
-    delete = Util.blend_bg(red, 0.25, bg),
-    text = Util.blend_bg(fg_dark, 0.15, bg),
-  },
-  terminal = {
-    black = bg_darker,
-    black_bright = fg_gutter,
-    red = red,
-    red_bright = Util.brighten(red),
-    green = green,
-    green_bright = Util.brighten(green),
-    yellow = yellow,
-    yellow_bright = Util.brighten(yellow),
-    blue = blue,
-    blue_bright = Util.brighten(blue),
-    magenta = magenta,
-    magenta_bright = Util.brighten(magenta),
-    cyan = cyan,
-    cyan_bright = Util.brighten(cyan),
-    white = fg_darker,
-    white_bright = fg,
-  },
-  status = {
-    bg = bg_dark,
-    normal = primary,
-    insert = green,
-    command = orange,
-    visual = magenta,
-    replace = red,
-    terminal = cyan,
-  },
-}
+  require("arrowlake.colors.mappings").apply(c)
+
+  -- Dark-specific overrides
+  c.string_doc = c.yellow
+  c.md_inline = c.yellow
+  c.parameter = c.yellow
+  c.constant = c.orange
+  c.markup = c.orange
+  c.link = c.cyan
+  c.warning = c.orange
+  c.info = c.secondary
+  c.todo = c.secondary
+  c.ai = c.cyan
+
+  c.bg_hover = c.fg_gutter
+  c.bg_search = c.fg_gutter
+  c.bg_search_current = c.magenta
+
+  c.type_builtin = U.blend_bg(c.secondary, 0.75, c.bg)
+  c.functions_builtin = U.blend_bg(c.primary, 0.75, c.bg)
+
+  c.rainbow = { c.blue, c.yellow, c.magenta, c.green, c.cyan, c.red, c.purple, c.orange }
+
+  c.status.command = c.orange
+end
 
 return M

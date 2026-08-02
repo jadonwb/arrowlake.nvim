@@ -21,10 +21,10 @@ set -g status-right-length "100"
 set -g status-left-style NONE
 set -g status-right-style NONE
 
-set -g status-left "#[fg=#dccdba,bg=#6660AF,bold] #S #[fg=#6660AF,bg=#e3d7c7,nobold,nounderscore,noitalics]"
-set -g status-right "#[fg=#e3d7c7,bg=#e3d7c7,nobold,nounderscore,noitalics]#[fg=#6660AF,bg=#e3d7c7] #{prefix_highlight} #[fg=#ad9b88,bg=#e3d7c7,nobold,nounderscore,noitalics]#[fg=#6660AF,bg=#ad9b88] %Y-%m-%d  %I:%M %p #[fg=#6660AF,bg=#ad9b88,nobold,nounderscore,noitalics]#[fg=#dccdba,bg=#6660AF,bold] #h "
+set -g status-left "#[fg=#DED0BF,bg=#6660AF,bold] #S #[fg=#6660AF,bg=#e3d7c7,nobold,nounderscore,noitalics]"
+set -g status-right "#[fg=#e3d7c7,bg=#e3d7c7,nobold,nounderscore,noitalics]#[fg=#6660AF,bg=#e3d7c7] #{prefix_highlight} #[fg=#ad9b88,bg=#e3d7c7,nobold,nounderscore,noitalics]#[fg=#6660AF,bg=#ad9b88] %Y-%m-%d  %I:%M %p #[fg=#6660AF,bg=#ad9b88,nobold,nounderscore,noitalics]#[fg=#DED0BF,bg=#6660AF,bold] #h "
 if-shell '[ "$(tmux show-option -gqv "clock-mode-style")" == "24" ]' {
-  set -g status-right "#[fg=#e3d7c7,bg=#e3d7c7,nobold,nounderscore,noitalics]#[fg=#6660AF,bg=#e3d7c7] #{prefix_highlight} #[fg=#ad9b88,bg=#e3d7c7,nobold,nounderscore,noitalics]#[fg=#6660AF,bg=#ad9b88] %Y-%m-%d  %H:%M #[fg=#6660AF,bg=#ad9b88,nobold,nounderscore,noitalics]#[fg=#dccdba,bg=#6660AF,bold] #h "
+  set -g status-right "#[fg=#e3d7c7,bg=#e3d7c7,nobold,nounderscore,noitalics]#[fg=#6660AF,bg=#e3d7c7] #{prefix_highlight} #[fg=#ad9b88,bg=#e3d7c7,nobold,nounderscore,noitalics]#[fg=#6660AF,bg=#ad9b88] %Y-%m-%d  %H:%M #[fg=#6660AF,bg=#ad9b88,nobold,nounderscore,noitalics]#[fg=#DED0BF,bg=#6660AF,bold] #h "
 }
 
 setw -g window-status-activity-style "underscore,fg=#87786c,bg=#e3d7c7"

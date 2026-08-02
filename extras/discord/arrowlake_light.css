@@ -14,9 +14,9 @@
   --bg-base-primary: #ebe0cf;
   --background-secondary: #e3d7c7;
   --background-secondary-alt: #e3d7c7;
-  --background-tertiary: #dccdba;
+  --background-tertiary: #DED0BF;
   --background-accent: #d4c6b3;
-  --background-floating: #dccdba;
+  --background-floating: #DED0BF;
   --background-nested-floating: #e3d7c7;
   --background-mobile-primary: #ebe0cf;
   --background-mobile-secondary: #e3d7c7;
@@ -42,7 +42,7 @@
   --info-danger-foreground: #BC495D;
   --info-danger-text: #54473f;
   --info-help-background: #6a8b8926;
-  --info-help-foreground: #4A74A8;
+  --info-help-foreground: #4E7469;
   --info-help-text: #54473f;
   --status-positive-background: #56AEA9;
   --status-positive-text: #ebe0cf;
@@ -162,7 +162,7 @@
   --spoiler-revealed-background: #d4c6b3;
   --spoiler-hidden-background: #87786c;
   --android-navigation-bar-background: #d4c6b3;
-  --android-ripple: #dccdba4C;
+  --android-ripple: #DED0BF4C;
   --bg-mod-faint: #e3d7c7;
   --bg-mod-subtle: #ad9b88;
   --focus-primary: #4A74A8;
@@ -176,12 +176,12 @@
 }
 
 div[class*="autocomplete_"] {
-    background-color: #dccdba !important;
+    background-color: #DED0BF !important;
 }
 
 div[class*="autocomplete_"]
 div[class*="categoryHeader"] {
-    background-color: #dccdba !important;
+    background-color: #DED0BF !important;
 }
 
 rect[mask="url(#svg-mask-status-online)"] {
@@ -212,7 +212,7 @@ rect[mask="url(#svg-mask-status-offline)"] {
   --color-4: #4E7469;
   --color-5: #4E7469;
   --color-6: #6a8b89;
-  --color-7: #4A74A8;
+  --color-7: #4E7469;
   --color-8: #56AEA9;
   --color-9: #4A74A8;
   --color-10: #C16C90;

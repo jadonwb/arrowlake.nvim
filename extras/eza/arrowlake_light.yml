@@ -25,7 +25,7 @@ perms:
   other_execute: { foreground: "#4E7469" }
   special_user_file: { foreground: "#56AEA9" }
   special_other: { foreground: "#56AEA9" }
-  attribute: { foreground: "#4A74A8" }
+  attribute: { foreground: "#4E7469" }
 
 size:
   major: { foreground: "#4A74A8" }

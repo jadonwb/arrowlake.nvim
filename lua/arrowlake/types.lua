@@ -38,6 +38,7 @@
 ---@field terminal string
 
 ---@class arrowlake.Palette
+---@field none string
 ---@field bg string
 ---@field bg_dark string
 ---@field bg_darker string
@@ -104,14 +105,20 @@
 ---@field trace string
 ---@field attention string
 ---@field ai string
+---@field map? fun(c: arrowlake.Palette)
 ---@field rainbow string[]
 ---@field git arrowlake.PaletteGit
 ---@field diff arrowlake.PaletteDiff
 ---@field terminal arrowlake.PaletteTerminal
 ---@field status arrowlake.PaletteStatus
 
----@class arrowlake.ColorScheme: arrowlake.Palette
+---Bare class so ColorScheme resolves everywhere without arrowlake. prefix
+---(same pattern aether.nvim uses)
+---@class ColorScheme: arrowlake.Palette
 ---@field none "NONE"
+
+---@alias arrowlake.ColorScheme ColorScheme
+---@alias Palette arrowlake.Palette
 
 ---@class arrowlake.Highlight: vim.api.keyset.highlight
 ---@field style? vim.api.keyset.highlight

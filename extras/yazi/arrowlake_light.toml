@@ -10,7 +10,7 @@ preview_hovered = { bg = "#d4c6b3" }
 
 # Find
  find_keyword  = { fg = "#e3d7c7", bg = "#56AEA9", bold = true }
-find_position = { fg = "#4A74A8", bg = "#d4c6b3", bold = true }
+find_position = { fg = "#4E7469", bg = "#d4c6b3", bold = true }
 
 # Marker
  marker_copied   = { fg = "#4E7469", bg = "#4E7469" }
@@ -29,17 +29,17 @@ border_style  = { fg = "#6660AF" }
 
 # Tab
 [tabs]
- active   = { fg = "#dccdba", bg = "#6660AF" }
+ active   = { fg = "#DED0BF", bg = "#6660AF" }
  inactive = { fg = "#6660AF", bg = "#ad9b88" }
 
 [mode]
- normal_main = { fg = "#dccdba", bg = "#6660AF", bold = true }
+ normal_main = { fg = "#DED0BF", bg = "#6660AF", bold = true }
  normal_alt  = { fg = "#6660AF", bg = "#ad9b88" }
 
- select_main = { fg = "#dccdba", bg = "#C16C90", bold = true }
+ select_main = { fg = "#DED0BF", bg = "#C16C90", bold = true }
  select_alt  = { fg = "#C16C90", bg = "#ad9b88" }
 
- unset_main  = { fg = "#dccdba", bg = "#C16C90", bold = true }
+ unset_main  = { fg = "#DED0BF", bg = "#C16C90", bold = true }
  unset_alt   = { fg = "#C16C90", bg = "#ad9b88" }
 
 [status]
@@ -114,7 +114,7 @@ title   = { fg = "#6660AF" }
 
 # Notify
 [notify]
-title_info  = { fg = "#4A74A8" }
+title_info  = { fg = "#4E7469" }
 title_warn  = { fg = "#AD8A5A" }
 title_error = { fg = "#BC495D" }
 
@@ -126,7 +126,7 @@ icon_info = ""
 [help]
  on      = { fg = "#4E7469" }
  run     = { fg = "#C16C90" }
- desc    = { fg = "#56AEA9" }
+ desc    = { fg = "#C88478" }
 hovered = { bg = "#d4c6b3" }
 footer  = { fg = "#54473f", bg = "#ebe0cf" }
 
