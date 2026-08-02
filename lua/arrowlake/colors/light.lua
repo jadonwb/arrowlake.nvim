@@ -1,4 +1,3 @@
-
 local M = {}
 
 -- Backgrounds
@@ -15,7 +14,7 @@ M.fg_gutter = "#ad9b88"
 
 -- Core colors
 M.red = "#BC495D"
-M.orange = "#C88478"
+M.orange = "#CF9978"
 M.yellow = "#AD8A5A"
 M.green = "#4E7469"
 M.blue = "#4A74A8"
