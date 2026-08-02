@@ -10,7 +10,7 @@ function M.get(c)
     MiniHipatternsFixme = { fg = c.black, bg = c.error, bold = true },
     MiniHipatternsHack  = { fg = c.black, bg = c.warning, bold = true },
     MiniHipatternsNote  = { fg = c.black, bg = c.hint, bold = true },
-    MiniHipatternsTodo  = { fg = c.black, bg = c.info, bold = true },
+    MiniHipatternsTodo  = { fg = c.black, bg = c.todo, bold = true },
   }
 end
 
