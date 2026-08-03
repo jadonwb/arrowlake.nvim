@@ -11,10 +11,10 @@ Name="${_name}"
 ColorBackground=${bg}
 ColorForeground=${fg}
 
-ColorSelectionBackground=${bg_visual}
+ColorSelectionBackground=${backgrounds.visual}
 ColorSelection=${fg}
 
-ColorPalette=${black};${red};${green};${yellow};${blue};${magenta};${cyan};${fg_dark};${terminal_black};${red};${green};${yellow};${blue};${magenta};${cyan};${fg}
+ColorPalette=${terminal.black};${red};${green};${yellow};${blue};${magenta};${cyan};${fg_dark};${terminal.black};${red};${green};${yellow};${blue};${magenta};${cyan};${fg}
 ]],
     colors
   )

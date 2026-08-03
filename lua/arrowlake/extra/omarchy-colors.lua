@@ -11,7 +11,7 @@ cursor = "${fg}"
 foreground = "${fg}"
 background = "${bg}"
 selection_foreground = "${fg}"
-selection_background = "${bg_visual}"
+selection_background = "${backgrounds.visual}"
 
 color0 = "${terminal.black}"
 color1 = "${terminal.red}"

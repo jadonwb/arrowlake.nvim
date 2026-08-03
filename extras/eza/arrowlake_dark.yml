@@ -4,10 +4,10 @@ filekinds:
   normal: { foreground: "#bec8e8" }
   directory: { foreground: "#3F3BF5" }
   symlink: { foreground: "#5352CD" }
-  pipe: { foreground: "#312e55" }
+  pipe: { foreground: "#070614" }
   block_device: { foreground: "#FFD888" }
   char_device: { foreground: "#FFD888" }
-  socket: { foreground: "#312e55" }
+  socket: { foreground: "#070614" }
   special: { foreground: "#834CCF" }
   executable: { foreground: "#2A8A6B" }
   mount_point: { foreground: "#9AC1E5" }
@@ -72,7 +72,7 @@ security_context:
   colon: { foreground: "#5c6296" }
   user: { foreground: "#9AC1E5" }
   role: { foreground: "#5352CD" }
-  typ: { foreground: "#312e55" }
+  typ: { foreground: "#161440" }
   range: { foreground: "#834CCF" }
 
 file_type:

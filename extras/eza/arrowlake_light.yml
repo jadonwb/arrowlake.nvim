@@ -4,28 +4,28 @@ filekinds:
   normal: { foreground: "#54473f" }
   directory: { foreground: "#4A74A8" }
   symlink: { foreground: "#4A74A8" }
-  pipe: { foreground: "#ad9b88" }
-  block_device: { foreground: "#AD8A5A" }
-  char_device: { foreground: "#AD8A5A" }
-  socket: { foreground: "#ad9b88" }
+  pipe: { foreground: "#DED0BF" }
+  block_device: { foreground: "#AE984C" }
+  char_device: { foreground: "#AE984C" }
+  socket: { foreground: "#DED0BF" }
   special: { foreground: "#6660AF" }
   executable: { foreground: "#4E7469" }
   mount_point: { foreground: "#6a8b89" }
 
 perms:
-  user_read: { foreground: "#AD8A5A" }
+  user_read: { foreground: "#AE984C" }
   user_write: { foreground: "#BC495D" }
   user_execute_file: { foreground: "#4E7469" }
   user_execute_other: { foreground: "#4E7469" }
-  group_read: { foreground: "#AD8A5A" }
+  group_read: { foreground: "#AE984C" }
   group_write: { foreground: "#BC495D" }
   group_execute: { foreground: "#4E7469" }
-  other_read: { foreground: "#AD8A5A" }
+  other_read: { foreground: "#AE984C" }
   other_write: { foreground: "#BC495D" }
   other_execute: { foreground: "#4E7469" }
   special_user_file: { foreground: "#56AEA9" }
   special_other: { foreground: "#56AEA9" }
-  attribute: { foreground: "#4E7469" }
+  attribute: { foreground: "#4A74A8" }
 
 size:
   major: { foreground: "#4A74A8" }
@@ -33,12 +33,12 @@ size:
   number_byte: { foreground: "#6c5e55" }
   number_kilo: { foreground: "#6a8b89" }
   number_mega: { foreground: "#4A74A8" }
-  number_giga: { foreground: "#C88478" }
+  number_giga: { foreground: "#CF9978" }
   number_huge: { foreground: "#C16C90" }
   unit_byte: { foreground: "#6c5e55" }
   unit_kilo: { foreground: "#6a8b89" }
   unit_mega: { foreground: "#4A74A8" }
-  unit_giga: { foreground: "#C88478" }
+  unit_giga: { foreground: "#CF9978" }
   unit_huge: { foreground: "#C16C90" }
 
 users:
@@ -60,7 +60,7 @@ git:
   renamed: { foreground: "#4A74A8" }
   typechange: { foreground: "#4A74A8" }
   ignored: { foreground: "#87786c" }
-  conflicted: { foreground: "#C88478" }
+  conflicted: { foreground: "#CF9978" }
 
 git_repo:
   branch_main: { foreground: "#87786c" }
@@ -82,21 +82,21 @@ file_type:
   lossless: { foreground: "#4E7469" }
   crypto: { foreground: "#BC495D" }
   document: { foreground: "#6c5e55" }
-  compressed: { foreground: "#C88478" }
+  compressed: { foreground: "#CF9978" }
   temp: { foreground: "#6a8b89" }
   compiled: { foreground: "#6a8b89" }
   build: { foreground: "#56AEA9" }
   source: { foreground: "#C16C90" }
 
 punctuation: { foreground: "#d4c6b3" }
-date: { foreground: "#AD8A5A" }
+date: { foreground: "#AE984C" }
 inode: { foreground: "#6a8b89" }
 blocks: { foreground: "#6a8b89" }
 header: { foreground: "#6c5e55" }
-octal: { foreground: "#C88478" }
+octal: { foreground: "#CF9978" }
 flags: { foreground: "#6660AF" }
 
 symlink_path: { foreground: "#6a8b89" }
-control_char: { foreground: "#C88478" }
+control_char: { foreground: "#CF9978" }
 broken_symlink: { foreground: "#BC495D" }
 broken_path_overlay: { foreground: "#BC495D" }

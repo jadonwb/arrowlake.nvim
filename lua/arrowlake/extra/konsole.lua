@@ -26,7 +26,7 @@ function M.generate(colors)
 Color=${bg}
 
 [BackgroundIntense]
-Color=${bg_visual}
+Color=${backgrounds.visual}
 
 [Foreground]
 Color=${fg}

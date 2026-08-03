@@ -36,7 +36,7 @@ color15: ${terminal.white_bright}
 
 # Extended colors
 color16: ${orange}
-color17: ${error}
+color17: ${diagnostics.error}
 ]],
     colors
   )

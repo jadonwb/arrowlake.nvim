@@ -16,7 +16,7 @@ function M.get(c, opts)
     MasonHighlightBlock = {fg = c.foregrounds.normal, bg = c.cyan},
     MasonHighlightBlockSecondary = {fg = c.foregrounds.normal, bg = c.orange},
     MasonHeader = {fg = c.foregrounds.normal, bg = c.orange},
-    MasonMutedBlockBold = { bg = "#888888", bold = true, cterm = { bold = true }, default = true, fg = "#222222" },
+    MasonMutedBlockBold = { bg = c.foregrounds.muted, bold = true, cterm = { bold = true }, default = true, fg = c.foregrounds.normal },
     MasonHeaderSecondary = { fg = c.foregrounds.normal, bg = c.cyan },
     MasonHighlightBlockBold = { bg = c.cyan, bold = true, cterm = { bold = true }, default = true, fg = c.foregrounds.normal },
     MasonLink = { fg = c.syntax.link },

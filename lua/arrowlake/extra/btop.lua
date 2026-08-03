@@ -21,26 +21,26 @@ theme[title]="${fg}"
 theme[hi_fg]="${orange}"
 
 # Selected item in processes box
-theme[selected_bg]="${bg_highlight}"
+theme[selected_bg]="${backgrounds.highlight}"
 theme[selected_fg]="${cyan}"
 
 # Misc colors for processes box including mini cpu graphs, details memory graph and details status text
 theme[proc_misc]="${cyan}"
 
 # Cpu box outline color
-theme[cpu_box]="${border_color}"
+theme[cpu_box]="${border.color}"
 
 # Memory/disks box outline color
-theme[mem_box]="${border_color}"
+theme[mem_box]="${border.color}"
 
 # Net up/down box outline color
-theme[net_box]="${border_color}"
+theme[net_box]="${border.color}"
 
 # Processes box outline color
-theme[proc_box]="${border_color}"
+theme[proc_box]="${border.color}"
 
 # Box divider line and small boxes line color
-theme[div_line]="${border_color}"
+theme[div_line]="${border.color}"
 
 # Temperature graph colors
 theme[temp_start]="${green}"

@@ -14,9 +14,9 @@ function M.get(c)
     MiniDepsMsgBreaking   = "DiagnosticWarn",
     MiniDepsPlaceholder   = "Comment",
     MiniDepsTitle         = "Title",
-    MiniDepsTitleError    = { fg = c.foregrounds.fill, bg = c.git.delete },
+    MiniDepsTitleError    = { fg = c.bg_darker, bg = c.git.delete },
     MiniDepsTitleSame     = "Comment",
-    MiniDepsTitleUpdate   = { fg = c.foregrounds.fill, bg = c.git.add },
+    MiniDepsTitleUpdate   = { fg = c.bg_darker, bg = c.git.add },
   }
 end
 

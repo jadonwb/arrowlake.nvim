@@ -94,7 +94,6 @@
 ---@field label string
 
 ---@class arrowlake.PaletteSyntax
----@field title string
 ---@field keyword string
 ---@field macro string
 ---@field string string

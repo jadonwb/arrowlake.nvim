@@ -13,7 +13,7 @@ function M.generate(colors)
 themes {
     ${_name} {
         fg "${fg}"
-        bg "${bg_highlight}"
+        bg "${backgrounds.highlight}"
         // Black should match the terminal background color
         // This ensures the top and bottom bars are transparent
         black "${bg}"

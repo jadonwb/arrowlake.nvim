@@ -20,6 +20,10 @@ end
 local M = {}
 
 function M.generate(colors)
+  colors.black = colors.terminal.black -- Ansi 0 Color
+  colors.terminal_black = colors.terminal.black_bright -- Ansi 8 Color
+  colors.link = colors.syntax.link -- Link Color
+  colors.bg_visual = colors.backgrounds.visual -- Selection Color
   local iterm = template(
     [[
 <?xml version="1.0" encoding="UTF-8"?>

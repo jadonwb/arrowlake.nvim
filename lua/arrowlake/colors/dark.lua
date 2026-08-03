@@ -47,7 +47,7 @@ function M.map(c)
 
   -- Dark overrides: diagnostics
   c.diagnostics.warning = c.orange
-  c.diagnostics.ai = c.cyan
+  c.ui.ai = c.cyan
 
   -- Dark overrides: statusline command mode color
   c.status.command = c.orange

@@ -3,11 +3,11 @@
 :root {
   --vimium-hint-bg: #D91C87;
   --vimium-source: #33D4B4;
-  --vimium-title: #3F3BF5;
+  --vimium-title: ${syntax.title};
   --vimium-match: #5352CD;
   --vimium-fg: #bec8e8;
   --vimium-fg-dark: #7e85b8;
-  --vimium-border: #09081a;
+  --vimium-border: #5c6296;
   --vimium-border-highlight: #3F3BF5;
   --vimium-bg: #0D0C25;
   --vimium-bg-selected: #161440;

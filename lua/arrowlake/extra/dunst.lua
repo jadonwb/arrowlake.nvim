@@ -20,9 +20,9 @@ function M.generate(colors)
     frame_color = "${fg}"
 
 [urgency_critical]
-    background = "${bg_highlight}"
-    foreground = "${error}"
-    frame_color = "${error}"
+    background = "${backgrounds.highlight}"
+    foreground = "${diagnostics.error}"
+    frame_color = "${diagnostics.error}"
 ]],
     colors
   )

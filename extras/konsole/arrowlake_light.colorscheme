@@ -2,7 +2,7 @@
 Color=235,224,207
 
 [BackgroundIntense]
-Color=212,198,179
+Color=#d4c6b3
 
 [Foreground]
 Color=84,71,63
@@ -30,10 +30,10 @@ Color=#4E7469
 Color=#448474
 
 [Color3]
-Color=#AD8A5A
+Color=#AE984C
 
 [Color3Intense]
-Color=#c59546
+Color=#c2a525
 
 [Color4]
 Color=#4A74A8

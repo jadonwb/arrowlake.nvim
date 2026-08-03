@@ -10,9 +10,9 @@ function M.generate(colors)
 # https://learn.microsoft.com/en-us/windows/terminal/customize-settings/color-schemes#creating-your-own-color-scheme
 {
     "background": "${bg}",
-    "black": "${black}",
+    "black": "${terminal.black}",
     "blue": "${blue}",
-    "brightBlack": "${terminal_black}",
+    "brightBlack": "${terminal.black}",
     "brightBlue": "${blue}",
     "brightCyan": "${cyan}",
     "brightGreen": "${green}",
@@ -27,7 +27,7 @@ function M.generate(colors)
     "name": "${_style_name}",
     "purple": "${magenta}",
     "red": "${red}",
-    "selectionBackground": "${bg_visual}",
+    "selectionBackground": "${backgrounds.visual}",
     "white": "${fg_dark}",
     "yellow": "${yellow}"
 }

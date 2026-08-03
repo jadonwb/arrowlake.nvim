@@ -13,9 +13,9 @@ function M.generate(colors)
   --text-normal: ${fg};
   --text-muted: ${fg_dark};
   --text-link: ${blue};
-  --text-link-low-saturation: ${operator};
-  --text-positive: ${hint};
-  --text-warning: ${warning};
+  --text-link-low-saturation: ${syntax.operator};
+  --text-positive: ${diagnostics.hint};
+  --text-warning: ${diagnostics.warning};
   --text-danger: ${red};
   --text-brand: ${blue};
   --background-primary: ${bg};
@@ -24,7 +24,7 @@ function M.generate(colors)
   --background-secondary-alt: ${bg_dark};
   --background-tertiary: ${bg_darker};
   --background-accent: ${selection};
-  --background-floating: ${bg_float};
+  --background-floating: ${backgrounds.float};
   --background-nested-floating: ${bg_dark};
   --background-mobile-primary: ${bg};
   --background-mobile-secondary: ${bg_dark};
@@ -32,93 +32,93 @@ function M.generate(colors)
   --bg-surface-raised: ${bg_dark};
   --home-background: ${bg};
   --chat-background: ${bg};
-  --chat-border: ${bg_highlight};
+  --chat-border: ${backgrounds.highlight};
   --chat-input-container-background: ${bg};
-  --background-modifier-hover: ${comment}26;
-  --background-modifier-selected: ${comment}32;
-  --background-modifier-accent: ${comment}42;
-  --background-modifier-active: ${comment}2B;
+  --background-modifier-hover: ${foregrounds.comment}26;
+  --background-modifier-selected: ${foregrounds.comment}32;
+  --background-modifier-accent: ${foregrounds.comment}42;
+  --background-modifier-active: ${foregrounds.comment}2B;
   --info-positive-background: ${green}26;
-  --info-positive-foreground: ${hint};
+  --info-positive-foreground: ${diagnostics.hint};
   --info-positive-text: ${fg};
   --brand-500: ${selection};
   --brand-560: ${blue};
   --info-warning-background: ${yellow}26;
-  --info-warning-foreground: ${warning};
+  --info-warning-foreground: ${diagnostics.warning};
   --info-warning-text: ${fg};
   --info-danger-background:${red}26;
   --info-danger-foreground: ${red};
   --info-danger-text: ${fg};
-  --info-help-background: ${operator}26;
-  --info-help-foreground: ${info};
+  --info-help-background: ${syntax.operator}26;
+  --info-help-foreground: ${diagnostics.info};
   --info-help-text: ${fg};
-  --status-positive-background: ${hint};
+  --status-positive-background: ${diagnostics.hint};
   --status-positive-text: ${bg};
-  --status-warning-background: ${warning};
+  --status-warning-background: ${diagnostics.warning};
   --status-warning-text: ${bg};
   --status-danger-background: ${red};
   --status-danger-text: ${bg};
   --status-danger: ${red};
-  --status-positive: ${hint};
-  --status-warning: ${warning};
-  --status-yellow-400: ${warning};
-  --status-green-600: ${hint};
+  --status-positive: ${diagnostics.hint};
+  --status-warning: ${diagnostics.warning};
+  --status-yellow-400: ${diagnostics.warning};
+  --status-green-600: ${diagnostics.hint};
   --primary-dark-600: ${bg};
-  --status-yellow-560: ${warning};
+  --status-yellow-560: ${diagnostics.warning};
   --status-red-500: ${red};
   --status-red-530: ${red};
-  --status-yellow-500: ${warning};
-  --black-500: ${bg_highlight};
-  --green-360: ${hint};
-  --yellow-360: ${warning};
-  --yellow-300: ${warning};
+  --status-yellow-500: ${diagnostics.warning};
+  --black-500: ${backgrounds.highlight};
+  --green-360: ${diagnostics.hint};
+  --yellow-360: ${diagnostics.warning};
+  --yellow-300: ${diagnostics.warning};
   --red-400: ${red};
-  --primary-100: ${operator};
-  --primary-300: ${operator};
-  --primary-400: ${operator};
-  --primary-dark-700: ${bg_highlight};
-  --primary-800: ${bg_highlight};
-  --status-green-560: ${hint};
+  --primary-100: ${syntax.operator};
+  --primary-300: ${syntax.operator};
+  --primary-400: ${syntax.operator};
+  --primary-dark-700: ${backgrounds.highlight};
+  --primary-800: ${backgrounds.highlight};
+  --status-green-560: ${diagnostics.hint};
   --white-400: ${fg};
   --white-500: ${fg};
   --guild-boosting-pink: ${magenta};
-  --premium-perk-yellow: ${warning};
+  --premium-perk-yellow: ${diagnostics.warning};
   --premium-perk-purple: ${purple};
   --premium-perk-dark-blue: ${blue};
   --premium-perk-light-blue: ${secondary};
   --premium-perk-blue: ${blue};
-  --premium-perk-green: ${hint};
+  --premium-perk-green: ${diagnostics.hint};
   --premium-perk-pink: ${magenta};
   --premium-perk-orange: ${orange};
-  --status-green-400: ${hint};
-  --button-danger-background: ${error};
+  --status-green-400: ${diagnostics.hint};
+  --button-danger-background: ${diagnostics.error};
   --button-danger-background-hover: ${red};
-  --button-danger-background-active: ${operator};
+  --button-danger-background-active: ${syntax.operator};
   --button-danger-background-disabled: ${red};
-  --button-positive-background: ${hint};
-  --button-positive-background-hover: ${success};
+  --button-positive-background: ${diagnostics.hint};
+  --button-positive-background-hover: ${diagnostics.success};
   --button-positive-background-active: ${git.add};
-  --button-positive-background-disabled: ${hint};
-  --button-secondary-background: ${comment};
+  --button-positive-background-disabled: ${diagnostics.hint};
+  --button-secondary-background: ${foregrounds.comment};
   --button-secondary-background-hover: ${fg_gutter};
   --button-secondary-background-active: ${fg_gutter};
-  --button-secondary-background-disabled: ${comment};
+  --button-secondary-background-disabled: ${foregrounds.comment};
   --button-outline-danger-text: ${fg};
-  --button-outline-danger-border: ${error};
+  --button-outline-danger-border: ${diagnostics.error};
   --button-outline-danger-background: transparent;
   --button-outline-danger-background-hover: ${red};
   --button-outline-danger-text-hover: ${bg};
   --button-outline-danger-border-hover: ${red};
-  --button-outline-danger-background-active: ${error};
+  --button-outline-danger-background-active: ${diagnostics.error};
   --button-outline-danger-text-active: ${bg};
-  --button-outline-danger-border-active: ${error};
+  --button-outline-danger-border-active: ${diagnostics.error};
   --button-outline-positive-text: ${fg};
-  --button-outline-positive-border: ${hint};
+  --button-outline-positive-border: ${diagnostics.hint};
   --button-outline-positive-background: transparent;
   --button-outline-positive-background-hover: ${green};
   --button-outline-positive-text-hover: ${bg};
   --button-outline-positive-border-hover: ${green};
-  --button-outline-positive-background-active: ${success};
+  --button-outline-positive-background-active: ${diagnostics.success};
   --button-outline-positive-text-active: ${bg};
   --button-outline-positive-border-active: ${green};
   --button-outline-brand-text: ${fg};
@@ -131,29 +131,29 @@ function M.generate(colors)
   --button-outline-brand-text-active: ${bg};
   --button-outline-brand-border-active: ${secondary};
   --button-outline-primary-text: ${fg};
-  --button-outline-primary-border: ${comment};
+  --button-outline-primary-border: ${foregrounds.comment};
   --button-outline-primary-background: transparent;
-  --button-outline-primary-background-hover: ${comment};
+  --button-outline-primary-background-hover: ${foregrounds.comment};
   --button-outline-primary-text-hover: ${bg};
-  --button-outline-primary-border-hover: ${comment};
-  --button-outline-primary-background-active: ${comment};
+  --button-outline-primary-border-hover: ${foregrounds.comment};
+  --button-outline-primary-background-active: ${foregrounds.comment};
   --button-outline-primary-text-active: ${bg};
-  --button-outline-primary-border-active: ${comment};
+  --button-outline-primary-border-active: ${foregrounds.comment};
   --modal-background: ${bg};
-  --modal-footer-background: ${bg_highlight};
+  --modal-footer-background: ${backgrounds.highlight};
   --scrollbar-thin-thumb: ${blue};
   --scrollbar-thin-track: transparent;
   --scrollbar-auto-thumb: ${blue};
-  --scrollbar-auto-track: ${bg_highlight};
+  --scrollbar-auto-track: ${backgrounds.highlight};
   --scrollbar-auto-scrollbar-color-thumb: ${blue};
-  --scrollbar-auto-scrollbar-color-track: ${bg_highlight};
-  --input-background: ${bg_highlight};
-  --input-placeholder-text: ${comment};
+  --scrollbar-auto-scrollbar-color-track: ${backgrounds.highlight};
+  --input-background: ${backgrounds.highlight};
+  --input-placeholder-text: ${foregrounds.comment};
   --logo-primary: ${fg};
   --control-brand-foreground: ${blue};
   --control-brand-foreground-new: ${blue};
   --mention-foreground: ${blue};
-  --mention-background: ${terminal_black};
+  --mention-background: ${terminal.black};
   --background-mentioned: ${yellow}19;
   --background-mentioned-hover: ${yellow}14;
   --background-message-hover: ${bg_dark}3F;
@@ -163,19 +163,19 @@ function M.generate(colors)
   --background-message-highlight-hover: ${blue}0F;
   --channels-default: ${fg_dark};
   --channel-icon: ${blue}99;
-  --channel-text-area-placeholder: ${comment}7F;
+  --channel-text-area-placeholder: ${foregrounds.comment}7F;
   --channeltextarea-background: ${bg_dark};
-  --activity-card-background: ${bg_highlight};
+  --activity-card-background: ${backgrounds.highlight};
   --textbox-markdown-syntax: ${fg};
-  --spoiler-revealed-background: ${bg_highlight};
-  --spoiler-hidden-background: ${comment};
-  --android-navigation-bar-background: ${bg_highlight};
-  --android-ripple: ${black}4C;
+  --spoiler-revealed-background: ${backgrounds.highlight};
+  --spoiler-hidden-background: ${foregrounds.comment};
+  --android-navigation-bar-background: ${backgrounds.highlight};
+  --android-ripple: ${terminal.black}4C;
   --bg-mod-faint: ${bg_dark};
-  --bg-mod-subtle: ${terminal_black};
+  --bg-mod-subtle: ${terminal.black};
   --focus-primary: ${blue};
   --interactive-normal: ${fg};
-  --interactive-muted: ${comment}4C;
+  --interactive-muted: ${foregrounds.comment}4C;
   --interactive-hover: ${fg};
   --interactive-active: ${fg};
   --search-popout-option-non-text-color: ${fg_dark};
@@ -184,12 +184,12 @@ function M.generate(colors)
 }
 
 div[class*="autocomplete_"] {
-    background-color: ${bg_float} !important;
+    background-color: ${backgrounds.float} !important;
 }
 
 div[class*="autocomplete_"]
 div[class*="categoryHeader"] {
-    background-color: ${bg_float} !important;
+    background-color: ${backgrounds.float} !important;
 }
 
 rect[mask="url(#svg-mask-status-online)"] {
@@ -201,11 +201,11 @@ rect[mask="url(#svg-mask-status-idle)"] {
 }
 
 rect[mask="url(#svg-mask-status-dnd)"] {
-    fill: ${error};
+    fill: ${diagnostics.error};
 }
 
 rect[mask="url(#svg-mask-status-offline)"] {
-    fill: ${comment};
+    fill: ${foregrounds.comment};
 }
 
 /* hljs */
@@ -218,9 +218,9 @@ rect[mask="url(#svg-mask-status-offline)"] {
   --color-2: ${orange};
   --color-3: ${yellow};
   --color-4: ${green};
-  --color-5: ${success};
-  --color-6: ${operator};
-  --color-7: ${info};
+  --color-5: ${diagnostics.success};
+  --color-6: ${syntax.operator};
+  --color-7: ${diagnostics.info};
   --color-8: ${cyan};
   --color-9: ${blue};
   --color-10: ${magenta};
@@ -261,7 +261,7 @@ rect[mask="url(#svg-mask-status-offline)"] {
   --hljs-params: var(--text-default);
   --hljs-params-attr: var(--hljs-params);
   /* --> Comment */
-  --hljs-comment: ${comment};
+  --hljs-comment: ${foregrounds.comment};
   --hljs-comment-doctag: var(--hljs-comment);
   /* --> String */
   --hljs-string: var(--color-4);

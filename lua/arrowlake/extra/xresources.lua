@@ -11,7 +11,7 @@ function M.generate(colors)
 *background: ${bg}
 *foreground: ${fg}
 
-*color0: ${black}
+*color0: ${terminal.black}
 *color1: ${red}
 *color2: ${green}
 *color3: ${yellow}
@@ -20,7 +20,7 @@ function M.generate(colors)
 *color6: ${cyan}
 *color7: ${fg_dark}
 
-*color8: ${terminal_black}
+*color8: ${terminal.black}
 *color9: ${red}
 *color10: ${green}
 *color11: ${yellow}

@@ -10,8 +10,8 @@
   diff_line_delete: Some("#BC495D"),
   diff_file_added: Some("#4E7469"),
   diff_file_removed: Some("#BC495D"),
-  diff_file_moved: Some("#AD8A5A"),
-  diff_file_modified: Some("#AD8A5A"),
+  diff_file_moved: Some("#AE984C"),
+  diff_file_modified: Some("#AE984C"),
   commit_hash: Some("#C16C90"),
   commit_time: Some("#56AEA9"),
   commit_author: Some("#4E7469"),
@@ -19,5 +19,5 @@
   push_gauge_bg: Some("#ebe0cf"),
   push_gauge_fg: Some("#54473f"),
   tag_fg: Some("#C16C90"),
-  branch_fg: Some("#AD8A5A")
+  branch_fg: Some("#AE984C")
 )

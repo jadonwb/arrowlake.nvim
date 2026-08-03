@@ -11,26 +11,26 @@ theme[title]="#54473f"
 theme[hi_fg]="#CF9978"
 
 # Selected item in processes box
-theme[selected_bg]="${bg_highlight}"
+theme[selected_bg]="#d4c6b3"
 theme[selected_fg]="#56AEA9"
 
 # Misc colors for processes box including mini cpu graphs, details memory graph and details status text
 theme[proc_misc]="#56AEA9"
 
 # Cpu box outline color
-theme[cpu_box]="${border_color}"
+theme[cpu_box]="#6660AF"
 
 # Memory/disks box outline color
-theme[mem_box]="${border_color}"
+theme[mem_box]="#6660AF"
 
 # Net up/down box outline color
-theme[net_box]="${border_color}"
+theme[net_box]="#6660AF"
 
 # Processes box outline color
-theme[proc_box]="${border_color}"
+theme[proc_box]="#6660AF"
 
 # Box divider line and small boxes line color
-theme[div_line]="${border_color}"
+theme[div_line]="#6660AF"
 
 # Temperature graph colors
 theme[temp_start]="#4E7469"

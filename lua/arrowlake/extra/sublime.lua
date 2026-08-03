@@ -4,9 +4,9 @@ local M = {}
 
 --- @param colors ColorScheme
 function M.generate(colors)
-  colors.error_bg = util.blend_bg(colors.error, 0.1)
-  colors.warning_bg = util.blend_bg(colors.warning, 0.1)
-  colors.info_bg = util.blend_bg(colors.info, 0.1)
+  colors.error_bg = util.blend_bg(colors.diagnostics.error, 0.1)
+  colors.warning_bg = util.blend_bg(colors.diagnostics.warning, 0.1)
+  colors.info_bg = util.blend_bg(colors.diagnostics.info, 0.1)
   local sublime = util.template(M.template, colors)
   return sublime
 end
@@ -108,7 +108,7 @@ M.template = [[
 			<key>settings</key>
 			<dict>
 				<key>foreground</key>
-				<string>${comment}</string>
+				<string>${foregrounds.comment}</string>
 			</dict>
 		</dict>
 		<dict>
@@ -119,7 +119,7 @@ M.template = [[
 			<key>settings</key>
 			<dict>
 				<key>foreground</key>
-				<string>${comment}</string>
+				<string>${foregrounds.comment}</string>
 			</dict>
 		</dict>
 		<dict>
@@ -143,7 +143,7 @@ M.template = [[
         <key>fontStyle</key>
         <string></string>
         <key>foreground</key>
-        <string>${string}</string>
+        <string>${syntax.string}</string>
       </dict>
     </dict>
 		<dict>
@@ -178,7 +178,7 @@ M.template = [[
 			<key>settings</key>
 			<dict>
 				<key>foreground</key>
-				<string>${info}</string>
+				<string>${diagnostics.info}</string>
 				<key>background</key>
 				<string>${info_bg}</string>
 			</dict>
@@ -191,7 +191,7 @@ M.template = [[
 			<key>settings</key>
 			<dict>
 				<key>foreground</key>
-				<string>${warning}</string>
+				<string>${diagnostics.warning}</string>
 				<key>background</key>
 				<string>${warning_bg}</string>
 			</dict>
@@ -204,7 +204,7 @@ M.template = [[
 			<key>settings</key>
 			<dict>
 				<key>foreground</key>
-				<string>${error}</string>
+				<string>${diagnostics.error}</string>
 				<key>background</key>
 				<string>${error_bg}</string>
 			</dict>
@@ -285,7 +285,7 @@ M.template = [[
 			<key>settings</key>
 			<dict>
 				<key>foreground</key>
-				<string>${operator}</string>
+				<string>${syntax.operator}</string>
 			</dict>
 		</dict>
 		<dict>
@@ -373,7 +373,7 @@ M.template = [[
 			<key>settings</key>
 			<dict>
 				<key>foreground</key>
-				<string>${info}</string>
+				<string>${diagnostics.info}</string>
 			</dict>
 		</dict>
 		<dict>
@@ -395,7 +395,7 @@ M.template = [[
 			<key>settings</key>
 			<dict>
 				<key>foreground</key>
-				<string>${type}</string>
+				<string>${syntax.type}</string>
 			</dict>
 		</dict>
 		<dict>
@@ -406,7 +406,7 @@ M.template = [[
 			<key>settings</key>
 			<dict>
 				<key>foreground</key>
-				<string>${warning}</string>
+				<string>${diagnostics.warning}</string>
 			</dict>
 		</dict>
 		<dict>
@@ -439,7 +439,7 @@ M.template = [[
 			<key>settings</key>
 			<dict>
 				<key>foreground</key>
-				<string>${success}</string>
+				<string>${diagnostics.success}</string>
 			</dict>
 		</dict>
 		<dict>
@@ -527,7 +527,7 @@ M.template = [[
 			<key>settings</key>
 			<dict>
 				<key>foreground</key>
-				<string>${warning}</string>
+				<string>${diagnostics.warning}</string>
 			</dict>
 		</dict>
 		<dict>
@@ -573,7 +573,7 @@ M.template = [[
 			<key>settings</key>
 			<dict>
 				<key>foreground</key>
-				<string>${info}</string>
+				<string>${diagnostics.info}</string>
 			</dict>
 		</dict>
 		<dict>
@@ -595,7 +595,7 @@ M.template = [[
 			<key>settings</key>
 			<dict>
 				<key>foreground</key>
-				<string>${type_builtin}</string>
+				<string>${syntax.type_builtin}</string>
 			</dict>
 		</dict>
 		<dict>
@@ -650,7 +650,7 @@ M.template = [[
 			<key>settings</key>
 			<dict>
 				<key>foreground</key>
-				<string>${info}</string>
+				<string>${diagnostics.info}</string>
 			</dict>
 		</dict>
 		<dict>
@@ -661,7 +661,7 @@ M.template = [[
 			<key>settings</key>
 			<dict>
 				<key>foreground</key>
-				<string>${warning}</string>
+				<string>${diagnostics.warning}</string>
 			</dict>
 		</dict>
 		<dict>
@@ -683,7 +683,7 @@ M.template = [[
 			<key>settings</key>
 			<dict>
 				<key>foreground</key>
-				<string>${warning}</string>
+				<string>${diagnostics.warning}</string>
 			</dict>
 		</dict>
 		<dict>
@@ -804,7 +804,7 @@ M.template = [[
 			<key>settings</key>
 			<dict>
 				<key>foreground</key>
-				<string>${operator}</string>
+				<string>${syntax.operator}</string>
 			</dict>
 		</dict>
 		<dict>
@@ -870,7 +870,7 @@ M.template = [[
 			<key>settings</key>
 			<dict>
 				<key>foreground</key>
-				<string>${operator}</string>
+				<string>${syntax.operator}</string>
 			</dict>
 		</dict>
 		<dict>
@@ -903,7 +903,7 @@ M.template = [[
 			<key>settings</key>
 			<dict>
 				<key>foreground</key>
-				<string>${warning}</string>
+				<string>${diagnostics.warning}</string>
 			</dict>
 		</dict>
 		<dict>
@@ -914,7 +914,7 @@ M.template = [[
 			<key>settings</key>
 			<dict>
 				<key>foreground</key>
-				<string>${operator}</string>
+				<string>${syntax.operator}</string>
 			</dict>
 		</dict>
 		<dict>
@@ -936,7 +936,7 @@ M.template = [[
 			<key>settings</key>
 			<dict>
 				<key>foreground</key>
-				<string>${string_escape}</string>
+				<string>${syntax.string_escape}</string>
 			</dict>
 		</dict>
 		<dict>
@@ -980,7 +980,7 @@ M.template = [[
 			<key>settings</key>
 			<dict>
 				<key>foreground</key>
-				<string>${info}</string>
+				<string>${diagnostics.info}</string>
 			</dict>
 		</dict>
 		<dict>
@@ -1013,7 +1013,7 @@ M.template = [[
 			<key>settings</key>
 			<dict>
 				<key>foreground</key>
-				<string>${warning}</string>
+				<string>${diagnostics.warning}</string>
 			</dict>
 		</dict>
 		<dict>
@@ -1024,7 +1024,7 @@ M.template = [[
 			<key>settings</key>
 			<dict>
 				<key>foreground</key>
-				<string>${info}</string>
+				<string>${diagnostics.info}</string>
 			</dict>
 		</dict>
 		<dict>
@@ -1035,7 +1035,7 @@ M.template = [[
 			<key>settings</key>
 			<dict>
 				<key>foreground</key>
-				<string>${success}</string>
+				<string>${diagnostics.success}</string>
 			</dict>
 		</dict>
 		<dict>
@@ -1147,7 +1147,7 @@ M.template = [[
 				<key>fontStyle</key>
 				<string>bold</string>
 				<key>foreground</key>
-				<string>${operator}</string>
+				<string>${syntax.operator}</string>
 			</dict>
 		</dict>
 		<dict>
@@ -1295,7 +1295,7 @@ M.template = [[
 			<key>settings</key>
 			<dict>
 				<key>foreground</key>
-				<string>${link}</string>
+				<string>${syntax.link}</string>
 			</dict>
 		</dict>
 		<dict>
@@ -1306,7 +1306,7 @@ M.template = [[
 			<key>settings</key>
 			<dict>
 				<key>foreground</key>
-				<string>${md_inline}</string>
+				<string>${syntax.md_inline}</string>
 			</dict>
 		</dict>
 		<dict>
@@ -1341,7 +1341,7 @@ M.template = [[
 			<key>settings</key>
 			<dict>
 				<key>foreground</key>
-				<string>${info}</string>
+				<string>${diagnostics.info}</string>
 			</dict>
 		</dict>
 		<dict>
@@ -1363,7 +1363,7 @@ M.template = [[
 			<key>settings</key>
 			<dict>
 				<key>foreground</key>
-				<string>${error}</string>
+				<string>${diagnostics.error}</string>
 			</dict>
 		</dict>
 		<dict>
@@ -1396,7 +1396,7 @@ M.template = [[
 			<key>settings</key>
 			<dict>
 				<key>foreground</key>
-				<string>${macro}</string>
+				<string>${syntax.macro}</string>
 			</dict>
 		</dict>
 		<dict>

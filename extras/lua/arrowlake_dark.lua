@@ -1,45 +1,75 @@
 local colors = {
   _name = "arrowlake_dark",
   _style = "dark",
-  ai = "#33D4B4",
-  attention = "#D91C87",
+  backgrounds = {
+    code = "#09081a",
+    color_column = "#070614",
+    dark = "#09081a",
+    darker = "#070614",
+    float = "#070614",
+    fold = "#070614",
+    highlight = "#161440",
+    hover = "#161440",
+    input = "#070614",
+    normal = "#0D0C25",
+    notification = "#09081a",
+    search = "#161440",
+    search_current = "#691351",
+    sidebar = "#070614",
+    statusline = "#09081a",
+    tabline = "#09081a",
+    tabline_fill = "#09081a",
+    visual = "#161440",
+    which_key = "#09081a",
+    winbar = "#09081a"
+  },
   bg = "#0D0C25",
-  bg_active_parameter = "#161440",
-  bg_code = "#09081a",
   bg_dark = "#09081a",
   bg_darker = "#070614",
-  bg_float = "#070614",
-  bg_highlight = "#161440",
-  bg_hover = "#312e55",
-  bg_notification = "#09081a",
-  bg_search = "#312e55",
-  bg_search_current = "#D91C87",
-  bg_sidebar = "#070614",
-  bg_visual = "#161440",
-  black = "#070614",
   blue = "#3F3BF5",
-  border = "#09081a",
-  border_color = "#3F3BF5",
-  border_subtle = "#5c6296",
-  comment = "#5c6296",
-  constant = "#FB9B00",
-  constructor = "#D91C87",
+  border = {
+    active = "#FB9B00",
+    active_title = "#FB9B00",
+    color = "#3F3BF5",
+    split = "#09081a",
+    subtle = "#5c6296",
+    title = "#3F3BF5"
+  },
   cyan = "#33D4B4",
+  diagnostics = {
+    error = "#E50050",
+    hint = "#33D4B4",
+    info = "#5352CD",
+    success = "#2A8A6B",
+    todo = "#5352CD",
+    trace = "#834CCF",
+    warning = "#FB9B00"
+  },
   diff = {
     add = "#111f30",
     change = "#42393b",
     delete = "#2d0a2b",
     text = "#152d37"
   },
-  error = "#E50050",
   fg = "#bec8e8",
   fg_dark = "#7e85b8",
   fg_darker = "#5c6296",
   fg_gutter = "#312e55",
-  fg_sidebar = "#5c6296",
   focus = "#FB9B00",
-  functions = "#3F3BF5",
-  functions_builtin = "#332fc1",
+  foregrounds = {
+    comment = "#5c6296",
+    dark = "#7e85b8",
+    darker = "#5c6296",
+    indent = "#312e55",
+    member = "#7e85b8",
+    muted = "#312e55",
+    normal = "#bec8e8",
+    punctuation = "#7e85b8",
+    sidebar = "#5c6296",
+    statusline = "#5c6296",
+    tabline = "#3F3BF5",
+    winbar = "#5c6296"
+  },
   git = {
     add = "#2A8A6B",
     change = "#FFD888",
@@ -47,40 +77,44 @@ local colors = {
     ignore = "#5c6296"
   },
   green = "#2A8A6B",
-  hint = "#33D4B4",
-  info = "#5352CD",
-  keyword = "#D91C87",
-  link = "#33D4B4",
-  macro = "#33D4B4",
   magenta = "#D91C87",
-  markup = "#FB9B00",
-  md_inline = "#FFD888",
-  member = "#7e85b8",
-  muted = "#5c6296",
   none = "NONE",
-  operator = "#9AC1E5",
   orange = "#FB9B00",
-  parameter = "#FFD888",
   primary = "#3F3BF5",
-  punctuation = "#7e85b8",
   purple = "#834CCF",
-  rainbow = { "#3F3BF5", "#FFD888", "#D91C87", "#2A8A6B", "#33D4B4", "#E50050", "#834CCF", "#FB9B00" },
+  rainbow = { "#3F3BF5", "#FFD888", "#D91C87", "#2A8A6B", "#33D4B4", "#834CCF", "#E50050", "#FB9B00" },
   red = "#E50050",
   secondary = "#5352CD",
   selection = "#161440",
+  special = "#9AC1E5",
   status = {
-    bg = "#09081a",
     command = "#FB9B00",
+    inactive = "#070614",
     insert = "#2A8A6B",
     normal = "#3F3BF5",
     replace = "#E50050",
     terminal = "#33D4B4",
     visual = "#D91C87"
   },
-  string = "#2A8A6B",
-  string_doc = "#FFD888",
-  string_escape = "#D91C87",
-  success = "#2A8A6B",
+  syntax = {
+    constant = "#FFD888",
+    constructor = "#D91C87",
+    functions = "#3F3BF5",
+    functions_builtin = "#3834d6",
+    keyword = "#D91C87",
+    link = "#33D4B4",
+    macro = "#33D4B4",
+    markup = "#FB9B00",
+    md_inline = "#FFD888",
+    operator = "#9AC1E5",
+    parameter = "#FFD888",
+    string = "#2A8A6B",
+    string_doc = "#FFD888",
+    string_escape = "#D91C87",
+    type = "#5352CD",
+    type_builtin = "#4948b4",
+    variable = "#bec8e8"
+  },
   terminal = {
     black = "#070614",
     black_bright = "#312e55",
@@ -99,14 +133,18 @@ local colors = {
     yellow = "#FFD888",
     yellow_bright = "#ffe8c2"
   },
-  terminal_black = "#312e55",
-  title = "#3F3BF5",
-  todo = "#5352CD",
-  trace = "#834CCF",
-  type = "#5352CD",
-  type_builtin = "#4241a3",
-  variable = "#bec8e8",
-  warning = "#FB9B00",
+  ui = {
+    ai = "#33D4B4",
+    attention = "#D91C87",
+    cursor_bg = "#bec8e8",
+    cursor_fg = "#0D0C25",
+    footer = "#5352CD",
+    header = "#3F3BF5",
+    icon = "#5352CD",
+    label = "#5352CD",
+    path = "#3F3BF5",
+    prompt = "#3F3BF5"
+  },
   yellow = "#FFD888"
 }
 
@@ -151,7 +189,7 @@ local highlights = {
   ["@function"] = "Function",
   ["@function.builtin"] = {
     bold = true,
-    fg = "#332fc1"
+    fg = "#3834d6"
   },
   ["@function.call"] = "@function",
   ["@function.macro"] = "Macro",
@@ -219,10 +257,10 @@ local highlights = {
   ["@lsp.typemod.string.injected"] = "@string",
   ["@lsp.typemod.struct.defaultLibrary"] = "@type.builtin",
   ["@lsp.typemod.type.defaultLibrary"] = {
-    fg = "#4241a3"
+    fg = "#4948b4"
   },
   ["@lsp.typemod.typeAlias.defaultLibrary"] = {
-    fg = "#4241a3"
+    fg = "#4948b4"
   },
   ["@lsp.typemod.variable.callable"] = "@function",
   ["@lsp.typemod.variable.defaultLibrary"] = "@variable.builtin",
@@ -261,14 +299,14 @@ local highlights = {
     fg = "#33D4B4"
   },
   ["@markup.heading.6.markdown"] = {
-    bg = "#230b29",
-    bold = true,
-    fg = "#E50050"
-  },
-  ["@markup.heading.7.markdown"] = {
     bg = "#191236",
     bold = true,
     fg = "#834CCF"
+  },
+  ["@markup.heading.7.markdown"] = {
+    bg = "#230b29",
+    bold = true,
+    fg = "#E50050"
   },
   ["@markup.heading.8.markdown"] = {
     bg = "#251a21",
@@ -360,7 +398,7 @@ local highlights = {
   ["@tag.tsx"] = "@tag",
   ["@type"] = "Type",
   ["@type.builtin"] = {
-    fg = "#4241a3"
+    fg = "#4948b4"
   },
   ["@type.definition"] = "Typedef",
   ["@type.qualifier"] = "@keyword",
@@ -536,7 +574,7 @@ local highlights = {
   },
   BlinkCmpLabelMatch = {
     bg = "NONE",
-    fg = "#5352CD"
+    fg = "#FB9B00"
   },
   BlinkCmpMenu = {
     bg = "#070614",
@@ -794,11 +832,11 @@ local highlights = {
   },
   CmpItemAbbrMatch = {
     bg = "NONE",
-    fg = "#5352CD"
+    fg = "#FB9B00"
   },
   CmpItemAbbrMatchFuzzy = {
     bg = "NONE",
-    fg = "#5352CD"
+    fg = "#FB9B00"
   },
   CmpItemKindArray = "LspKindArray",
   CmpItemKindBoolean = "LspKindBoolean",
@@ -881,7 +919,7 @@ local highlights = {
     fg = "#5c6296"
   },
   Constant = {
-    fg = "#FB9B00"
+    fg = "#FFD888"
   },
   CopilotAnnotation = {
     fg = "#312e55"
@@ -951,7 +989,7 @@ local highlights = {
     fg = "#3F3BF5"
   },
   Debug = {
-    fg = "#FB9B00"
+    fg = "#FFD888"
   },
   DefinitionCount = {
     fg = "#D91C87"
@@ -1239,7 +1277,7 @@ local highlights = {
   },
   FFFFileInfoSize = {
     bg = "#070614",
-    fg = "#FB9B00"
+    fg = "#FFD888"
   },
   FFFFileInfoTotalScore = {
     bg = "#070614",
@@ -1428,10 +1466,10 @@ local highlights = {
     fg = "#FB9B00"
   },
   GlyphPalette4 = {
-    fg = "#3F3BF5"
+    fg = "#5352CD"
   },
   GlyphPalette6 = {
-    fg = "#2A8A6B"
+    fg = "#5c6296"
   },
   GlyphPalette7 = {
     fg = "#bec8e8"
@@ -1464,11 +1502,11 @@ local highlights = {
     fg = "#5c6296"
   },
   GrugFarResultsMatch = {
-    bg = "#D91C87",
+    bg = "#691351",
     fg = "#bec8e8"
   },
   GrugFarResultsStats = {
-    fg = "#3F3BF5"
+    fg = "#834CCF"
   },
   Headline = "Headline1",
   Headline1 = {
@@ -1487,10 +1525,10 @@ local highlights = {
     bg = "#0f162c"
   },
   Headline6 = {
-    bg = "#180b27"
+    bg = "#130f2e"
   },
   Headline7 = {
-    bg = "#130f2e"
+    bg = "#180b27"
   },
   Headline8 = {
     bg = "#191323"
@@ -1521,16 +1559,16 @@ local highlights = {
     fg = "#7e85b8"
   },
   IlluminatedWordRead = {
-    bg = "#312e55"
+    bg = "#161440"
   },
   IlluminatedWordText = {
-    bg = "#312e55"
+    bg = "#161440"
   },
   IlluminatedWordWrite = {
-    bg = "#312e55"
+    bg = "#161440"
   },
   IncSearch = {
-    bg = "#D91C87",
+    bg = "#691351",
     fg = "#bec8e8"
   },
   InclineNormal = "StatusLine",
@@ -1605,13 +1643,13 @@ local highlights = {
     fg = "#5352CD"
   },
   LazyInfo = {
-    fg = "#33D4B4"
+    fg = "#5352CD"
   },
   LazyItalic = {
     italic = true
   },
   LazyLocal = {
-    fg = "#FB9B00"
+    fg = "#FFD888"
   },
   LazyNoCond = {
     fg = "#FB9B00"
@@ -1635,7 +1673,7 @@ local highlights = {
     fg = "#9AC1E5"
   },
   LazyReasonEvent = {
-    fg = "#FB9B00"
+    fg = "#FFD888"
   },
   LazyReasonFt = {
     fg = "#2A8A6B"
@@ -1662,10 +1700,10 @@ local highlights = {
     fg = "#7e85b8"
   },
   LazySpecial = {
-    fg = "#D91C87"
+    fg = "#FB9B00"
   },
   LazyTaskOutput = {
-    fg = "#7e85b8"
+    fg = "#5c6296"
   },
   LazyUrl = {
     fg = "#33D4B4"
@@ -1701,6 +1739,7 @@ local highlights = {
     fg = "#5c6296"
   },
   LspFloatWinBorder = {
+    bg = "#070614",
     fg = "#3F3BF5"
   },
   LspFloatWinNormal = {
@@ -1749,13 +1788,13 @@ local highlights = {
   LspKindValue = "@string",
   LspKindVariable = "@variable",
   LspReferenceRead = {
-    bg = "#312e55"
+    bg = "#161440"
   },
   LspReferenceText = {
-    bg = "#312e55"
+    bg = "#161440"
   },
   LspReferenceWrite = {
-    bg = "#312e55"
+    bg = "#161440"
   },
   LspSagaBorderTitle = {
     fg = "#33D4B4"
@@ -1773,7 +1812,7 @@ local highlights = {
     fg = "#33D4B4"
   },
   LspSagaFinderSelection = {
-    bg = "#312e55",
+    bg = "#161440",
     fg = "#bec8e8"
   },
   LspSagaHoverBorder = {
@@ -1789,6 +1828,65 @@ local highlights = {
     bg = "#161440",
     bold = true,
     fg = "#FFD888"
+  },
+  MasonHeader = {
+    bg = "#FB9B00",
+    fg = "#bec8e8"
+  },
+  MasonHeaderSecondary = {
+    bg = "#33D4B4",
+    fg = "#bec8e8"
+  },
+  MasonHighlight = {
+    fg = "#33D4B4"
+  },
+  MasonHighlightBlock = {
+    bg = "#33D4B4",
+    fg = "#bec8e8"
+  },
+  MasonHighlightBlockBold = {
+    bg = "#33D4B4",
+    bold = true,
+    cterm = {
+      bold = true
+    },
+    default = true,
+    fg = "#bec8e8"
+  },
+  MasonHighlightBlockBoldSecondary = {
+    bg = "#FB9B00",
+    bold = true,
+    cterm = {
+      bold = true
+    },
+    default = true,
+    fg = "#bec8e8"
+  },
+  MasonHighlightBlockSecondary = {
+    bg = "#FB9B00",
+    fg = "#bec8e8"
+  },
+  MasonHighlightSecondary = {
+    fg = "#FB9B00"
+  },
+  MasonLink = {
+    fg = "#33D4B4"
+  },
+  MasonMuted = {
+    fg = "#312e55"
+  },
+  MasonMutedBlock = {
+    bg = "#312e55",
+    fg = "#bec8e8"
+  },
+  MasonMutedBlockBold = {
+    bg = "#312e55",
+    bold = true,
+    cterm = {
+      bold = true
+    },
+    default = true,
+    fg = "#bec8e8"
   },
   MatchParen = {
     bold = true,
@@ -1914,7 +2012,7 @@ local highlights = {
   },
   MiniJump = {
     bg = "#D91C87",
-    fg = "#ffffff"
+    fg = "#0D0C25"
   },
   MiniJump2dDim = "Comment",
   MiniJump2dSpot = {
@@ -2008,50 +2106,50 @@ local highlights = {
   MiniStatuslineModeCommand = {
     bg = "#FB9B00",
     bold = true,
-    fg = "#070614"
+    fg = "#09081a"
   },
   MiniStatuslineModeInsert = {
     bg = "#2A8A6B",
     bold = true,
-    fg = "#070614"
+    fg = "#09081a"
   },
   MiniStatuslineModeNormal = {
     bg = "#3F3BF5",
     bold = true,
-    fg = "#070614"
+    fg = "#09081a"
   },
   MiniStatuslineModeOther = {
     bg = "#33D4B4",
     bold = true,
-    fg = "#070614"
+    fg = "#09081a"
   },
   MiniStatuslineModeReplace = {
     bg = "#E50050",
     bold = true,
-    fg = "#070614"
+    fg = "#09081a"
   },
   MiniStatuslineModeVisual = {
     bg = "#D91C87",
     bold = true,
-    fg = "#070614"
+    fg = "#09081a"
   },
   MiniSurround = {
     bg = "#FB9B00",
     fg = "#070614"
   },
   MiniTablineCurrent = {
-    bg = "#312e55",
+    bg = "#161440",
     fg = "#bec8e8"
   },
   MiniTablineFill = {
-    bg = "#070614"
+    bg = "#09081a"
   },
   MiniTablineHidden = {
     bg = "#09081a",
     fg = "#5c6296"
   },
   MiniTablineModifiedCurrent = {
-    bg = "#312e55",
+    bg = "#161440",
     fg = "#FB9B00"
   },
   MiniTablineModifiedHidden = {
@@ -2063,11 +2161,10 @@ local highlights = {
     fg = "#FB9B00"
   },
   MiniTablineTabpagesection = {
-    bg = "#312e55",
+    bg = "#161440",
     fg = "NONE"
   },
   MiniTablineVisible = {
-    bg = "#09081a",
     fg = "#bec8e8"
   },
   MiniTestEmphasis = {
@@ -2174,7 +2271,7 @@ local highlights = {
   },
   NeoTreeTabSeparatorInactive = {
     bg = "#070614",
-    fg = "#0D0C25"
+    fg = "#09081a"
   },
   NeogitBranch = {
     fg = "#3F3BF5"
@@ -2184,7 +2281,7 @@ local highlights = {
     fg = "#2A8A6B"
   },
   NeogitDiffContextHighlight = {
-    bg = "#1f1d3d",
+    bg = "#161440",
     fg = "#7e85b8"
   },
   NeogitDiffDeleteHighlight = {
@@ -2196,7 +2293,7 @@ local highlights = {
     fg = "#bec8e8"
   },
   NeogitHunkHeaderHighlight = {
-    bg = "#312e55",
+    bg = "#161440",
     fg = "#3F3BF5"
   },
   NeogitRemote = {
@@ -2225,7 +2322,7 @@ local highlights = {
     fg = "#FB9B00"
   },
   NeotestIndent = {
-    fg = "#5c6296"
+    fg = "#312e55"
   },
   NeotestMarked = {
     fg = "#5352CD"
@@ -2252,7 +2349,7 @@ local highlights = {
     fg = "#D91C87"
   },
   NoiceCmdlineIconInput = {
-    fg = "#FB9B00"
+    fg = "#5352CD"
   },
   NoiceCmdlineIconLua = {
     fg = "#5352CD"
@@ -2261,7 +2358,7 @@ local highlights = {
     fg = "#FB9B00"
   },
   NoiceCmdlinePopupBorderLua = {
-    fg = "#5352CD"
+    fg = "#FB9B00"
   },
   NoiceCmdlinePopupTitleInput = {
     fg = "#FB9B00"
@@ -2472,16 +2569,15 @@ local highlights = {
     fg = "#9AC1E5"
   },
   PiAgentResponseLabel = {
-    bg = "#33D4B4",
     bold = true,
-    fg = "#070614"
+    fg = "#33D4B4"
   },
   PiBusy = {
     bold = true,
     fg = "#33D4B4"
   },
   PiBusyTime = {
-    fg = "#5c6296"
+    fg = "#312e55"
   },
   PiChatHistoryFloatTitle = {
     bg = "#3F3BF5",
@@ -2507,18 +2603,18 @@ local highlights = {
     fg = "#312e55"
   },
   PiDiffWinbar = {
-    bg = "#070614"
+    bg = "#09081a"
   },
   PiDiffWinbarCurrent = {
     bold = true,
-    fg = "#bec8e8"
+    fg = "#7e85b8"
   },
   PiDiffWinbarHint = {
     fg = "#5c6296"
   },
   PiDiffWinbarProposed = {
     bold = true,
-    fg = "#bec8e8"
+    fg = "#7e85b8"
   },
   PiError = {
     fg = "#E50050"
@@ -2532,11 +2628,11 @@ local highlights = {
     underline = true
   },
   PiMessageAttachments = {
-    fg = "#D91C87",
+    fg = "#33D4B4",
     italic = true
   },
   PiMessageDateTime = {
-    fg = "#5c6296"
+    fg = "#312e55"
   },
   PiStartupLabel = {
     bg = "#5c6296",
@@ -2561,9 +2657,8 @@ local highlights = {
     fg = "#bec8e8"
   },
   PiUserMessageLabel = {
-    bg = "#5352CD",
     bold = true,
-    fg = "#070614"
+    fg = "#5352CD"
   },
   PiWarning = {
     fg = "#FB9B00",
@@ -2578,11 +2673,11 @@ local highlights = {
   },
   PmenuMatch = {
     bg = "#070614",
-    fg = "#5352CD"
+    fg = "#FB9B00"
   },
   PmenuMatchSel = {
     bg = "#161440",
-    fg = "#5352CD"
+    fg = "#FB9B00"
   },
   PmenuSbar = {
     bg = "#10101f"
@@ -2677,18 +2772,18 @@ local highlights = {
     fg = "#33D4B4"
   },
   RenderMarkdownH6Bg = {
-    bg = "#230b29"
+    bg = "#191236"
   },
   RenderMarkdownH6Fg = {
     bold = true,
-    fg = "#E50050"
+    fg = "#834CCF"
   },
   RenderMarkdownH7Bg = {
-    bg = "#191236"
+    bg = "#230b29"
   },
   RenderMarkdownH7Fg = {
     bold = true,
-    fg = "#834CCF"
+    fg = "#E50050"
   },
   RenderMarkdownH8Bg = {
     bg = "#251a21"
@@ -2756,7 +2851,7 @@ local highlights = {
     fg = "#FB9B00"
   },
   Search = {
-    bg = "#312e55",
+    bg = "#161440",
     fg = "#bec8e8"
   },
   SidekickDiffAdd = "DiffAdd",
@@ -2834,11 +2929,11 @@ local highlights = {
     nocombine = true
   },
   SnacksIndent6 = {
-    fg = "#E50050",
+    fg = "#834CCF",
     nocombine = true
   },
   SnacksIndent7 = {
-    fg = "#834CCF",
+    fg = "#E50050",
     nocombine = true
   },
   SnacksIndent8 = {
@@ -2957,15 +3052,16 @@ local highlights = {
     fg = "#3F3BF5"
   },
   SnacksPickerPickWin = {
-    bg = "#312e55",
+    bg = "#161440",
     bold = true,
     fg = "#bec8e8"
   },
   SnacksPickerPickWinCurrent = {
-    bg = "#D91C87",
+    bg = "#FB9B00",
     bold = true,
     fg = "#bec8e8"
   },
+  SnacksPickerSearch = "CurSearch",
   SnacksPickerSelected = {
     fg = "#D91C87"
   },
@@ -2997,7 +3093,7 @@ local highlights = {
     bg = "#161440"
   },
   Special = {
-    fg = "#4241a3"
+    fg = "#4948b4"
   },
   SpecialKey = {
     fg = "#5c6296"
@@ -3033,8 +3129,8 @@ local highlights = {
     fg = "#2A8A6B"
   },
   Substitute = {
-    bg = "#D91C87",
-    fg = "#070614"
+    bg = "#691351",
+    fg = "#bec8e8"
   },
   SupermavenSuggestion = {
     fg = "#312e55"
@@ -3048,7 +3144,7 @@ local highlights = {
   },
   TabLineSel = {
     bg = "#3F3BF5",
-    fg = "#070614"
+    fg = "#09081a"
   },
   TargetWord = {
     fg = "#33D4B4"
@@ -3084,10 +3180,13 @@ local highlights = {
     bg = "#09081a"
   },
   TroubleCount = {
-    bg = "#312e55",
+    bg = "#161440",
     fg = "#D91C87"
   },
-  TroubleNormal = "Normal",
+  TroubleNormal = {
+    bg = "#070614",
+    fg = "#bec8e8"
+  },
   TroubleText = {
     fg = "#7e85b8"
   },
@@ -3132,12 +3231,12 @@ local highlights = {
   VimwikiHeader6 = {
     bg = "NONE",
     bold = true,
-    fg = "#E50050"
+    fg = "#834CCF"
   },
   VimwikiHeader7 = {
     bg = "NONE",
     bold = true,
-    fg = "#834CCF"
+    fg = "#E50050"
   },
   VimwikiHeader8 = {
     bg = "NONE",
@@ -3174,10 +3273,10 @@ local highlights = {
     fg = "#FB9B00"
   },
   WhichKey = {
-    fg = "#33D4B4"
+    fg = "#FB9B00"
   },
   WhichKeyBorder = {
-    bg = "#070614",
+    bg = "#09081a",
     fg = "#3F3BF5"
   },
   WhichKeyDesc = {
@@ -3187,14 +3286,14 @@ local highlights = {
     fg = "#3F3BF5"
   },
   WhichKeyNormal = {
-    bg = "#070614",
+    bg = "#09081a",
     fg = "#bec8e8"
   },
   WhichKeySeparator = {
     fg = "#5c6296"
   },
   WhichKeyTitle = {
-    bg = "#070614",
+    bg = "#09081a",
     fg = "#3F3BF5"
   },
   WhichKeyValue = {
@@ -3206,8 +3305,14 @@ local highlights = {
   WildMenu = {
     bg = "#161440"
   },
-  WinBar = "StatusLine",
-  WinBarNC = "StatusLineNC",
+  WinBar = {
+    bg = "#09081a",
+    fg = "#5c6296"
+  },
+  WinBarNC = {
+    bg = "#09081a",
+    fg = "#312e55"
+  },
   WinSeparator = {
     bold = true,
     fg = "#09081a"
@@ -3221,7 +3326,7 @@ local highlights = {
     fg = "#5352CD"
   },
   debugPC = {
-    bg = "#070614"
+    bg = "#09081a"
   },
   diffAdded = {
     bg = "#111f30",
@@ -3263,7 +3368,7 @@ local highlights = {
     fg = "#FB9B00"
   },
   helpCommand = {
-    bg = "#312e55",
+    bg = "#161440",
     fg = "#3F3BF5"
   },
   helpExample = {
@@ -3278,10 +3383,10 @@ local highlights = {
     fg = "#3F3BF5"
   },
   illuminatedCurWord = {
-    bg = "#312e55"
+    bg = "#161440"
   },
   illuminatedWord = {
-    bg = "#312e55"
+    bg = "#161440"
   },
   lCursor = {
     bg = "#bec8e8",
@@ -3291,6 +3396,6 @@ local highlights = {
     fg = "#3F3BF5"
   },
   qfLineNr = {
-    fg = "#5c6296"
+    fg = "#312e55"
   }
 }

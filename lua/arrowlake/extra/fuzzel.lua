@@ -5,7 +5,7 @@ local M = {}
 --- @param colors ColorScheme
 function M.generate(colors)
   local fuzzelColors = {}
-  colors.bg_search = colors.bg_highlight
+  colors.backgrounds.search = colors.backgrounds.highlight
   for k, v in pairs(colors) do
     if type(v) == "string" then
       fuzzelColors[k] = v:gsub("^#", "") .. "ff"
@@ -15,13 +15,13 @@ function M.generate(colors)
   local fuzzel = util.template(
     [[
 [colors]
-background=${bg_float}
+background=${backgrounds.float}
 text=${fg}
 match=${secondary}
-selection=${bg_search}
+selection=${backgrounds.search}
 selection-match=${secondary}
 selection-text=${fg}
-border=${border_color}
+border=${border.color}
 ]],
     fuzzelColors
   )

@@ -15,8 +15,8 @@ function M.generate(colors)
     [[
 # Arrowlake Color Palette
 set -l foreground ${fg}
-set -l selection ${bg_visual}
-set -l comment ${comment}
+set -l selection ${backgrounds.visual}
+set -l comment ${foregrounds.comment}
 set -l red ${red}
 set -l orange ${orange}
 set -l yellow ${yellow}

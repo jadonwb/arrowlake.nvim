@@ -4,8 +4,8 @@ local M = {}
 
 --- @param colors ColorScheme
 function M.generate(colors)
-  colors.search_bg = colors.bg_search
-  colors.pmenusel = colors.bg_highlight
+  colors.search_bg = colors.backgrounds.search
+  colors.pmenusel = colors.backgrounds.highlight
   local yazi = util.template(
     [[
 [mgr]
@@ -15,42 +15,42 @@ function M.generate(colors)
 cwd = { fg = "${fg_dark}", italic = true }
 
 # Hovered
-hovered         = { bg = "${bg_hover}" }
-preview_hovered = { bg = "${bg_hover}" }
+hovered         = { bg = "${backgrounds.hover}" }
+preview_hovered = { bg = "${backgrounds.hover}" }
 
 # Find
  find_keyword  = { fg = "${bg_dark}", bg = "${focus}", bold = true }
-find_position = { fg = "${info}", bg = "${search_bg}", bold = true }
+find_position = { fg = "${diagnostics.info}", bg = "${search_bg}", bold = true }
 
 # Marker
- marker_copied   = { fg = "${success}", bg = "${success}" }
- marker_cut      = { fg = "${error}", bg = "${error}" }
- marker_marked   = { fg = "${attention}", bg = "${attention}" }
+ marker_copied   = { fg = "${diagnostics.success}", bg = "${diagnostics.success}" }
+ marker_cut      = { fg = "${diagnostics.error}", bg = "${diagnostics.error}" }
+ marker_marked   = { fg = "${ui.attention}", bg = "${ui.attention}" }
  marker_selected = { fg = "${secondary}", bg = "${secondary}" }
 
 # Count
- count_copied   = { fg = "${bg_dark}", bg = "${success}" }
- count_cut      = { fg = "${bg_dark}", bg = "${error}" }
+ count_copied   = { fg = "${bg_dark}", bg = "${diagnostics.success}" }
+ count_cut      = { fg = "${bg_dark}", bg = "${diagnostics.error}" }
  count_selected = { fg = "${bg_dark}", bg = "${secondary}" }
 
 # Border
 border_symbol = "│"
-border_style  = { fg = "${border_color}" }
+border_style  = { fg = "${border.color}" }
 
 # Tab
 [tabs]
- active   = { fg = "${black}", bg = "${title}" }
- inactive = { fg = "${title}", bg = "${fg_gutter}" }
+ active   = { fg = "${terminal.black}", bg = "${syntax.title}" }
+ inactive = { fg = "${syntax.title}", bg = "${fg_gutter}" }
 
 [mode]
- normal_main = { fg = "${black}", bg = "${title}", bold = true }
- normal_alt  = { fg = "${title}", bg = "${fg_gutter}" }
+ normal_main = { fg = "${terminal.black}", bg = "${syntax.title}", bold = true }
+ normal_alt  = { fg = "${syntax.title}", bg = "${fg_gutter}" }
 
- select_main = { fg = "${black}", bg = "${attention}", bold = true }
- select_alt  = { fg = "${attention}", bg = "${fg_gutter}" }
+ select_main = { fg = "${terminal.black}", bg = "${ui.attention}", bold = true }
+ select_alt  = { fg = "${ui.attention}", bg = "${fg_gutter}" }
 
- unset_main  = { fg = "${black}", bg = "${keyword}", bold = true }
- unset_alt   = { fg = "${keyword}", bg = "${fg_gutter}" }
+ unset_main  = { fg = "${terminal.black}", bg = "${syntax.keyword}", bold = true }
+ unset_alt   = { fg = "${syntax.keyword}", bg = "${fg_gutter}" }
 
 [status]
 overall   = { fg = "${fg}", bg = "${bg_dark}" }
@@ -59,31 +59,31 @@ sep_right = { open = "", close = "" }
 
 # Progress
 progress_label  = { fg = "${fg}", bold = true }
-progress_normal = { fg = "${selection}", bg = "${bg_highlight}" }
- progress_error  = { fg = "${error}", bg = "${bg_highlight}" }
+progress_normal = { fg = "${selection}", bg = "${backgrounds.highlight}" }
+ progress_error  = { fg = "${diagnostics.error}", bg = "${backgrounds.highlight}" }
 
 # Permissions
- perm_type  = { fg = "${type}" }
+ perm_type  = { fg = "${syntax.type}" }
 perm_read  = { fg = "${yellow}" }
- perm_write = { fg = "${error}" }
- perm_exec  = { fg = "${success}" }
-perm_sep   = { fg = "${terminal_black}" }
+ perm_write = { fg = "${diagnostics.error}" }
+ perm_exec  = { fg = "${diagnostics.success}" }
+perm_sep   = { fg = "${terminal.black}" }
 
 [pick]
-border   = { fg = "${border_color}" }
-active   = { fg = "${fg}",  bg = "${bg_visual}" }
+border   = { fg = "${border.color}" }
+active   = { fg = "${fg}",  bg = "${backgrounds.visual}" }
 inactive = { fg = "${fg}" }
 
 # Input
 [input]
- border   = { fg = "${border_color}" }
- title    = { fg = "${border_color}" }
+ border   = { fg = "${border.color}" }
+ title    = { fg = "${border.color}" }
 value    = { fg = "${purple}" }
-selected = { bg = "${bg_visual}" }
+selected = { bg = "${backgrounds.visual}" }
 
 # Completion
 [cmp]
- border   = { fg = "${border_color}" }
+ border   = { fg = "${border.color}" }
 active   = { fg = "${fg}", bg = "${pmenusel}" }
 inactive = { fg = "${fg}" }
 
@@ -93,9 +93,9 @@ icon_command = ""
 
 # Tasks
 [tasks]
-border  = { fg = "${border_color}" }
-title   = { fg = "${border_color}" }
-hovered = { fg = "${fg}", bg = "${bg_hover}" }
+border  = { fg = "${border.color}" }
+title   = { fg = "${border.color}" }
+hovered = { fg = "${fg}", bg = "${backgrounds.hover}" }
 
 # Which
 [which]
@@ -105,28 +105,28 @@ cand            = { fg = "${cyan}" }
 rest            = { fg = "${blue}" }
 desc            = { fg = "${magenta}" }
 separator       = " ➜ "
-separator_style = { fg = "${comment}" }
+separator_style = { fg = "${foregrounds.comment}" }
 
 # Confirm
 [confirm]
- border  = { fg = "${border_color}" }
-title   = { fg = "${border_color}" }
+ border  = { fg = "${border.color}" }
+title   = { fg = "${border.color}" }
 content = {}
 list    = {}
-btn_yes = { bg = "${bg_visual}" }
+btn_yes = { bg = "${backgrounds.visual}" }
 btn_no  = {}
 btn_labels = [ "  [Y]es  ", "  (N)o  " ]
 
 # Spot
 [spot]
-border  = { fg = "${border_color}" }
-title   = { fg = "${border_color}" }
+border  = { fg = "${border.color}" }
+title   = { fg = "${border.color}" }
 
 # Notify
 [notify]
-title_info  = { fg = "${info}" }
-title_warn  = { fg = "${warning}" }
-title_error = { fg = "${error}" }
+title_info  = { fg = "${diagnostics.info}" }
+title_warn  = { fg = "${diagnostics.warning}" }
+title_error = { fg = "${diagnostics.error}" }
 
 icon_error = ""
 icon_warn = ""
@@ -134,10 +134,10 @@ icon_info = ""
 
 # Help
 [help]
- on      = { fg = "${success}" }
- run     = { fg = "${attention}" }
- desc    = { fg = "${link}" }
-hovered = { bg = "${bg_hover}" }
+ on      = { fg = "${diagnostics.success}" }
+ run     = { fg = "${ui.attention}" }
+ desc    = { fg = "${syntax.link}" }
+hovered = { bg = "${backgrounds.hover}" }
 footer  = { fg = "${fg}", bg = "${bg}" }
 
 [filetype]
@@ -164,7 +164,7 @@ rules = [
 	{ name = "*", is = "exec"  , fg = "${green}" },
 
 	# Fallback
-	{ name = "*/", fg = "${title}" },
+	{ name = "*/", fg = "${syntax.title}" },
 	{ name = "*", fg = "${fg}" }
 ]
     ]],

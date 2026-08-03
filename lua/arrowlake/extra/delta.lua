@@ -6,7 +6,7 @@ local M = {}
 function M.generate(colors)
   colors.delta = {
     add = util.blend_bg(colors.git.add, 0.45),
-    delete = util.blend_bg(colors.error, 0.45),
+    delete = util.blend_bg(colors.diagnostics.error, 0.45),
   }
   local delta = util.template(
     [[

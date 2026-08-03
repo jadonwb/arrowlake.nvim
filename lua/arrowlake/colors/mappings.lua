@@ -107,16 +107,12 @@ function M.apply(c)
     cursor_fg = c.bg,
     attention = c.magenta,
     ai = c.orange,
-    -- files/paths/directory?
-    -- secondary title
-    -- move title into here
   }
 
   -- ═══════════════════════════════════════════
   --  Syntax
   -- ═══════════════════════════════════════════
   c.syntax = {
-    title = c.primary,
     keyword = c.magenta,
     macro = c.cyan,
     string = c.green,

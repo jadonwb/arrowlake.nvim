@@ -10,16 +10,16 @@ fish_color_end FB9B00
 fish_color_option D91C87
 fish_color_error E50050
 fish_color_param 834CCF
-fish_color_comment 5c6296
-fish_color_selection --background=161440
-fish_color_search_match --background=161440
+fish_color_comment ${foregrounds.comment}
+fish_color_selection --background=${backgrounds.visual}
+fish_color_search_match --background=${backgrounds.visual}
 fish_color_operator 2A8A6B
 fish_color_escape D91C87
-fish_color_autosuggestion 5c6296
+fish_color_autosuggestion ${foregrounds.comment}
 
 # Completion Pager Colors
-fish_pager_color_progress 5c6296
+fish_pager_color_progress ${foregrounds.comment}
 fish_pager_color_prefix 33D4B4
 fish_pager_color_completion bec8e8
-fish_pager_color_description 5c6296
-fish_pager_color_selected_background --background=161440
+fish_pager_color_description ${foregrounds.comment}
+fish_pager_color_selected_background --background=${backgrounds.visual}

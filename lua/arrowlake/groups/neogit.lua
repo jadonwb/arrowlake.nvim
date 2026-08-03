@@ -1,5 +1,3 @@
-local Util = require("arrowlake.util")
-
 local M = {}
 
 M.url = "https://github.com/TimUntersberger/neogit"

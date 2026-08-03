@@ -16,13 +16,13 @@ assistant-output-color: "${fg}"
 # code-theme: ${_pygments_plugin_name}
 
 completion-menu-color: "${fg}"
-completion-menu-bg-color: "${bg_float}"
+completion-menu-bg-color: "${backgrounds.float}"
 completion-menu-current-color: "${fg}"
-completion-menu-current-bg-color: "${bg_highlight}"
+completion-menu-current-bg-color: "${backgrounds.highlight}"
 
-tool-error-color: "${error}"
+tool-error-color: "${diagnostics.error}"
 tool-output-color: "${blue}"
-tool-warning-color: "${warning}"
+tool-warning-color: "${diagnostics.warning}"
 
 user-input-color: "${green}"
 ]],

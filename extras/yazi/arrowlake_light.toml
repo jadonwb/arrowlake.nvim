@@ -10,7 +10,7 @@ preview_hovered = { bg = "#d4c6b3" }
 
 # Find
  find_keyword  = { fg = "#e3d7c7", bg = "#56AEA9", bold = true }
-find_position = { fg = "#4E7469", bg = "#d4c6b3", bold = true }
+find_position = { fg = "#4A74A8", bg = "#d4c6b3", bold = true }
 
 # Marker
  marker_copied   = { fg = "#4E7469", bg = "#4E7469" }
@@ -29,12 +29,12 @@ border_style  = { fg = "#6660AF" }
 
 # Tab
 [tabs]
- active   = { fg = "#DED0BF", bg = "#6660AF" }
- inactive = { fg = "#6660AF", bg = "#ad9b88" }
+ active   = { fg = "#DED0BF", bg = "${syntax.title}" }
+ inactive = { fg = "${syntax.title}", bg = "#ad9b88" }
 
 [mode]
- normal_main = { fg = "#DED0BF", bg = "#6660AF", bold = true }
- normal_alt  = { fg = "#6660AF", bg = "#ad9b88" }
+ normal_main = { fg = "#DED0BF", bg = "${syntax.title}", bold = true }
+ normal_alt  = { fg = "${syntax.title}", bg = "#ad9b88" }
 
  select_main = { fg = "#DED0BF", bg = "#C16C90", bold = true }
  select_alt  = { fg = "#C16C90", bg = "#ad9b88" }
@@ -54,10 +54,10 @@ progress_normal = { fg = "#d4c6b3", bg = "#d4c6b3" }
 
 # Permissions
  perm_type  = { fg = "#4A74A8" }
-perm_read  = { fg = "#AD8A5A" }
+perm_read  = { fg = "#AE984C" }
  perm_write = { fg = "#BC495D" }
  perm_exec  = { fg = "#4E7469" }
-perm_sep   = { fg = "#ad9b88" }
+perm_sep   = { fg = "#DED0BF" }
 
 [pick]
 border   = { fg = "#6660AF" }
@@ -114,8 +114,8 @@ title   = { fg = "#6660AF" }
 
 # Notify
 [notify]
-title_info  = { fg = "#4E7469" }
-title_warn  = { fg = "#AD8A5A" }
+title_info  = { fg = "#4A74A8" }
+title_warn  = { fg = "#AE984C" }
 title_error = { fg = "#BC495D" }
 
 icon_error = ""
@@ -126,7 +126,7 @@ icon_info = ""
 [help]
  on      = { fg = "#4E7469" }
  run     = { fg = "#C16C90" }
- desc    = { fg = "#C88478" }
+ desc    = { fg = "#CF9978" }
 hovered = { bg = "#d4c6b3" }
 footer  = { fg = "#54473f", bg = "#ebe0cf" }
 
@@ -134,7 +134,7 @@ footer  = { fg = "#54473f", bg = "#ebe0cf" }
 
 rules = [
 	# Images
-	{ mime = "image/*", fg = "#AD8A5A" },
+	{ mime = "image/*", fg = "#AE984C" },
 
 	# Media
 	{ mime = "{audio,video}/*", fg = "#C16C90" },
@@ -154,7 +154,7 @@ rules = [
 	{ name = "*", is = "exec"  , fg = "#4E7469" },
 
 	# Fallback
-	{ name = "*/", fg = "#6660AF" },
+	{ name = "*/", fg = "${syntax.title}" },
 	{ name = "*", fg = "#54473f" }
 ]
     

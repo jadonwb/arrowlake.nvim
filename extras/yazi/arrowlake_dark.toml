@@ -5,12 +5,12 @@
 cwd = { fg = "#7e85b8", italic = true }
 
 # Hovered
-hovered         = { bg = "#312e55" }
-preview_hovered = { bg = "#312e55" }
+hovered         = { bg = "#161440" }
+preview_hovered = { bg = "#161440" }
 
 # Find
  find_keyword  = { fg = "#09081a", bg = "#FB9B00", bold = true }
-find_position = { fg = "#5352CD", bg = "#312e55", bold = true }
+find_position = { fg = "#5352CD", bg = "#161440", bold = true }
 
 # Marker
  marker_copied   = { fg = "#2A8A6B", bg = "#2A8A6B" }
@@ -29,12 +29,12 @@ border_style  = { fg = "#3F3BF5" }
 
 # Tab
 [tabs]
- active   = { fg = "#070614", bg = "#3F3BF5" }
- inactive = { fg = "#3F3BF5", bg = "#312e55" }
+ active   = { fg = "#070614", bg = "${syntax.title}" }
+ inactive = { fg = "${syntax.title}", bg = "#312e55" }
 
 [mode]
- normal_main = { fg = "#070614", bg = "#3F3BF5", bold = true }
- normal_alt  = { fg = "#3F3BF5", bg = "#312e55" }
+ normal_main = { fg = "#070614", bg = "${syntax.title}", bold = true }
+ normal_alt  = { fg = "${syntax.title}", bg = "#312e55" }
 
  select_main = { fg = "#070614", bg = "#D91C87", bold = true }
  select_alt  = { fg = "#D91C87", bg = "#312e55" }
@@ -57,7 +57,7 @@ progress_normal = { fg = "#161440", bg = "#161440" }
 perm_read  = { fg = "#FFD888" }
  perm_write = { fg = "#E50050" }
  perm_exec  = { fg = "#2A8A6B" }
-perm_sep   = { fg = "#312e55" }
+perm_sep   = { fg = "#070614" }
 
 [pick]
 border   = { fg = "#3F3BF5" }
@@ -85,7 +85,7 @@ icon_command = ""
 [tasks]
 border  = { fg = "#3F3BF5" }
 title   = { fg = "#3F3BF5" }
-hovered = { fg = "#bec8e8", bg = "#312e55" }
+hovered = { fg = "#bec8e8", bg = "#161440" }
 
 # Which
 [which]
@@ -127,7 +127,7 @@ icon_info = ""
  on      = { fg = "#2A8A6B" }
  run     = { fg = "#D91C87" }
  desc    = { fg = "#33D4B4" }
-hovered = { bg = "#312e55" }
+hovered = { bg = "#161440" }
 footer  = { fg = "#bec8e8", bg = "#0D0C25" }
 
 [filetype]
@@ -154,7 +154,7 @@ rules = [
 	{ name = "*", is = "exec"  , fg = "#2A8A6B" },
 
 	# Fallback
-	{ name = "*/", fg = "#3F3BF5" },
+	{ name = "*/", fg = "${syntax.title}" },
 	{ name = "*", fg = "#bec8e8" }
 ]
     

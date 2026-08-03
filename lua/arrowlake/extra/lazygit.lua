@@ -13,14 +13,14 @@ gui:
       - "${focus}"
       - "bold"
     inactiveBorderColor:
-      - "${border_color}"
+      - "${border.color}"
     searchingActiveBorderColor:
       - "${focus}"
       - "bold"
     optionsTextColor:
       - "${blue}"
     selectedLineBgColor:
-      - "${bg_visual}"
+      - "${backgrounds.visual}"
     cherryPickedCommitFgColor:
       - "${blue}"
     cherryPickedCommitBgColor:
@@ -30,7 +30,7 @@ gui:
     markedBaseCommitBgColor:
       - "${yellow}"
     unstagedChangesColor:
-      - "${error}"
+      - "${diagnostics.error}"
     defaultFgColor:
       - "${fg}"
 ]],

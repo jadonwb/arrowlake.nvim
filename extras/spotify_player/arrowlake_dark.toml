@@ -3,7 +3,7 @@ name = "Arrowlake"
 [themes.palette]
 background = "#09081a"
 foreground = "#7e85b8"
-black = "#312e55"
+black = "#070614"
 red = "#E50050"
 green = "#2A8A6B"
 yellow = "#FFD888"

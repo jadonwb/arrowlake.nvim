@@ -13,7 +13,7 @@ module.exports =  {
     {
       types: ["function"],
       style: {
-        color: "${function}",
+        color: "#6660AF",
       },
     },
     {
@@ -49,7 +49,7 @@ module.exports =  {
     {
       types: ["constant", "boolean"],
       style: {
-        color: "#AD8A5A",
+        color: "#AE984C",
       },
     },
     {

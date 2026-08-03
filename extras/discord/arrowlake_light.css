@@ -7,7 +7,7 @@
   --text-link: #4A74A8;
   --text-link-low-saturation: #6a8b89;
   --text-positive: #56AEA9;
-  --text-warning: #AD8A5A;
+  --text-warning: #AE984C;
   --text-danger: #BC495D;
   --text-brand: #4A74A8;
   --background-primary: #ebe0cf;
@@ -35,35 +35,35 @@
   --info-positive-text: #54473f;
   --brand-500: #d4c6b3;
   --brand-560: #4A74A8;
-  --info-warning-background: #AD8A5A26;
-  --info-warning-foreground: #AD8A5A;
+  --info-warning-background: #AE984C26;
+  --info-warning-foreground: #AE984C;
   --info-warning-text: #54473f;
   --info-danger-background:#BC495D26;
   --info-danger-foreground: #BC495D;
   --info-danger-text: #54473f;
   --info-help-background: #6a8b8926;
-  --info-help-foreground: #4E7469;
+  --info-help-foreground: #4A74A8;
   --info-help-text: #54473f;
   --status-positive-background: #56AEA9;
   --status-positive-text: #ebe0cf;
-  --status-warning-background: #AD8A5A;
+  --status-warning-background: #AE984C;
   --status-warning-text: #ebe0cf;
   --status-danger-background: #BC495D;
   --status-danger-text: #ebe0cf;
   --status-danger: #BC495D;
   --status-positive: #56AEA9;
-  --status-warning: #AD8A5A;
-  --status-yellow-400: #AD8A5A;
+  --status-warning: #AE984C;
+  --status-yellow-400: #AE984C;
   --status-green-600: #56AEA9;
   --primary-dark-600: #ebe0cf;
-  --status-yellow-560: #AD8A5A;
+  --status-yellow-560: #AE984C;
   --status-red-500: #BC495D;
   --status-red-530: #BC495D;
-  --status-yellow-500: #AD8A5A;
+  --status-yellow-500: #AE984C;
   --black-500: #d4c6b3;
   --green-360: #56AEA9;
-  --yellow-360: #AD8A5A;
-  --yellow-300: #AD8A5A;
+  --yellow-360: #AE984C;
+  --yellow-300: #AE984C;
   --red-400: #BC495D;
   --primary-100: #6a8b89;
   --primary-300: #6a8b89;
@@ -74,14 +74,14 @@
   --white-400: #54473f;
   --white-500: #54473f;
   --guild-boosting-pink: #C16C90;
-  --premium-perk-yellow: #AD8A5A;
+  --premium-perk-yellow: #AE984C;
   --premium-perk-purple: #6660AF;
   --premium-perk-dark-blue: #4A74A8;
   --premium-perk-light-blue: #4A74A8;
   --premium-perk-blue: #4A74A8;
   --premium-perk-green: #56AEA9;
   --premium-perk-pink: #C16C90;
-  --premium-perk-orange: #C88478;
+  --premium-perk-orange: #CF9978;
   --status-green-400: #56AEA9;
   --button-danger-background: #BC495D;
   --button-danger-background-hover: #BC495D;
@@ -145,9 +145,9 @@
   --control-brand-foreground: #4A74A8;
   --control-brand-foreground-new: #4A74A8;
   --mention-foreground: #4A74A8;
-  --mention-background: #ad9b88;
-  --background-mentioned: #AD8A5A19;
-  --background-mentioned-hover: #AD8A5A14;
+  --mention-background: #DED0BF;
+  --background-mentioned: #AE984C19;
+  --background-mentioned-hover: #AE984C14;
   --background-message-hover: #e3d7c73F;
   --background-message-automod: #C16C900C;
   --background-message-automod-hover: #C16C9019;
@@ -164,7 +164,7 @@
   --android-navigation-bar-background: #d4c6b3;
   --android-ripple: #DED0BF4C;
   --bg-mod-faint: #e3d7c7;
-  --bg-mod-subtle: #ad9b88;
+  --bg-mod-subtle: #DED0BF;
   --focus-primary: #4A74A8;
   --interactive-normal: #54473f;
   --interactive-muted: #87786c4C;
@@ -189,7 +189,7 @@ rect[mask="url(#svg-mask-status-online)"] {
 }
 
 rect[mask="url(#svg-mask-status-idle)"] {
-    fill: #AD8A5A;
+    fill: #AE984C;
 }
 
 rect[mask="url(#svg-mask-status-dnd)"] {
@@ -207,12 +207,12 @@ rect[mask="url(#svg-mask-status-offline)"] {
   --background: var(--background-secondary);
   --text-default: #6c5e55;
   --color-1: #BC495D;
-  --color-2: #C88478;
-  --color-3: #AD8A5A;
+  --color-2: #CF9978;
+  --color-3: #AE984C;
   --color-4: #4E7469;
   --color-5: #4E7469;
   --color-6: #6a8b89;
-  --color-7: #4E7469;
+  --color-7: #4A74A8;
   --color-8: #56AEA9;
   --color-9: #4A74A8;
   --color-10: #C16C90;

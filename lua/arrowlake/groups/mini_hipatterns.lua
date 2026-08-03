@@ -7,10 +7,10 @@ M.url = "https://github.com/echasnovski/mini.hipatterns"
 function M.get(c)
   -- stylua: ignore
   return {
-    MiniHipatternsFixme = { fg = c.foregrounds.fill, bg = c.diagnostics.error, bold = true },
-    MiniHipatternsHack  = { fg = c.foregrounds.fill, bg = c.diagnostics.warning, bold = true },
-    MiniHipatternsNote  = { fg = c.foregrounds.fill, bg = c.diagnostics.hint, bold = true },
-    MiniHipatternsTodo  = { fg = c.foregrounds.fill, bg = c.diagnostics.todo, bold = true },
+    MiniHipatternsFixme = { fg = c.bg_darker, bg = c.diagnostics.error, bold = true },
+    MiniHipatternsHack  = { fg = c.bg_darker, bg = c.diagnostics.warning, bold = true },
+    MiniHipatternsNote  = { fg = c.bg_darker, bg = c.diagnostics.hint, bold = true },
+    MiniHipatternsTodo  = { fg = c.bg_darker, bg = c.diagnostics.todo, bold = true },
   }
 end
 

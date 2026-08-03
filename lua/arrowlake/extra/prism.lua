@@ -23,7 +23,7 @@ module.exports =  {
     {
       types: ["function"],
       style: {
-        color: "${function}",
+        color: "${syntax.functions}",
       },
     },
     {
@@ -35,31 +35,31 @@ module.exports =  {
     {
       types: ["punctuation"],
       style: {
-        color: "${punctuation}",
+        color: "${foregrounds.punctuation}",
       },
     },
     {
       types: ["string", "char", "tag", "selector"],
       style: {
-        color: "${string}",
+        color: "${syntax.string}",
       },
     },
     {
       types: ["keyword"],
       style: {
-        color: "${keyword}",
+        color: "${syntax.keyword}",
       },
     },
     {
       types: ["operator"],
       style: {
-        color: "${operator}",
+        color: "${syntax.operator}",
       },
     },
     {
       types: ["constant", "boolean"],
       style: {
-        color: "${constant}",
+        color: "${syntax.constant}",
       },
     },
     {
@@ -71,7 +71,7 @@ module.exports =  {
     {
       types: ["comment"],
       style: {
-        color: "${comment}",
+        color: "${foregrounds.comment}",
         fontStyle: "italic",
       },
     },

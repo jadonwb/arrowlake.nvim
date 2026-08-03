@@ -145,7 +145,7 @@
   --control-brand-foreground: #3F3BF5;
   --control-brand-foreground-new: #3F3BF5;
   --mention-foreground: #3F3BF5;
-  --mention-background: #312e55;
+  --mention-background: #070614;
   --background-mentioned: #FFD88819;
   --background-mentioned-hover: #FFD88814;
   --background-message-hover: #09081a3F;
@@ -164,7 +164,7 @@
   --android-navigation-bar-background: #161440;
   --android-ripple: #0706144C;
   --bg-mod-faint: #09081a;
-  --bg-mod-subtle: #312e55;
+  --bg-mod-subtle: #070614;
   --focus-primary: #3F3BF5;
   --interactive-normal: #bec8e8;
   --interactive-muted: #5c62964C;

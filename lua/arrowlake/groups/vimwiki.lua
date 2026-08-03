@@ -12,7 +12,7 @@ function M.get(c, opts)
     VimwikiHeaderChar = { fg = c.focus, bg = c.none },
     VimwikiHR = { fg = c.focus, bg = c.none },
     VimwikiList = { fg = c.syntax.operator, bg = c.none },
-    VimwikiTag = { fg = c.diagnostics.attention, bg = c.none },
+    VimwikiTag = { fg = c.ui.attention, bg = c.none },
     VimwikiMarkers = { fg = c.syntax.operator, bg = c.none },
   }
   for i, color in ipairs(c.rainbow) do

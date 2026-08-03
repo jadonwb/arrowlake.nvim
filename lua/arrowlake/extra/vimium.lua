@@ -9,16 +9,16 @@ function M.generate(colors)
 /* Copy the content into the `CSS for Vimium UI` textarea field on the vimium options page  */
 
 :root {
-  --vimium-hint-bg: ${attention};
-  --vimium-source: ${link};
-  --vimium-title: ${title};
+  --vimium-hint-bg: ${ui.attention};
+  --vimium-source: ${syntax.link};
+  --vimium-title: ${syntax.title};
   --vimium-match: ${secondary};
   --vimium-fg: ${fg};
   --vimium-fg-dark: ${fg_dark};
-  --vimium-border: ${border};
-  --vimium-border-highlight: ${border_color};
+  --vimium-border: ${border.subtle};
+  --vimium-border-highlight: ${border.color};
   --vimium-bg: ${bg};
-  --vimium-bg-selected: ${bg_highlight};
+  --vimium-bg-selected: ${backgrounds.highlight};
 }
 
 #vimiumHintMarkerContainer div.internalVimiumHintMarker,

@@ -19,24 +19,24 @@ background = "#0D0C25"
 
 [colors.tab_bar.active_tab]
 fg_color = "#09081a"
-bg_color = "#3F3BF5"
+bg_color = "${syntax.title}"
 
 [colors.tab_bar.inactive_tab]
 fg_color = "#5c6296"
 bg_color = "#161440"
 
 [colors.tab_bar.inactive_tab_hover]
-fg_color = "#3F3BF5"
-bg_color = "#312e55"
+fg_color = "${syntax.title}"
+bg_color = "#161440"
 # intensity = "Bold"
 
 [colors.tab_bar.new_tab_hover]
-fg_color = "#3F3BF5"
-bg_color = "#312e55"
+fg_color = "${syntax.title}"
+bg_color = "#161440"
 intensity = "Bold"
 
 [colors.tab_bar.new_tab]
-fg_color = "#3F3BF5"
+fg_color = "${syntax.title}"
 bg_color = "#0D0C25"
 
 [metadata]

@@ -9,7 +9,7 @@ function M.get(c, opts)
   -- stylua: ignore
   return {
     FlashBackdrop = { fg = c.foregrounds.comment },
-    FlashLabel    = { bg = c.diagnostics.attention, bold = true, fg = c.backgrounds.normal },
+    FlashLabel    = { bg = c.ui.attention, bold = true, fg = c.backgrounds.normal },
   }
 end
 

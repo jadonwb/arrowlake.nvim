@@ -20,7 +20,7 @@ function M.generate(colors)
   base00: "${bg}"
   base01: "${bg_dark}"
   base02: "${selection}"
-  base03: "${comment}"
+  base03: "${foregrounds.comment}"
   base04: "${fg_darker}"
   base05: "${fg}"
   base06: "${fg_dark}"

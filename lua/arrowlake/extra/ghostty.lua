@@ -26,7 +26,7 @@ palette = 15=${terminal.white_bright}
 background = ${bg}
 foreground = ${fg}
 cursor-color = ${fg}
-selection-background = ${bg_visual}
+selection-background = ${backgrounds.visual}
 selection-foreground = ${fg}
 ]],
     colors
