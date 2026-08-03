@@ -52,9 +52,9 @@ function M.setup(opts)
   -- 6. Style overrides for UI surface backgrounds.
   -- nil → keep mapping default | "transparent" → match bg | "normal" → bg_dark | "darker" → bg_darker
   -- When the main bg is transparent (opts.transparent), "transparent" surfaces use c.none
-  -- so they truly vanish rather than rendering a visible opaque surface on a transparent window.
   local transparent_bg = opts.transparent and colors.none or colors.bg
 
+  -- FIXME: this isn't working
   local SURFACES = { "statusline", "popup", "float", "sidebar", "code", "notification", "tabline", "winbar", "fold" }
 
   for _, surface in ipairs(SURFACES) do

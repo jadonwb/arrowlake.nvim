@@ -20,6 +20,7 @@ local M = {}
 ---]]
 
 -- TODO: add a swap magenta|purple option?
+-- TODO: add comments for lsp purposes
 
 ---@param c arrowlake.Palette
 function M.apply(c)
@@ -127,7 +128,7 @@ function M.apply(c)
     functions_builtin = U.blend_bg(c.primary, 0.85, c.bg),
     constructor = c.magenta,
     operator = c.special,
-    markup = c.magenta, -- TODO?: make orange again? yellow? too much magenta I think
+    markup = c.orange,
     link = c.orange,
   }
 
