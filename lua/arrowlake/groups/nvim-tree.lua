@@ -8,19 +8,19 @@ M.url = "https://github.com/kyazdani42/nvim-tree.lua"
 function M.get(c, opts)
   -- stylua: ignore
   return {
-    NvimTreeFolderIcon   = { bg = c.none, fg = c.title },
+    NvimTreeFolderIcon   = { bg = c.none, fg = c.ui.path },
     NvimTreeGitDeleted   = { fg = c.git.delete },
     NvimTreeGitDirty     = { fg = c.git.change },
     NvimTreeGitNew       = { fg = c.git.add },
-    NvimTreeImageFile    = { fg = c.link },
-    NvimTreeIndentMarker = { fg = c.fg_gutter },
-    NvimTreeNormal       = { fg = c.fg_sidebar, bg = c.bg_sidebar },
-    NvimTreeNormalNC     = { fg = c.fg_sidebar, bg = c.bg_sidebar },
-    NvimTreeOpenedFile   = { bg = c.bg_highlight },
-    NvimTreeRootFolder   = { fg = c.title, bold = true },
-    NvimTreeSpecialFile  = { fg = c.keyword, underline = true },
-    NvimTreeSymlink      = { fg = c.link },
-    NvimTreeWinSeparator = {   fg = c.border  },
+    NvimTreeImageFile    = { fg = c.syntax.link },
+    NvimTreeIndentMarker = { fg = c.foregrounds.indent },
+    NvimTreeNormal       = { fg = c.foregrounds.sidebar, bg = c.backgrounds.sidebar },
+    NvimTreeNormalNC     = { fg = c.foregrounds.sidebar, bg = c.backgrounds.sidebar },
+    NvimTreeOpenedFile   = { bg = c.backgrounds.highlight },
+    NvimTreeRootFolder   = { fg = c.ui.path, bold = true },
+    NvimTreeSpecialFile  = { fg = c.syntax.keyword, underline = true },
+    NvimTreeSymlink      = { fg = c.syntax.link },
+    NvimTreeWinSeparator = {   fg = c.border.split  },
   }
 end
 

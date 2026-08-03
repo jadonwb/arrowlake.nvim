@@ -7,22 +7,22 @@ M.url = "https://github.com/nvim-neotest/neotest"
 function M.get(c)
   -- stylua: ignore
   return {
-    NeotestAdapterName  = { fg = c.keyword, bold = true },
-    NeotestBorder       = { fg = c.border_color },
-    NeotestDir          = { fg = c.title },
-    NeotestExpandMarker = { fg = c.fg_sidebar },
-    NeotestFailed       = { fg = c.error },
-    NeotestFile         = { fg = c.link },
+    NeotestAdapterName  = { fg = c.syntax.keyword, bold = true },
+    NeotestBorder       = { fg = c.border.color },
+    NeotestDir          = { fg = c.ui.path },
+    NeotestExpandMarker = { fg = c.foregrounds.sidebar },
+    NeotestFailed       = { fg = c.diagnostics.error },
+    NeotestFile         = { fg = c.syntax.link },
     NeotestFocused      = { fg = c.focus },
-    NeotestIndent       = { fg = c.fg_sidebar },
-    NeotestMarked       = { fg = c.secondary },
-    NeotestNamespace    = { fg = c.hint },
-    NeotestPassed       = { fg = c.success },
+    NeotestIndent       = { fg = c.foregrounds.indent },
+    NeotestMarked       = { fg = c.ui.label },
+    NeotestNamespace    = { fg = c.diagnostics.hint },
+    NeotestPassed       = { fg = c.diagnostics.success },
     NeotestRunning      = { fg = c.focus },
-    NeotestSkipped      = { fg = c.comment },
-    NeotestTarget       = { fg = c.secondary },
-    NeotestTest         = { fg = c.fg_sidebar },
-    NeotestWinSelect    = { fg = c.attention },
+    NeotestSkipped      = { fg = c.foregrounds.sidebar },
+    NeotestTarget       = { fg = c.ui.label },
+    NeotestTest         = { fg = c.foregrounds.sidebar },
+    NeotestWinSelect    = { fg = c.ui.attention },
   }
 end
 

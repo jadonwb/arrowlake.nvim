@@ -29,52 +29,71 @@
 ---@field white_bright string
 
 ---@class arrowlake.PaletteStatus
----@field bg string
 ---@field normal string
 ---@field insert string
 ---@field command string
 ---@field visual string
 ---@field replace string
 ---@field terminal string
+---@field inactive string
 
----@class arrowlake.Palette
----@field none string
----@field bg string
----@field bg_dark string
----@field bg_darker string
----@field bg_code string
----@field bg_notification string
----@field bg_highlight string
----@field bg_visual string
----@field bg_hover string
----@field bg_search string
----@field bg_search_current string
----@field bg_active_parameter string
----@field bg_sidebar string
----@field bg_float string
----@field fg string
----@field fg_dark string
----@field fg_darker string
----@field fg_gutter string
----@field fg_sidebar string
+---@class arrowlake.PaletteBackgrounds
+---@field normal string
+---@field dark string
+---@field darker string
+---@field code string
+---@field input string
+---@field notification string
+---@field sidebar string
+---@field statusline string
+---@field tabline string
+---@field tabline_fill string
+---@field winbar string
+---@field float string
+---@field which_key string
+---@field highlight string
+---@field visual string
+---@field hover string
+---@field search string
+---@field search_current string
+---@field color_column string
+---@field fold string
+
+---@class arrowlake.PaletteForegrounds
+---@field normal string
+---@field dark string
+---@field darker string
 ---@field comment string
 ---@field muted string
----@field black string
----@field terminal_black string
----@field border string
----@field border_color string
----@field border_subtle string
----@field primary string
----@field secondary string
----@field selection string
----@field red string
----@field orange string
----@field yellow string
----@field green string
----@field blue string
----@field purple string
----@field magenta string
----@field cyan string
+---@field sidebar string
+---@field statusline string
+---@field tabline string
+---@field winbar string
+---@field member string
+---@field punctuation string
+---@field indent string
+
+---@class arrowlake.PaletteBorder
+---@field active string
+---@field active_title string
+---@field split string
+---@field title string
+---@field color string
+---@field subtle string
+
+---@class arrowlake.PaletteUI
+---@field cursor_bg string
+---@field cursor_fg string
+---@field attention string
+---@field ai string
+---@field prompt string
+---@field header string
+---@field path string
+---@field footer string
+---@field icon string
+---@field label string
+
+---@class arrowlake.PaletteSyntax
 ---@field title string
 ---@field keyword string
 ---@field macro string
@@ -84,7 +103,6 @@
 ---@field md_inline string
 ---@field parameter string
 ---@field variable string
----@field member string
 ---@field constant string
 ---@field type string
 ---@field type_builtin string
@@ -92,10 +110,10 @@
 ---@field functions_builtin string
 ---@field constructor string
 ---@field operator string
----@field punctuation string
 ---@field markup string
 ---@field link string
----@field focus string
+
+---@class arrowlake.PaletteDiagnostics
 ---@field error string
 ---@field warning string
 ---@field info string
@@ -103,14 +121,41 @@
 ---@field success string
 ---@field todo string
 ---@field trace string
----@field attention string
----@field ai string
----@field map? fun(c: arrowlake.Palette)
+
+---@class arrowlake.Palette
+---@field bg string
+---@field bg_dark string
+---@field bg_darker string
+---@field fg string
+---@field fg_dark string
+---@field fg_darker string
+---@field fg_gutter string
+---@field red string
+---@field orange string
+---@field yellow string
+---@field green string
+---@field blue string
+---@field purple string
+---@field magenta string
+---@field cyan string
+---@field primary string
+---@field secondary string
+---@field selection string
+---@field focus string
+---@field special string
 ---@field rainbow string[]
 ---@field git arrowlake.PaletteGit
 ---@field diff arrowlake.PaletteDiff
 ---@field terminal arrowlake.PaletteTerminal
 ---@field status arrowlake.PaletteStatus
+---@field backgrounds arrowlake.PaletteBackgrounds
+---@field foregrounds arrowlake.PaletteForegrounds
+---@field border arrowlake.PaletteBorder
+---@field ui arrowlake.PaletteUI
+---@field syntax arrowlake.PaletteSyntax
+---@field diagnostics arrowlake.PaletteDiagnostics
+---@field map? fun(c: arrowlake.Palette)
+---@field none string
 
 ---Bare class so ColorScheme resolves everywhere without arrowlake. prefix
 ---(same pattern aether.nvim uses)

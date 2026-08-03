@@ -22,8 +22,10 @@ M.defaults = {
     variables = {},
     -- TODO: see init.lua
     statusline = nil, -- nil (default) | "transparent" | "normal" | "darker"
-    float = nil,      -- nil (default) | "transparent" | "normal" | "darker"
-    sidebar = nil,    -- nil (default) | "transparent" | "normal" | "darker"
+    float = nil, -- nil (default) | "transparent" | "normal" | "darker"
+    sidebar = nil, -- nil (default) | "transparent" | "normal" | "darker"
+
+    -- borders = nil, -- TODO: make functionality to set the fg of borders to their backgrounds to make a border toggle at the highlight level.
   },
   -- FIXME: hsv/invert unused right now
   light_brightness = 0.3, -- Adjusts the brightness of the colors of the **Light** style. Number between 0 and 1, from dull to vibrant colors

@@ -10,17 +10,17 @@ M.url = "https://github.com/nvim-neo-tree/neo-tree.nvim"
 function M.get(c, opts)
   -- stylua: ignore
   return {
-    NeoTreeDimText             = { fg = c.fg_gutter },
-    NeoTreeFileName            = { fg = c.fg_sidebar },
+    NeoTreeDimText             = { fg = c.foregrounds.muted },
+    NeoTreeFileName            = { fg = c.foregrounds.sidebar },
     NeoTreeGitModified         = { fg = c.git.change },
     NeoTreeGitStaged           = { fg = c.git.add },
     NeoTreeGitUntracked        = { fg = c.git.add },
-    NeoTreeNormal              = { fg = c.fg_sidebar, bg = c.bg_sidebar },
-    NeoTreeNormalNC            = { fg = c.fg_sidebar, bg = c.bg_sidebar },
-    NeoTreeTabActive           = { fg = c.focus, bg = c.bg_sidebar, bold = true },
-    NeoTreeTabInactive         = { fg = c.title, bg = c.bg_sidebar },
-    NeoTreeTabSeparatorActive  = { fg = c.border_color, bg = c.bg_sidebar },
-    NeoTreeTabSeparatorInactive= { fg = c.bg, bg = c.bg_sidebar },
+    NeoTreeNormal              = { fg = c.foregrounds.sidebar, bg = c.backgrounds.sidebar },
+    NeoTreeNormalNC            = { fg = c.foregrounds.sidebar, bg = c.backgrounds.sidebar },
+    NeoTreeTabActive           = { fg = c.border.active_title, bg = c.backgrounds.sidebar, bold = true },
+    NeoTreeTabInactive         = { fg = c.border.title, bg = c.backgrounds.sidebar },
+    NeoTreeTabSeparatorActive  = { fg = c.border.color, bg = c.backgrounds.sidebar },
+    NeoTreeTabSeparatorInactive= { fg = c.border.split, bg = c.backgrounds.sidebar },
   }
 end
 

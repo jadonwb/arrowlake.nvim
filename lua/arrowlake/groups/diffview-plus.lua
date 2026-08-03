@@ -7,17 +7,19 @@ M.url = "https://github.com/dlyongemallo/diffview-plus.nvim"
 function M.get(c, opts)
   local Util = require("arrowlake.util")
 
+  -- TODO?: style the sidebar filepanel as background.sidebar?
+
   return {
     -- Panel UI (base colors resolved from theme)
-    DiffviewFilePanelTitle = { fg = c.title, bold = true },
+    DiffviewFilePanelTitle = { fg = c.ui.header, bold = true },
 
     -- Panel selection
     DiffviewFilePanelSelected = { fg = c.focus, bold = true },
     DiffviewCommitSelected = { fg = c.focus, bold = true },
 
     -- Not sure
-    DiffviewPrimary = { fg = c.primary },
-    DiffviewSecondary = { fg = c.secondary },
+    DiffviewPrimary = { fg = c.ui.header },
+    DiffviewSecondary = { fg = c.ui.footer },
 
     -- Status chars
     DiffviewStatusAdded = { fg = c.git.add },
@@ -38,14 +40,14 @@ function M.get(c, opts)
 
     -- Diff coloring
     DiffviewDiffAddText = { bg = c.diff.text },
-    DiffviewDiffDeleteText = { bg = Util.blend_bg(c.git.delete, 0.26, c.bg) },
-    DiffviewDiffFill = { fg = c.comment },
+    DiffviewDiffDeleteText = { bg = Util.blend_bg(c.git.delete, 0.26, c.backgrounds.normal) },
+    DiffviewDiffFill = { fg = c.foregrounds.comment },
 
     -- FH panel refs
-    DiffviewReference = { fg = c.info },
+    DiffviewReference = { fg = c.diagnostics.info },
 
     DiffviewSignColumn = "SignColumn",
-    DiffviewFolderSign = { fg = c.info },
+    DiffviewFolderSign = { fg = c.diagnostics.info },
   }
 end
 

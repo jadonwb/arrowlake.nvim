@@ -9,14 +9,14 @@ M.url = "https://github.com/echasnovski/mini.tabline"
 function M.get(c)
   -- stylua: ignore
   return {
-    MiniTablineCurrent         = { fg = c.fg, bg = c.fg_gutter },
-    MiniTablineFill            = { bg = c.black },
-    MiniTablineHidden          = { fg = c.comment, bg = c.status.bg },
-    MiniTablineModifiedCurrent = { fg = c.warning, bg = c.fg_gutter },
-    MiniTablineModifiedHidden  = { bg = c.status.bg, fg = Util.blend_bg(c.warning, 0.7) },
-    MiniTablineModifiedVisible = { fg = c.warning, bg = c.status.bg },
-    MiniTablineTabpagesection  = { bg = c.fg_gutter, fg = c.none },
-    MiniTablineVisible         = { fg = c.fg, bg = c.status.bg },
+    MiniTablineCurrent         = { fg = c.foregrounds.normal, bg = c.backgrounds.highlight },
+    MiniTablineFill            = { bg = c.backgrounds.tabline_fill },
+    MiniTablineHidden          = { fg = c.foregrounds.comment, bg = c.backgrounds.tabline },
+    MiniTablineModifiedCurrent = { fg = c.diagnostics.warning, bg = c.backgrounds.highlight },
+    MiniTablineModifiedHidden  = { bg = c.backgrounds.tabline, fg = Util.blend_bg(c.diagnostics.warning, 0.7) },
+    MiniTablineModifiedVisible = { fg = c.diagnostics.warning, bg = c.backgrounds.tabline },
+    MiniTablineTabpagesection  = { bg = c.backgrounds.highlight, fg = c.none },
+    MiniTablineVisible         = { fg = c.foregrounds.normal, bg = c.status.bg },
   }
 end
 

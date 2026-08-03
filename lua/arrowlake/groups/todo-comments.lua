@@ -9,12 +9,12 @@ function M.get(c, opts)
   -- stylua: ignore
   return {
     -- TODO: move the todo comments plugin config into here instead (just the keywords and colors)
-    ArrowlakeCommentTodo = { fg = c.todo },
-    ArrowlakeCommentFixme = {fg = c.error },
-    ArrowlakeCommentWarn = { fg = c.warning },
-    ArrowlakeCommentNote = { fg = c.hint },
-    ArrowlakeCommentPerf = { fg = c.keyword }, -- TODO: make a comment class/table with first class perf
-    ArrowlakeCommentTest = { fg = c.parameter }, -- TODO: same
+    ArrowlakeCommentTodo = { fg = c.diagnostics.todo },
+    ArrowlakeCommentFixme = {fg = c.diagnostics.error },
+    ArrowlakeCommentWarn = { fg = c.diagnostics.warning },
+    ArrowlakeCommentNote = { fg = c.diagnostics.hint },
+    ArrowlakeCommentPerf = { fg = c.syntax.keyword }, -- TODO: make a comment class/table with first class perf
+    ArrowlakeCommentTest = { fg = c.syntax.parameter }, -- TODO: same
   }
 end
 

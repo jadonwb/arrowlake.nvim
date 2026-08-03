@@ -7,48 +7,48 @@ M.url = "https://github.com/alex35mil/pi.nvim"
 function M.get(c, opts)
   return {
     -- Chat message labels (pill badges)
-    PiUserMessageLabel = { fg = c.bg_float, bg = c.secondary, bold = true },
-    PiAgentResponseLabel = { fg = c.bg_float, bg = c.ai, bold = true },
-    PiMessageDateTime = { fg = c.comment }, -- FIXME: ?
-    PiMessageAttachments = { fg = c.attention, italic = true },
+    PiUserMessageLabel = { fg = c.ui.label, bold = true }, -- TEST: same as below
+    PiAgentResponseLabel = { fg = c.ui.ai, bold = true }, -- TEST: trying out the fg as the color, no bg
+    PiMessageDateTime = { fg = c.foregrounds.muted },
+    PiMessageAttachments = { fg = c.syntax.link, italic = true },
 
     -- Diff review
     PiDiffAdd = { bg = c.diff.add },
     PiDiffDelete = { bg = c.diff.delete },
-    PiDiffLineNr = { fg = c.fg_gutter },
-    PiDiffWinbar = { bg = c.bg_sidebar },
-    PiDiffWinbarCurrent = { fg = c.fg, bold = true }, -- FIXME: ?
-    PiDiffWinbarProposed = { fg = c.fg, bold = true }, -- FIXME: ?
-    PiDiffWinbarHint = { fg = c.comment },
+    PiDiffLineNr = { fg = c.foregrounds.muted },
+    PiDiffWinbar = { bg = c.backgrounds.winbar },
+    PiDiffWinbarCurrent = { fg = c.foregrounds.dark, bold = true },
+    PiDiffWinbarProposed = { fg = c.foregrounds.dark, bold = true },
+    PiDiffWinbarHint = { fg = c.foregrounds.comment },
 
     -- Winbar chrome
-    PiChatHistoryWinbarTitle = { fg = c.bg, bg = c.title, bold = true },
-    PiChatHistoryFloatTitle = { fg = c.bg, bg = c.title, bold = true },
+    PiChatHistoryWinbarTitle = { fg = c.backgrounds.normal, bg = c.border.title, bold = true },
+    PiChatHistoryFloatTitle = { fg = c.backgrounds.normal, bg = c.border.title, bold = true },
 
     -- Busy/spinner
-    PiBusy = { fg = c.ai, bold = true },
-    PiBusyTime = { fg = c.comment },
+    PiBusy = { fg = c.ui.ai, bold = true },
+    PiBusyTime = { fg = c.foregrounds.muted },
 
     -- Float windows
-    PiFloat = { bg = c.bg_float },
+    PiFloat = { bg = c.backgrounds.float },
     PiFloatBorder = "FloatBorder",
-    PiDialogTitle = { fg = c.border_color, bold = true },
+    PiDialogTitle = { fg = c.border.title, bold = true },
 
     -- Tool blocks
-    PiToolBorder = { fg = c.border_subtle },
-    PiToolHeader = { fg = c.info, bold = true },
-    PiToolCall = { fg = c.comment },
-    PiToolOutput = { fg = c.fg },
+    PiToolBorder = { fg = c.border.subtle },
+    PiToolHeader = { fg = c.diagnostics.info, bold = true },
+    PiToolCall = { fg = c.foregrounds.comment },
+    PiToolOutput = { fg = c.foregrounds.normal },
 
     -- Startup
-    PiStartupLabel = { fg = c.bg_float, bg = c.comment, bold = true }, -- FIXME: ?
-    PiWelcome = { fg = c.info },
-    PiMention = { fg = c.info, underline = true },
+    PiStartupLabel = { fg = c.backgrounds.float, bg = c.foregrounds.comment, bold = true }, -- FIXME: ?
+    PiWelcome = { fg = c.diagnostics.info },
+    PiMention = { fg = c.diagnostics.info, underline = true },
 
     -- Errors
-    PiError = { fg = c.error },
-    PiWarning = { fg = c.warning, italic = true },
-    PiToolError = { fg = c.error, italic = true },
+    PiError = { fg = c.diagnostics.error },
+    PiWarning = { fg = c.diagnostics.warning, italic = true },
+    PiToolError = { fg = c.diagnostics.error, italic = true },
   }
 end
 

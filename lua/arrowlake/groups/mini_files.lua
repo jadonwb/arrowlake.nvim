@@ -11,10 +11,10 @@ function M.get(c)
     MiniFilesBorderModified = "DiagnosticFloatingWarn",
     MiniFilesCursorLine     = "CursorLine",
     MiniFilesDirectory      = "Directory",
-    MiniFilesFile           = { fg = c.fg },
+    MiniFilesFile           = { fg = c.foregrounds.normal },
     MiniFilesNormal         = "NormalFloat",
     MiniFilesTitle          = "FloatTitle",
-    MiniFilesTitleFocused   = { fg = c.focus, bg = c.bg_float, bold = true },
+    MiniFilesTitleFocused   = { fg = c.focus, bg = c.backgrounds.float, bold = true },
   }
 end
 

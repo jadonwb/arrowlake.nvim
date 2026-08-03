@@ -9,10 +9,10 @@ function M.get(c, opts)
   -- stylua: ignore
   return {
     AlphaShortcut    = { fg = c.focus },
-    AlphaHeader      = { fg = c.title },
+    AlphaHeader      = { fg = c.ui.header },
     AlphaHeaderLabel = { fg = c.focus },
-    AlphaFooter      = { fg = c.secondary },
-    AlphaButtons     = { fg = c.link },
+    AlphaFooter      = { fg = c.ui.footer },
+    AlphaButtons     = { fg = c.syntax.link },
   }
 end
 

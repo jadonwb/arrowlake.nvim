@@ -8,9 +8,9 @@ M.url = "https://github.com/lukas-reineke/indent-blankline.nvim"
 function M.get(c, opts)
   -- stylua: ignore
   return {
-    IndentBlanklineChar        = { fg = c.fg_gutter, nocombine = true },
+    IndentBlanklineChar        = { fg = c.foregrounds.indent, nocombine = true },
     IndentBlanklineContextChar = { fg = c.focus, nocombine = true },
-    IblIndent                  = { fg = c.fg_gutter, nocombine = true },
+    IblIndent                  = { fg = c.foregrounds.indent, nocombine = true },
     IblScope                   = { fg = c.focus, nocombine = true },
   }
 end

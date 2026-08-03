@@ -9,7 +9,7 @@ function M.get(c)
   return {
     MiniPickBorder        = "FloatBorder",
     MiniPickBorderBusy    = "DiagnosticFloatingWarn",
-    MiniPickBorderText    = { fg = c.hint, bg = c.bg_float },
+    MiniPickBorderText    = { fg = c.diagnostics.hint, bg = c.backgrounds.float },
     MiniPickIconDirectory = "Directory",
     MiniPickIconFile      = "MiniPickNormal",
     MiniPickHeader        = "DiagnosticFloatingHint",
@@ -19,7 +19,7 @@ function M.get(c)
     MiniPickNormal        = "NormalFloat",
     MiniPickPreviewLine   = "CursorLine",
     MiniPickPreviewRegion = "IncSearch",
-    MiniPickPrompt        = { fg = c.info, bg = c.bg_float },
+    MiniPickPrompt        = { fg = c.diagnostics.info, bg = c.backgrounds.float },
   }
 end
 

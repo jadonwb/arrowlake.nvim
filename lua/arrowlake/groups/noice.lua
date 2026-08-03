@@ -7,13 +7,13 @@ M.url = "https://github.com/folke/noice.nvim"
 function M.get(c)
   -- stylua: ignore
   local ret = {
-    NoiceCmdlineIconInput          = { fg = c.focus },
-    NoiceCmdlineIconLua            = { fg = c.secondary },
-    NoiceCmdlinePopupBorderInput   = { fg = c.focus },
-    NoiceCmdlinePopupBorderLua     = { fg = c.secondary },
+    NoiceCmdlineIconInput          = { fg = c.ui.icon },
+    NoiceCmdlineIconLua            = { fg = c.ui.icon },
+    NoiceCmdlinePopupBorderInput   = { fg = c.border.active },
+    NoiceCmdlinePopupBorderLua     = { fg = c.border.active },
     NoiceCmdlinePopupTitleInput    = { fg = c.focus },
-    NoiceCmdlinePopupTitleLua      = { fg = c.secondary },
-    NoiceCompletionItemKindDefault = { fg = c.fg_dark, bg = c.none },
+    NoiceCmdlinePopupTitleLua      = { fg = c.ui.label },
+    NoiceCompletionItemKindDefault = { fg = c.foregrounds.dark, bg = c.none },
   }
   require("arrowlake.groups.kinds").kinds(ret, "NoiceCompletionItemKind%s")
   return ret

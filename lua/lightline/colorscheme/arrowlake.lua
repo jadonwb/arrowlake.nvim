@@ -3,44 +3,68 @@ local colors = require("arrowlake.colors").setup()
 local arrowlake = {}
 
 arrowlake.normal = {
-  left = { { colors.black, colors.status.normal }, { colors.status.normal, colors.bg_darker } },
-  middle = { { colors.fg, colors.status.bg } },
-  right = { { colors.black, colors.status.normal }, { colors.status.normal, colors.bg_darker } },
-  error = { { colors.black, colors.error } },
-  warning = { { colors.black, colors.warning } },
+  left = {
+    { colors.backgrounds.statusline, colors.status.normal },
+    { colors.status.normal, colors.backgrounds.statusline },
+  },
+  middle = { { colors.fg, colors.backgrounds.statusline } },
+  right = {
+    { colors.backgrounds.statusline, colors.status.normal },
+    { colors.status.normal, colors.backgrounds.statusline },
+  },
+  error = { { colors.backgrounds.statusline, colors.diagnostics.error } },
+  warning = { { colors.backgrounds.statusline, colors.diagnostics.warning } },
 }
 
 arrowlake.insert = {
-  left = { { colors.black, colors.status.insert }, { colors.status.normal, colors.bg } },
+  left = {
+    { colors.backgrounds.statusline, colors.status.insert },
+    { colors.status.insert, colors.backgrounds.statusline },
+  },
 }
 
 arrowlake.visual = {
-  left = { { colors.black, colors.status.visual }, { colors.status.normal, colors.bg } },
+  left = {
+    { colors.backgrounds.statusline, colors.status.visual },
+    { colors.status.visual, colors.backgrounds.statusline },
+  },
 }
 
 arrowlake.replace = {
-  left = { { colors.black, colors.status.replace }, { colors.status.normal, colors.bg } },
+  left = {
+    { colors.backgrounds.statusline, colors.status.replace },
+    { colors.status.replace, colors.backgrounds.statusline },
+  },
 }
 
 arrowlake.command = {
-  left = { { colors.black, colors.status.command }, { colors.status.normal, colors.bg } },
+  left = {
+    { colors.backgrounds.statusline, colors.status.command },
+    { colors.status.command, colors.backgrounds.statusline },
+  },
 }
 
 arrowlake.terminal = {
-  left = { { colors.black, colors.status.terminal }, { colors.status.normal, colors.bg } },
+  left = {
+    { colors.backgrounds.statusline, colors.status.terminal },
+    { colors.status.terminal, colors.backgrounds.statusline },
+  },
 }
 
 arrowlake.inactive = {
-  left = { { colors.status.normal, colors.status.bg }, { colors.comment, colors.bg } },
-  middle = { { colors.bg_darker, colors.status.bg } },
-  right = { { colors.bg_darker, colors.status.bg }, { colors.comment, colors.bg } },
+  left = { { colors.status.normal, colors.backgrounds.statusline }, { colors.foregrounds.statusline, colors.bg } },
+  middle = { { colors.status.inactive, colors.backgrounds.statusline } },
+  right = { { colors.status.inactive, colors.backgrounds.statusline }, { colors.foregrounds.statusline, colors.bg } },
 }
 
 arrowlake.tabline = {
-  left = { { colors.comment, colors.bg_highlight }, { colors.comment, colors.bg } },
-  middle = { { colors.bg_darker, colors.status.bg } },
-  right = { { colors.bg_darker, colors.status.bg }, { colors.comment, colors.bg } },
-  tabsel = { { colors.status.normal, colors.bg_darker }, { colors.comment, colors.bg } },
+  left = {
+    { colors.foregrounds.statusline, colors.backgrounds.highlight },
+    { colors.foregrounds.statusline, colors.bg },
+  },
+  middle = { { colors.bg_darker, colors.backgrounds.statusline } },
+  right = { { colors.bg_darker, colors.backgrounds.statusline }, { colors.foregrounds.statusline, colors.bg } },
+  tabsel = { { colors.status.normal, colors.bg_darker }, { colors.foregrounds.statusline, colors.bg } }, -- FIXME: what to do here
 }
 
 return arrowlake

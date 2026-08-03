@@ -8,9 +8,9 @@ M.url = "https://github.com/ggandor/leap.nvim"
 function M.get(c, opts)
   -- stylua: ignore
   return {
-    LeapMatch          = { bg = c.attention, fg = c.fg, bold = true },
-    LeapLabel          = { fg = c.attention, bold = true },
-    LeapBackdrop       = { fg = c.comment },
+    LeapMatch          = { bg = c.diagnostics.attention, fg = c.foregrounds.normal, bold = true },
+    LeapLabel          = { fg = c.diagnostics.attention, bold = true },
+    LeapBackdrop       = { fg = c.foregrounds.comment },
   }
 end
 

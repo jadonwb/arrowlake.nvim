@@ -7,19 +7,19 @@ M.url = "https://github.com/petertriho/nvim-scrollbar"
 function M.get(c)
   -- stylua: ignore
   return {
-    ScrollbarError        = { fg = c.error, bg = c.none },
-    ScrollbarErrorHandle  = { fg = c.error, bg = c.bg_highlight },
-    ScrollbarHandle       = { fg = c.none, bg = c.bg_highlight },
-    ScrollbarHint         = { fg = c.hint, bg = c.none },
-    ScrollbarHintHandle   = { fg = c.hint, bg = c.bg_highlight },
-    ScrollbarInfo         = { fg = c.info, bg = c.none },
-    ScrollbarInfoHandle   = { fg = c.info, bg = c.bg_highlight },
-    ScrollbarMisc         = { fg = c.trace, bg = c.none },
-    ScrollbarMiscHandle   = { fg = c.trace, bg = c.bg_highlight },
+    ScrollbarError        = { fg = c.diagnostics.error, bg = c.none },
+    ScrollbarErrorHandle  = { fg = c.diagnostics.error, bg = c.backgrounds.highlight },
+    ScrollbarHandle       = { fg = c.none, bg = c.backgrounds.highlight },
+    ScrollbarHint         = { fg = c.diagnostics.hint, bg = c.none },
+    ScrollbarHintHandle   = { fg = c.diagnostics.hint, bg = c.backgrounds.highlight },
+    ScrollbarInfo         = { fg = c.diagnostics.info, bg = c.none },
+    ScrollbarInfoHandle   = { fg = c.diagnostics.info, bg = c.backgrounds.highlight },
+    ScrollbarMisc         = { fg = c.diagnostics.trace, bg = c.none },
+    ScrollbarMiscHandle   = { fg = c.diagnostics.trace, bg = c.backgrounds.highlight },
     ScrollbarSearch       = { fg = c.focus, bg = c.none },
-    ScrollbarSearchHandle = { fg = c.focus, bg = c.bg_highlight },
-    ScrollbarWarn         = { fg = c.warning, bg = c.none },
-    ScrollbarWarnHandle   = { fg = c.warning, bg = c.bg_highlight },
+    ScrollbarSearchHandle = { fg = c.focus, bg = c.backgrounds.highlight },
+    ScrollbarWarn         = { fg = c.diagnostics.warning, bg = c.none },
+    ScrollbarWarnHandle   = { fg = c.diagnostics.warning, bg = c.backgrounds.highlight },
 
   }
 end

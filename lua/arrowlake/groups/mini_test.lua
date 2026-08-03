@@ -8,8 +8,8 @@ function M.get(c)
   -- stylua: ignore
   return {
     MiniTestEmphasis = { bold = true },
-    MiniTestFail = { fg = c.error, bold = true },
-    MiniTestPass = { fg = c.success, bold = true },
+    MiniTestFail = { fg = c.diagnostics.error, bold = true },
+    MiniTestPass = { fg = c.diagnostics.success, bold = true },
   }
 end
 

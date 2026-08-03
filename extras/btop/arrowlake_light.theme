@@ -8,66 +8,66 @@ theme[main_fg]="#54473f"
 theme[title]="#54473f"
 
 # Highlight color for keyboard shortcuts
-theme[hi_fg]="#C88478"
+theme[hi_fg]="#CF9978"
 
 # Selected item in processes box
-theme[selected_bg]="#d4c6b3"
+theme[selected_bg]="${bg_highlight}"
 theme[selected_fg]="#56AEA9"
 
 # Misc colors for processes box including mini cpu graphs, details memory graph and details status text
 theme[proc_misc]="#56AEA9"
 
 # Cpu box outline color
-theme[cpu_box]="#6660AF"
+theme[cpu_box]="${border_color}"
 
 # Memory/disks box outline color
-theme[mem_box]="#6660AF"
+theme[mem_box]="${border_color}"
 
 # Net up/down box outline color
-theme[net_box]="#6660AF"
+theme[net_box]="${border_color}"
 
 # Processes box outline color
-theme[proc_box]="#6660AF"
+theme[proc_box]="${border_color}"
 
 # Box divider line and small boxes line color
-theme[div_line]="#6660AF"
+theme[div_line]="${border_color}"
 
 # Temperature graph colors
 theme[temp_start]="#4E7469"
-theme[temp_mid]="#AD8A5A"
+theme[temp_mid]="#AE984C"
 theme[temp_end]="#BC495D"
 
 # CPU graph colors
 theme[cpu_start]="#4E7469"
-theme[cpu_mid]="#AD8A5A"
+theme[cpu_mid]="#AE984C"
 theme[cpu_end]="#BC495D"
 
 # Mem/Disk free meter
 theme[free_start]="#4E7469"
-theme[free_mid]="#AD8A5A"
+theme[free_mid]="#AE984C"
 theme[free_end]="#BC495D"
 
 # Mem/Disk cached meter
 theme[cached_start]="#4E7469"
-theme[cached_mid]="#AD8A5A"
+theme[cached_mid]="#AE984C"
 theme[cached_end]="#BC495D"
 
 # Mem/Disk available meter
 theme[available_start]="#4E7469"
-theme[available_mid]="#AD8A5A"
+theme[available_mid]="#AE984C"
 theme[available_end]="#BC495D"
 
 # Mem/Disk used meter
 theme[used_start]="#4E7469"
-theme[used_mid]="#AD8A5A"
+theme[used_mid]="#AE984C"
 theme[used_end]="#BC495D"
 
 # Download graph colors
 theme[download_start]="#4E7469"
-theme[download_mid]="#AD8A5A"
+theme[download_mid]="#AE984C"
 theme[download_end]="#BC495D"
 
 # Upload graph colors
 theme[upload_start]="#4E7469"
-theme[upload_mid]="#AD8A5A"
+theme[upload_mid]="#AE984C"
 theme[upload_end]="#BC495D"

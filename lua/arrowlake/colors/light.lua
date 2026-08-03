@@ -11,6 +11,7 @@ M.fg = "#54473f"
 M.fg_dark = "#6c5e55"
 M.fg_darker = "#87786c"
 M.fg_gutter = "#ad9b88"
+M.special = "#6a8b89"
 
 -- Core colors
 M.red = "#BC495D"
@@ -26,7 +27,6 @@ M.cyan = "#56AEA9"
 M.primary = M.purple
 M.secondary = M.blue
 M.focus = M.cyan
-M.operator = "#6a8b89"
 
 ---@param c arrowlake.Palette
 function M.map(c)

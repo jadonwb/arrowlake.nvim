@@ -54,6 +54,8 @@ function M.setup(opts)
   -- "normal" (use bg_dark), or "darker" (use bg_darker).
   -- transparency now only controls the main Normal bg (handled in groups/base.lua).
 
+  -- FIXME: transparent means not only does it match bg, but if bg itself is also transparent, it needs to match that with colors.none
+
   -- statusline
   if opts.styles.statusline == "transparent" then
     colors.status.bg = colors.bg
@@ -65,21 +67,24 @@ function M.setup(opts)
 
   -- float
   if opts.styles.float == "transparent" then
-    colors.bg_float = colors.bg
+    colors.backgrounds.float = colors.bg
   elseif opts.styles.float == "normal" then
-    colors.bg_float = colors.bg_dark
+    colors.backgrounds.float = colors.bg_dark
   elseif opts.styles.float == "darker" then
-    colors.bg_float = colors.bg_darker
+    colors.backgrounds.float = colors.bg_darker
   end
 
   -- sidebar
   if opts.styles.sidebar == "transparent" then
-    colors.bg_sidebar = colors.bg
+    colors.backgrounds.sidebar = colors.bg
   elseif opts.styles.sidebar == "normal" then
-    colors.bg_sidebar = colors.bg_dark
+    colors.backgrounds.sidebar = colors.bg_dark
   elseif opts.styles.sidebar == "darker" then
-    colors.bg_sidebar = colors.bg_darker
+    colors.backgrounds.sidebar = colors.bg_darker
   end
+
+  -- TODO!: add which-key specific option, popups (completion, diagnostics, notifications?), input/confirm/select?
+  -- notifications are currently bg_dark not bg_darker like other float, find that in noice or snacks.
 
   return colors, opts
 end

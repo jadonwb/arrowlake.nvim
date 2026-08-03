@@ -4,7 +4,7 @@
   base00: "0D0C25"
   base01: "09081a"
   base02: "161440"
-  base03: "5c6296"
+  base03: "${comment}"
   base04: "5c6296"
   base05: "bec8e8"
   base06: "7e85b8"

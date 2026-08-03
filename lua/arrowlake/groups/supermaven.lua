@@ -8,7 +8,7 @@ M.url = "https://github.com/supermaven-inc/supermaven-nvim"
 function M.get(c, opts)
   -- stylua: ignore
   local ret = {
-    SupermavenSuggestion = { fg = c.terminal_black },
+    SupermavenSuggestion = { fg = c.foregrounds.muted },
   }
   return ret
 end

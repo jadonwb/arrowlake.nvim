@@ -7,7 +7,7 @@ M.url = "https://github.com/echasnovski/mini.icons"
 function M.get(c)
   -- stylua: ignore
   return {
-    MiniIconsGrey   = { fg = c.comment },
+    MiniIconsGrey   = { fg = c.foregrounds.comment },
     MiniIconsPurple = { fg = c.purple },
     MiniIconsBlue   = { fg = c.blue },
     MiniIconsAzure  = { fg = c.cyan }, -- who picks azure as a required color?

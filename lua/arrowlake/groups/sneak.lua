@@ -8,8 +8,8 @@ M.url = "https://github.com/justinmk/vim-sneak"
 function M.get(c, opts)
   -- stylua: ignore
   return {
-    Sneak      = { fg = c.bg_highlight, bg = c.attention },
-    SneakScope = { bg = c.bg_visual },
+    Sneak      = { fg = c.backgrounds.highlight, bg = c.ui.attention },
+    SneakScope = { bg = c.backgrounds.visual },
   }
 end
 

@@ -5,12 +5,12 @@ assistant-output-color: "#54473f"
 # code-theme: arrowlake-light
 
 completion-menu-color: "#54473f"
-completion-menu-bg-color: "#DED0BF"
+completion-menu-bg-color: "${bg_float}"
 completion-menu-current-color: "#54473f"
-completion-menu-current-bg-color: "#d4c6b3"
+completion-menu-current-bg-color: "${bg_highlight}"
 
-tool-error-color: "#BC495D"
+tool-error-color: "${error}"
 tool-output-color: "#4A74A8"
-tool-warning-color: "#AD8A5A"
+tool-warning-color: "${warning}"
 
 user-input-color: "#4E7469"

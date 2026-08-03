@@ -7,16 +7,16 @@ M.url = "https://github.com/echasnovski/mini.statusline"
 function M.get(c)
   -- stylua: ignore
   return {
-    MiniStatuslineDevinfo     = { fg = c.fg_dark, bg = c.status.bg },
-    MiniStatuslineFileinfo    = { fg = c.fg_dark, bg = c.status.bg },
-    MiniStatuslineFilename    = { fg = c.fg_dark, bg = c.status.bg },
-    MiniStatuslineInactive    = { fg = c.title, bg = c.status.bg },
-    MiniStatuslineModeCommand = { fg = c.black, bg = c.status.command, bold = true },
-    MiniStatuslineModeInsert  = { fg = c.black, bg = c.status.insert, bold = true },
-    MiniStatuslineModeNormal  = { fg = c.black, bg = c.status.normal, bold = true },
-    MiniStatuslineModeOther   = { fg = c.black, bg = c.status.terminal, bold = true },
-    MiniStatuslineModeReplace = { fg = c.black, bg = c.status.replace, bold = true },
-    MiniStatuslineModeVisual  = { fg = c.black, bg = c.status.visual, bold = true },
+    MiniStatuslineDevinfo     = { fg = c.foregrounds.dark, bg = c.backgrounds.statusline },
+    MiniStatuslineFileinfo    = { fg = c.foregrounds.dark, bg = c.backgrounds.statusline },
+    MiniStatuslineFilename    = { fg = c.foregrounds.dark, bg = c.backgrounds.statusline },
+    MiniStatuslineInactive    = { fg = c.status.normal, bg = c.backgrounds.statusline },
+    MiniStatuslineModeCommand = { fg = c.backgrounds.statusline, bg = c.status.command, bold = true },
+    MiniStatuslineModeInsert  = { fg = c.backgrounds.statusline, bg = c.status.insert, bold = true },
+    MiniStatuslineModeNormal  = { fg = c.backgrounds.statusline, bg = c.status.normal, bold = true },
+    MiniStatuslineModeOther   = { fg = c.backgrounds.statusline, bg = c.status.terminal, bold = true },
+    MiniStatuslineModeReplace = { fg = c.backgrounds.statusline, bg = c.status.replace, bold = true },
+    MiniStatuslineModeVisual  = { fg = c.backgrounds.statusline, bg = c.status.visual, bold = true },
   }
 end
 

@@ -7,13 +7,13 @@ M.url = "https://github.com/lambdalisue/glyph-palette.vim"
 function M.get(c)
   -- stylua: ignore
   return {
-    GlyphPalette1 = { fg = c.error },
-    GlyphPalette2 = { fg = c.success },
-    GlyphPalette3 = { fg = c.warning },
-    GlyphPalette4 = { fg = c.info },
-    GlyphPalette6 = { fg = c.comment },
-    GlyphPalette7 = { fg = c.fg },
-    GlyphPalette9 = { fg = c.error },
+    GlyphPalette1 = { fg = c.diagnostics.error },
+    GlyphPalette2 = { fg = c.diagnostics.success },
+    GlyphPalette3 = { fg = c.diagnostics.warning },
+    GlyphPalette4 = { fg = c.diagnostics.info },
+    GlyphPalette6 = { fg = c.foregrounds.comment },
+    GlyphPalette7 = { fg = c.foregrounds.normal },
+    GlyphPalette9 = { fg = c.diagnostics.error },
   }
 end
 

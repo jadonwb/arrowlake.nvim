@@ -1,12 +1,25 @@
 local M = {}
 
--- TODO: comment/document each item
+--[[
 
--- TODO: make a todo comment subtable in here, or make it part of foregrounds/comment?
+  Takes the base palette (c.bg, c.red, c.primary, etc.) and derives every
+  semantic color used by highlight groups.  Dark-theme overrides live in
+  dark.lua's map() which calls apply() then reassigns a few fields.
 
--- TODO: make markdown and markup and help type grouping
+  Naming conventions:
+    c.backgrounds.*   — UI surface colors (sidebar, float, code block, …)
+    c.foregrounds.*   — UI text colors (comment, muted, gutter, …)
+    c.border.*        — window divider and border accent colors
+    c.syntax.*        — syntax highlight colors
+    c.diagnostics.*   — LSP / diagnostic / status colors
+    c.git.*           — git status colors
+    c.diff.*          — diff background colors
+    c.terminal.*      — 16-color ANSI terminal palette
+    c.status.*        — statusline mode colors
+    c.rainbow         — rainbow array for indent guides / headings
+---]]
 
--- TODO: need to make groupings for winbar / tab stuff
+-- TODO: add a swap magenta|purple option?
 
 ---@param c arrowlake.Palette
 function M.apply(c)
@@ -14,84 +27,158 @@ function M.apply(c)
 
   c.none = "NONE"
 
-  -- TODO: find each direct use of bg_dark and bg_darker and come up with real semantic name for it
-  -- then make a new subtable c.backgrounds.code ...
-  -- ═══ UI Backgrounds ═══
-  c.bg_code = c.bg_dark
-  c.bg_notification = c.bg_dark
-  c.bg_highlight = c.selection
-  c.bg_visual = c.selection
-  c.bg_hover = c.selection
-  c.bg_search = c.selection
-  c.bg_search_current = U.blend_bg(c.focus, 0.45, c.bg)
-  c.bg_active_parameter = c.selection
-  c.bg_sidebar = c.bg_darker
-  c.bg_float = c.bg_darker
+  -- ═══════════════════════════════════════════
+  --  UI Backgrounds
+  -- ═══════════════════════════════════════════
+  c.backgrounds = {
+    normal = c.bg,
+    dark = c.bg_dark,
+    darker = c.bg_darker,
 
-  -- ═══ UI Foregrounds ═══
-  c.fg_sidebar = c.fg_darker
-  c.comment = c.fg_darker
-  c.muted = c.fg_darker
-  c.black = c.bg_darker -- TODO: rename to actual purpose
-  c.terminal_black = c.fg_gutter -- TODO: rename to actual purpose
+    -- TODO: terminal bg
 
-  -- ═══ Borders ═══
-  c.border = c.bg_dark -- # TODO: rename to split/window? c.border.split?
-  c.border_color = c.primary -- # TODO: rename to border? or c.border.color?
-  c.border_subtle = c.fg_darker -- rename to c.border.subtle?
+    -- Surfaces
+    code = c.bg_dark,
+    input = c.bg_darker,
+    notification = c.bg_dark,
+    sidebar = c.bg_darker,
+    statusline = c.bg_dark,
+    tabline = c.bg_dark,
+    tabline_fill = c.bg_dark,
+    color_column = c.bg_darker,
+    winbar = c.bg_dark,
+    float = c.bg_darker,
+    fold = c.bg_darker,
+    which_key = c.bg_dark,
 
-  -- ═══ Syntax ═══
-  c.title = c.primary
-  c.keyword = c.magenta
-  c.macro = c.cyan
-  c.string = c.green
-  c.string_doc = c.green
-  c.string_escape = c.magenta
-  c.md_inline = c.green
-  c.parameter = c.orange
-  c.variable = c.fg
-  c.member = c.fg_dark
-  c.constant = c.yellow
-  c.type = c.secondary
-  c.type_builtin = U.blend_bg(c.secondary, 0.85, c.bg)
-  c.functions = c.primary
-  c.functions_builtin = U.blend_bg(c.primary, 0.85, c.bg)
-  c.constructor = c.magenta
-  c.punctuation = c.fg_dark -- TODO?: move to fg section, or make a new semantic key for text, and put it here? or make a c.foregrounds.text,comment,linenumber,etc.?
-  c.markup = c.magenta
-  c.link = c.orange
+    -- Selections & highlights
+    highlight = c.selection,
+    visual = c.selection,
+    hover = c.selection,
+    search = c.selection,
+    search_current = U.blend_bg(c.focus, 0.45, c.bg),
+  }
 
-  -- ═══ Diagnostics ═══
-  c.error = c.red
-  c.warning = c.yellow
-  c.info = c.blue
-  c.hint = c.cyan
-  c.success = c.green
-  c.todo = c.green
-  c.trace = c.purple
-  c.attention = c.magenta
-  c.ai = c.orange
+  -- ═══════════════════════════════════════════
+  --  UI Foregrounds
+  -- ═══════════════════════════════════════════
+  c.foregrounds = {
+    normal = c.fg,
+    dark = c.fg_dark,
+    darker = c.fg_darker,
 
-  -- ═══ Rainbow ═══
+    -- Semantic text roles
+    muted = c.fg_gutter, -- dimmed / deemphasized
+    sidebar = c.fg_darker,
+    statusline = c.fg_darker,
+    tabline = c.primary,
+    winbar = c.fg_darker,
+    indent = c.fg_gutter,
+
+    -- move into syntax?
+    comment = c.fg_darker,
+    member = c.fg_dark,
+    punctuation = c.fg_dark,
+  }
+
+  -- ═══════════════════════════════════════════
+  --  Borders
+  -- ═══════════════════════════════════════════
+  c.border = {
+    active = c.focus, -- focused border accent
+    active_title = c.focus, -- focused titles in borders
+    split = c.bg_dark, -- VertSplit / WinSeparator divider
+    title = c.primary, -- titles in borders
+    color = c.primary, -- main border accent
+    subtle = c.fg_darker, -- subtle / inactive border
+  }
+
+  -- ═══════════════════════════════════════════
+  --  UI (structural decoration)
+  -- ═══════════════════════════════════════════
+  c.ui = {
+    prompt = c.primary, -- prompts,
+    header = c.primary, -- headings, titles, H1/H2
+    path = c.primary, -- directories, filenames, root paths
+    footer = c.secondary, -- dashboard footer text
+    icon = c.secondary, -- generic subdued icons
+    label = c.secondary, -- metadata descriptors
+    cursor_bg = c.fg,
+    cursor_fg = c.bg,
+    attention = c.magenta,
+    ai = c.orange,
+    -- files/paths/directory?
+    -- secondary title
+    -- move title into here
+  }
+
+  -- ═══════════════════════════════════════════
+  --  Syntax
+  -- ═══════════════════════════════════════════
+  c.syntax = {
+    title = c.primary,
+    keyword = c.magenta,
+    macro = c.cyan,
+    string = c.green,
+    string_doc = c.green,
+    string_escape = c.magenta,
+    md_inline = c.green,
+    parameter = c.orange,
+    variable = c.fg,
+    constant = c.yellow,
+    type = c.secondary,
+    type_builtin = U.blend_bg(c.secondary, 0.85, c.bg),
+    functions = c.primary,
+    functions_builtin = U.blend_bg(c.primary, 0.85, c.bg),
+    constructor = c.magenta,
+    operator = c.special,
+    markup = c.magenta, -- TODO?: make orange again? yellow? too much magenta I think
+    link = c.orange,
+  }
+
+  -- ═══════════════════════════════════════════
+  --  Diagnostics
+  -- ═══════════════════════════════════════════
+  c.diagnostics = {
+    error = c.red,
+    warning = c.yellow,
+    info = c.secondary,
+    hint = c.cyan,
+    success = c.green, -- consider removing this + using info instead
+    todo = c.secondary,
+    trace = c.purple,
+  }
+
+  -- ═══════════════════════════════════════════
+  --  Rainbow (indent guides, markdown headings)
+  -- ═══════════════════════════════════════════
   c.rainbow = { c.purple, c.blue, c.green, c.yellow, c.magenta, c.cyan, c.red, c.orange }
 
-  -- ═══ Git ═══
+  -- ═══════════════════════════════════════════
+  --  Git
+  -- ═══════════════════════════════════════════
   c.git = {
     add = c.green,
     change = c.yellow,
     delete = c.red,
     ignore = c.fg_darker,
+    -- git title/file stuff
   }
 
-  -- ═══ Diff ═══
+  -- ═══════════════════════════════════════════
+  --  Diff
+  -- ═══════════════════════════════════════════
   c.diff = {
     add = U.blend_bg(c.green, 0.15, c.bg),
     change = U.blend_bg(c.yellow, 0.22, c.bg),
     delete = U.blend_bg(c.red, 0.15, c.bg),
     text = U.blend_bg(c.green, 0.26, c.bg),
+    -- make addtext, deletetext
   }
 
-  -- ═══ Terminal ═══
+  -- ═══════════════════════════════════════════
+  --  Terminal (16-color ANSI)
+  -- ═══════════════════════════════════════════
   c.terminal = {
     black = c.bg_darker,
     black_bright = c.fg_gutter,
@@ -111,15 +198,17 @@ function M.apply(c)
     white_bright = c.fg,
   }
 
-  -- ═══ Statusline ═══
+  -- ═══════════════════════════════════════════
+  --  Statusline
+  -- ═══════════════════════════════════════════
   c.status = {
-    bg = c.bg_dark,
     normal = c.primary,
     insert = c.green,
     command = c.yellow,
     visual = c.magenta,
     replace = c.red,
     terminal = c.cyan,
+    inactive = c.bg_darker,
   }
 end
 

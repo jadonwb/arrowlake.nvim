@@ -10,11 +10,11 @@ M.url = "https://github.com/MeanderingProgrammer/render-markdown.nvim"
 function M.get(c, opts)
   -- stylua: ignore
   local ret = {
-    RenderMarkdownBullet    = { fg = c.markup },
-    RenderMarkdownCode      = { bg = c.bg_code },
-    RenderMarkdownDash      = { fg = c.markup },
-    RenderMarkdownTableHead = { fg = c.primary },
-    RenderMarkdownTableRow  = { fg = c.secondary },
+    RenderMarkdownBullet    = { fg = c.syntax.markup },
+    RenderMarkdownCode      = { bg = c.backgrounds.code },
+    RenderMarkdownDash      = { fg = c.syntax.markup },
+    RenderMarkdownTableHead = { fg = c.ui.header },
+    RenderMarkdownTableRow  = { fg = c.ui.footer },
     RenderMarkdownCodeInline = "@markup.raw.markdown_inline"
   }
   for i, color in ipairs(c.rainbow) do

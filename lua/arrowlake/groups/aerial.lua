@@ -8,8 +8,8 @@ M.url = "https://github.com/stevearc/aerial.nvim"
 function M.get(c, opts)
   -- stylua: ignore
   local ret = {
-    AerialNormal = { fg = c.fg, bg = c.none },
-    AerialGuide  = { fg = c.fg_gutter },
+    AerialNormal = { fg = c.foregrounds.normal, bg = c.none },
+    AerialGuide  = { fg = c.foregrounds.indent },
     AerialLine   = "LspInlayHint",
   }
   require("arrowlake.groups.kinds").kinds(ret, "Aerial%sIcon")

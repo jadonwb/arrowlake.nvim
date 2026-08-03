@@ -9,9 +9,9 @@ function M.get(c, opts)
 
   -- stylua: ignore
   return {
-    TroubleText   = { fg = c.fg_dark },
-    TroubleCount  = { fg = c.attention, bg = c.bg_hover },
-    TroubleNormal = "Normal",
+    TroubleText   = { fg = c.foregrounds.dark },
+    TroubleCount  = { fg = c.ui.attention, bg = c.backgrounds.hover },
+    TroubleNormal = { fg = c.foregrounds.normal, bg = c.backgrounds.sidebar },
   }
 end
 

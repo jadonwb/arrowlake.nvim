@@ -1,3 +1,4 @@
+local mappings = require("arrowlake.colors.mappings")
 
 local M = {}
 
@@ -5,12 +6,14 @@ local M = {}
 M.bg = "#0D0C25"
 M.bg_dark = "#09081a"
 M.bg_darker = "#070614"
+M.selection = "#161440"
 
 -- Foregrounds
 M.fg = "#bec8e8"
 M.fg_dark = "#7e85b8"
 M.fg_darker = "#5c6296"
 M.fg_gutter = "#312e55"
+M.special = "#9AC1E5"
 
 -- Core colors
 M.red = "#E50050"
@@ -25,38 +28,32 @@ M.cyan = "#33D4B4"
 -- Accent choices
 M.primary = M.blue
 M.secondary = "#5352CD"
-M.selection = "#161440"
 M.focus = M.orange
-M.operator = "#9AC1E5"
 
 ---@param c arrowlake.Palette
 function M.map(c)
   local U = require("arrowlake.util")
+  mappings.apply(c)
 
-  require("arrowlake.colors.mappings").apply(c)
+  -- Dark overrides: backgrounds
+  c.backgrounds.search_current = U.blend_bg(c.magenta, 0.45, c.bg)
 
-  -- Dark-specific overrides
-  c.string_doc = c.yellow
-  c.md_inline = c.yellow
-  c.parameter = c.yellow
-  c.constant = c.orange
-  c.markup = c.orange
-  c.link = c.cyan
-  c.warning = c.orange
-  c.info = c.secondary
-  c.todo = c.secondary
-  c.ai = c.cyan
+  -- Dark overrides: syntax
+  c.syntax.string_doc = c.yellow
+  c.syntax.md_inline = c.yellow
+  c.syntax.parameter = c.yellow
+  c.syntax.markup = c.orange
+  c.syntax.link = c.cyan
 
-  c.bg_hover = c.fg_gutter
-  c.bg_search = c.fg_gutter
-  c.bg_search_current = c.magenta
+  -- Dark overrides: diagnostics
+  c.diagnostics.warning = c.orange
+  c.diagnostics.ai = c.cyan
 
-  c.type_builtin = U.blend_bg(c.secondary, 0.75, c.bg)
-  c.functions_builtin = U.blend_bg(c.primary, 0.75, c.bg)
-
-  c.rainbow = { c.blue, c.yellow, c.magenta, c.green, c.cyan, c.red, c.purple, c.orange }
-
+  -- Dark overrides: statusline command mode color
   c.status.command = c.orange
+
+  -- Dark overrides: rainbow ordering
+  c.rainbow = { c.blue, c.yellow, c.magenta, c.green, c.cyan, c.purple, c.red, c.orange }
 end
 
 return M
