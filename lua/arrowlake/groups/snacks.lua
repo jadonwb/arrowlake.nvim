@@ -49,9 +49,9 @@ function M.get(c, opts)
     SnacksIndentScope         = { fg = c.focus, nocombine = true },
     SnacksZenIcon             = { fg = c.syntax.keyword },
     SnacksInputIcon           = { fg = c.ui.icon },
-    SnacksInputNormal         = { fg = c.foregrounds.normal, bg = c.backgrounds.input },
-    SnacksInputBorder         = { fg = c.border.active, bg = c.backgrounds.input },
-    SnacksInputTitle          = { fg = c.border.active_title, bg = c.backgrounds.input },
+    SnacksInputNormal         = { fg = c.foregrounds.normal, bg = c.backgrounds.popup },
+    SnacksInputBorder         = { fg = c.border.active, bg = c.backgrounds.popup },
+    SnacksInputTitle          = { fg = c.border.active_title, bg = c.backgrounds.popup },
     -- Picker
     SnacksPickerInputBorder   = { fg = c.border.active, bg = c.backgrounds.float },
     SnacksPickerInputTitle    = { fg = c.border.title, bg = c.backgrounds.float },

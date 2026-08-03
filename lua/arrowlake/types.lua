@@ -42,7 +42,6 @@
 ---@field dark string
 ---@field darker string
 ---@field code string
----@field input string
 ---@field notification string
 ---@field sidebar string
 ---@field statusline string
@@ -50,7 +49,7 @@
 ---@field tabline_fill string
 ---@field winbar string
 ---@field float string
----@field which_key string
+---@field popup string
 ---@field highlight string
 ---@field visual string
 ---@field hover string

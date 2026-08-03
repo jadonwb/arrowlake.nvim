@@ -12,9 +12,9 @@ function M.get(c, opts)
     WhichKeyGroup     = { fg = c.ui.header },
     WhichKeyDesc      = { fg = c.ui.label },
     WhichKeySeparator = { fg = c.foregrounds.comment },
-    WhichKeyNormal     = { fg = c.foregrounds.normal, bg = c.backgrounds.which_key },
-    WhichKeyTitle     = { fg = c.border.title, bg = c.backgrounds.which_key },
-    WhichKeyBorder     = { fg = c.border.color, bg = c.backgrounds.which_key },
+    WhichKeyNormal     = { fg = c.foregrounds.normal, bg = c.backgrounds.popup },
+    WhichKeyTitle     = { fg = c.border.title, bg = c.backgrounds.popup },
+    WhichKeyBorder     = { fg = c.border.color, bg = c.backgrounds.popup },
     WhichKeyValue     = { fg = c.foregrounds.comment },
   }
 end

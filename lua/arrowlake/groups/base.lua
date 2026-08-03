@@ -50,8 +50,8 @@ function M.get(c, opts)
     NormalFloat                 = { fg = c.foregrounds.normal, bg = c.backgrounds.float }, -- Normal text in floating windows.
     FloatBorder                 = { fg = c.border.color, bg = c.backgrounds.float },
     FloatTitle                  = { fg = c.border.color, bg = c.backgrounds.float },
-    Pmenu                       = { bg = c.backgrounds.float, fg = c.foregrounds.normal }, -- Popup menu: normal item.
-    PmenuMatch                  = { bg = c.backgrounds.float, fg = c.focus }, -- Popup menu: Matched text in normal item.
+    Pmenu                       = { bg = c.backgrounds.popup, fg = c.foregrounds.normal }, -- Popup menu: normal item.
+    PmenuMatch                  = { bg = c.backgrounds.popup, fg = c.focus }, -- Popup menu: Matched text in normal item.
     PmenuSel                    = { bg = c.backgrounds.highlight }, -- Popup menu: selected item.
     PmenuMatchSel               = { bg = c.backgrounds.highlight, fg = c.focus }, -- Popup menu: Matched text in selected item.
     PmenuSbar                   = { bg = Util.blend_fg(c.backgrounds.float, 0.95) }, -- Popup menu: scrollbar.

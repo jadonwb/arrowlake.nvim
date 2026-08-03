@@ -8,8 +8,8 @@ M.url = "https://github.com/hrsh7th/nvim-cmp"
 function M.get(c, opts)
   -- stylua: ignore
   local ret = {
-    CmpDocumentation       = { fg = c.foregrounds.normal, bg = c.backgrounds.float },
-    CmpDocumentationBorder = { fg = c.border.color, bg = c.backgrounds.float },
+    CmpDocumentation       = { fg = c.foregrounds.normal, bg = c.backgrounds.popup },
+    CmpDocumentationBorder = { fg = c.border.color, bg = c.backgrounds.popup },
     CmpGhostText           = { fg = c.foregrounds.muted },
     CmpItemAbbr            = { fg = c.foregrounds.normal, bg = c.none },
     CmpItemAbbrDeprecated  = { fg = c.foregrounds.muted, bg = c.none, strikethrough = true },

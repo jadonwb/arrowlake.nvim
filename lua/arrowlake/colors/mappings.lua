@@ -39,7 +39,6 @@ function M.apply(c)
 
     -- Surfaces
     code = c.bg_dark,
-    input = c.bg_darker,
     notification = c.bg_dark,
     sidebar = c.bg_darker,
     statusline = c.bg_dark,
@@ -48,8 +47,8 @@ function M.apply(c)
     color_column = c.bg_darker,
     winbar = c.bg_dark,
     float = c.bg_darker,
+    popup = c.bg_darker,
     fold = c.bg_darker,
-    which_key = c.bg_dark,
 
     -- Selections & highlights
     highlight = c.selection,

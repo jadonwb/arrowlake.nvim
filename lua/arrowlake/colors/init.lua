@@ -49,42 +49,39 @@ function M.setup(opts)
     opts.on_colors(colors)
   end
 
-  -- 6. Style overrides for sidebar, float, and statusline backgrounds.
-  -- Each can be: nil (keep mapping default), "transparent" (use bg),
-  -- "normal" (use bg_dark), or "darker" (use bg_darker).
-  -- transparency now only controls the main Normal bg (handled in groups/base.lua).
+  -- 6. Style overrides for UI surface backgrounds.
+  -- nil → keep mapping default | "transparent" → match bg | "normal" → bg_dark | "darker" → bg_darker
+  -- When the main bg is transparent (opts.transparent), "transparent" surfaces use c.none
+  -- so they truly vanish rather than rendering a visible opaque surface on a transparent window.
+  local transparent_bg = opts.transparent and colors.none or colors.bg
 
-  -- FIXME: transparent means not only does it match bg, but if bg itself is also transparent, it needs to match that with colors.none
+  local SURFACES = {
+    statusline   = { "status",           "bg" },
+    popup        = { "backgrounds",      "popup" },
+    float        = { "backgrounds",      "float" },
+    sidebar      = { "backgrounds",      "sidebar" },
+    code         = { "backgrounds",      "code" },
+    notification = { "backgrounds",      "notification" },
+    tabline      = { "backgrounds",      "tabline" },
+    winbar       = { "backgrounds",      "winbar" },
+    fold         = { "backgrounds",      "fold" },
+  }
 
-  -- statusline
-  if opts.styles.statusline == "transparent" then
-    colors.status.bg = colors.bg
-  elseif opts.styles.statusline == "normal" then
-    colors.status.bg = colors.bg_dark
-  elseif opts.styles.statusline == "darker" then
-    colors.status.bg = colors.bg_darker
+  for surface, path in pairs(SURFACES) do
+    local value = opts.styles[surface]
+    if value then
+      local override = value == "transparent" and transparent_bg
+        or value == "normal" and colors.bg_dark
+        or value == "darker" and colors.bg_darker
+      if override then
+        local target = colors
+        for i = 1, #path - 1 do
+          target = target[path[i]]
+        end
+        target[path[#path]] = override
+      end
+    end
   end
-
-  -- float
-  if opts.styles.float == "transparent" then
-    colors.backgrounds.float = colors.bg
-  elseif opts.styles.float == "normal" then
-    colors.backgrounds.float = colors.bg_dark
-  elseif opts.styles.float == "darker" then
-    colors.backgrounds.float = colors.bg_darker
-  end
-
-  -- sidebar
-  if opts.styles.sidebar == "transparent" then
-    colors.backgrounds.sidebar = colors.bg
-  elseif opts.styles.sidebar == "normal" then
-    colors.backgrounds.sidebar = colors.bg_dark
-  elseif opts.styles.sidebar == "darker" then
-    colors.backgrounds.sidebar = colors.bg_darker
-  end
-
-  -- TODO!: add which-key specific option, popups (completion, diagnostics, notifications?), input/confirm/select?
-  -- notifications are currently bg_dark not bg_darker like other float, find that in noice or snacks.
 
   return colors, opts
 end

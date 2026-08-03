@@ -20,10 +20,17 @@ M.defaults = {
     preproc = { bold = true },
     functions = { bold = true },
     variables = {},
-    -- TODO: see init.lua
-    statusline = nil, -- nil (default) | "transparent" | "normal" | "darker"
-    float = nil, -- nil (default) | "transparent" | "normal" | "darker"
-    sidebar = nil, -- nil (default) | "transparent" | "normal" | "darker"
+    -- UI surface backgrounds. nil keeps the mapping default.
+    -- "transparent" matches the main background, "normal" uses bg_dark, "darker" uses bg_darker.
+    statusline = nil,
+    popup = nil,
+    float = nil,
+    sidebar = nil,
+    code = nil,
+    notification = nil,
+    tabline = nil,
+    winbar = nil,
+    fold = nil,
 
     -- borders = nil, -- TODO: make functionality to set the fg of borders to their backgrounds to make a border toggle at the highlight level.
   },
