@@ -27,7 +27,7 @@ header.fg=${red}
 header.bold=true
 
 tab.fg=${fg_gutter}
-tab.bg=${status.bg}
+tab.bg=${backgrounds.statusline}
 tab.selected.fg=${terminal.black}
 tab.selected.bg=${blue}
 

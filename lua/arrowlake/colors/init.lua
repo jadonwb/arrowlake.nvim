@@ -56,7 +56,7 @@ function M.setup(opts)
   local transparent_bg = opts.transparent and colors.none or colors.bg
 
   local SURFACES = {
-    statusline   = { "status",           "bg" },
+    statusline   = { "backgrounds",      "statusline" },
     popup        = { "backgrounds",      "popup" },
     float        = { "backgrounds",      "float" },
     sidebar      = { "backgrounds",      "sidebar" },

@@ -16,7 +16,7 @@ function M.get(c)
     MiniTablineModifiedHidden  = { bg = c.backgrounds.tabline, fg = Util.blend_bg(c.diagnostics.warning, 0.7) },
     MiniTablineModifiedVisible = { fg = c.diagnostics.warning, bg = c.backgrounds.tabline },
     MiniTablineTabpagesection  = { bg = c.backgrounds.highlight, fg = c.none },
-    MiniTablineVisible         = { fg = c.foregrounds.normal, bg = c.status.bg },
+    MiniTablineVisible         = { fg = c.foregrounds.normal, bg = c.backgrounds.tabline },
   }
 end
 

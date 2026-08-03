@@ -20,7 +20,7 @@ function M.generate(colors)
   --color-arrowlake-${_style}-bg-search: oklch(from ${backgrounds.search} l c h);
   --color-arrowlake-${_style}-bg-search-current: oklch(from ${backgrounds.search_current} l c h);
   --color-arrowlake-${_style}-bg-sidebar: oklch(from ${backgrounds.sidebar} l c h);
-  --color-arrowlake-${_style}-bg-status: oklch(from ${status.bg} l c h);
+  --color-arrowlake-${_style}-bg-status: oklch(from ${backgrounds.statusline} l c h);
   --color-arrowlake-${_style}-bg-visual: oklch(from ${backgrounds.visual} l c h);
   --color-arrowlake-${_style}-ai: oklch(from ${ui.ai} l c h);
   --color-arrowlake-${_style}-black: oklch(from ${terminal.black} l c h);
