@@ -55,30 +55,16 @@ function M.setup(opts)
   -- so they truly vanish rather than rendering a visible opaque surface on a transparent window.
   local transparent_bg = opts.transparent and colors.none or colors.bg
 
-  local SURFACES = {
-    statusline   = { "backgrounds",      "statusline" },
-    popup        = { "backgrounds",      "popup" },
-    float        = { "backgrounds",      "float" },
-    sidebar      = { "backgrounds",      "sidebar" },
-    code         = { "backgrounds",      "code" },
-    notification = { "backgrounds",      "notification" },
-    tabline      = { "backgrounds",      "tabline" },
-    winbar       = { "backgrounds",      "winbar" },
-    fold         = { "backgrounds",      "fold" },
-  }
+  local SURFACES = { "statusline", "popup", "float", "sidebar", "code", "notification", "tabline", "winbar", "fold" }
 
-  for surface, path in pairs(SURFACES) do
+  for _, surface in ipairs(SURFACES) do
     local value = opts.styles[surface]
     if value then
       local override = value == "transparent" and transparent_bg
         or value == "normal" and colors.bg_dark
         or value == "darker" and colors.bg_darker
       if override then
-        local target = colors
-        for i = 1, #path - 1 do
-          target = target[path[i]]
-        end
-        target[path[#path]] = override
+        colors.backgrounds[surface] = override
       end
     end
   end
