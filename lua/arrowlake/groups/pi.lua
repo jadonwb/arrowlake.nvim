@@ -30,8 +30,8 @@ function M.get(c, opts)
     PiBusyTime = { fg = c.foregrounds.muted },
 
     -- Float windows
-    PiFloat = { bg = c.backgrounds.float },
-    PiFloatBorder = "FloatBorder",
+    PiFloat = { bg = c.backgrounds.normal },
+    PiFloatBorder = { bg = c.backgrounds.normal, fg = c.border.color },
     PiDialogTitle = { fg = c.border.title, bold = true },
 
     -- Tool blocks
