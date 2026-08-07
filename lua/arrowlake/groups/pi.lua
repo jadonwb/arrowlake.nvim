@@ -57,7 +57,7 @@ function M.get(c, opts)
     -- PiZenBackdrop
 
     -- Dialogs
-    PiDialogSelected = { bg = c.backgrounds.visual },
+    PiDialogSelected = { bg = c.backgrounds.normal },
     PiDialogTitle = { fg = c.border.title, bold = true },
 
     -- Diff review
