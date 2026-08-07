@@ -8,8 +8,8 @@ M.url = "https://github.com/MagicDuck/grug-far.nvim"
 function M.get(c, opts)
   -- stylua: ignore
   return {
-    GrugFarHelpHeader             = { fg = c.foregrounds.comment },
-    GrugFarHelpHeaderKey          = { fg = c.syntax.link },
+    HauntSign = { fg = c.ui.ai },
+    HauntAnnotation = { fg = c.ui.ai },
   }
 end
 

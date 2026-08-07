@@ -56,7 +56,7 @@ function M.apply(c)
     visual = c.selection,
     hover = c.selection,
     search = c.selection,
-    search_current = U.blend_bg(c.focus, 0.45, c.bg),
+    search_current = U.blend_bg(c.magenta, 0.37, c.bg),
   }
 
   -- ═══════════════════════════════════════════
@@ -90,7 +90,7 @@ function M.apply(c)
     split = c.bg_dark, -- VertSplit / WinSeparator divider
     title = c.primary, -- titles in borders
     color = c.primary, -- main border accent
-    subtle = c.fg_darker, -- subtle / inactive border
+    subtle = c.fg_gutter, -- subtle / inactive border
   }
 
   -- ═══════════════════════════════════════════
