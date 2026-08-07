@@ -56,7 +56,7 @@ function M.apply(c)
     visual = c.selection,
     hover = c.selection,
     search = c.selection,
-    search_current = U.blend_bg(c.magenta, 0.37, c.bg),
+    search_current = U.blend_bg(c.magenta, 0.47, c.bg),
   }
 
   -- ═══════════════════════════════════════════
