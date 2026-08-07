@@ -45,7 +45,7 @@ label = { fg = "#4a74a8" }
 "markup.link.label" = { fg = "#6284ae" }
 "markup.link.text" = { fg = "#cf9978" }
 "markup.link.url" = { underline = { style = "line" } }
-"markup.list" = { fg = "#c16c90" }
+"markup.list" = { fg = "#cf9978" }
 "markup.normal.completion" = { fg = "#87786c" }
 "markup.normal.hover" = { fg = "#6c5e55" }
 "markup.raw" = { fg = "#4e7469" }
@@ -97,17 +97,16 @@ warning = { fg = "#ae984c" }
 "backgrounds.fold" = "#DED0BF"
 "backgrounds.highlight" = "#d4c6b3"
 "backgrounds.hover" = "#d4c6b3"
-"backgrounds.input" = "#DED0BF"
 "backgrounds.normal" = "#ebe0cf"
 "backgrounds.notification" = "#e3d7c7"
+"backgrounds.popup" = "#DED0BF"
 "backgrounds.search" = "#d4c6b3"
-"backgrounds.search_current" = "#a8cabe"
+"backgrounds.search_current" = "#d7a9b1"
 "backgrounds.sidebar" = "#DED0BF"
 "backgrounds.statusline" = "#e3d7c7"
 "backgrounds.tabline" = "#e3d7c7"
 "backgrounds.tabline_fill" = "#e3d7c7"
 "backgrounds.visual" = "#d4c6b3"
-"backgrounds.which_key" = "#e3d7c7"
 "backgrounds.winbar" = "#e3d7c7"
 bg = "#ebe0cf"
 bg_dark = "#e3d7c7"
@@ -117,7 +116,7 @@ blue = "#4A74A8"
 "border.active_title" = "#56AEA9"
 "border.color" = "#6660AF"
 "border.split" = "#e3d7c7"
-"border.subtle" = "#87786c"
+"border.subtle" = "#ad9b88"
 "border.title" = "#6660AF"
 cyan = "#56AEA9"
 "diagnostics.error" = "#BC495D"
@@ -183,7 +182,7 @@ special = "#6a8b89"
 "syntax.keyword" = "#C16C90"
 "syntax.link" = "#CF9978"
 "syntax.macro" = "#56AEA9"
-"syntax.markup" = "#C16C90"
+"syntax.markup" = "#CF9978"
 "syntax.md_inline" = "#4E7469"
 "syntax.operator" = "#6a8b89"
 "syntax.parameter" = "#CF9978"

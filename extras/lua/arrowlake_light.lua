@@ -10,17 +10,16 @@ local colors = {
     fold = "#DED0BF",
     highlight = "#d4c6b3",
     hover = "#d4c6b3",
-    input = "#DED0BF",
     normal = "#ebe0cf",
     notification = "#e3d7c7",
+    popup = "#DED0BF",
     search = "#d4c6b3",
-    search_current = "#a8cabe",
+    search_current = "#d7a9b1",
     sidebar = "#DED0BF",
     statusline = "#e3d7c7",
     tabline = "#e3d7c7",
     tabline_fill = "#e3d7c7",
     visual = "#d4c6b3",
-    which_key = "#e3d7c7",
     winbar = "#e3d7c7"
   },
   bg = "#ebe0cf",
@@ -32,7 +31,7 @@ local colors = {
     active_title = "#56AEA9",
     color = "#6660AF",
     split = "#e3d7c7",
-    subtle = "#87786c",
+    subtle = "#ad9b88",
     title = "#6660AF"
   },
   cyan = "#56AEA9",
@@ -104,7 +103,7 @@ local colors = {
     keyword = "#C16C90",
     link = "#CF9978",
     macro = "#56AEA9",
-    markup = "#C16C90",
+    markup = "#CF9978",
     md_inline = "#4E7469",
     operator = "#6a8b89",
     parameter = "#CF9978",
@@ -323,14 +322,14 @@ local highlights = {
   ["@markup.link.label.symbol"] = "Identifier",
   ["@markup.link.url"] = "Underlined",
   ["@markup.list"] = {
-    fg = "#C16C90"
+    fg = "#CF9978"
   },
   ["@markup.list.checked"] = {
     fg = "#4E7469"
   },
   ["@markup.list.markdown"] = {
     bold = true,
-    fg = "#C16C90"
+    fg = "#CF9978"
   },
   ["@markup.list.unchecked"] = {
     fg = "#56AEA9"
@@ -374,7 +373,7 @@ local highlights = {
     fg = "#6a8b89"
   },
   ["@punctuation.special.markdown"] = {
-    fg = "#C16C90"
+    fg = "#CF9978"
   },
   ["@string"] = "String",
   ["@string.documentation"] = {
@@ -1502,7 +1501,7 @@ local highlights = {
     fg = "#87786c"
   },
   GrugFarResultsMatch = {
-    bg = "#a8cabe",
+    bg = "#d7a9b1",
     fg = "#54473f"
   },
   GrugFarResultsStats = {
@@ -1568,7 +1567,7 @@ local highlights = {
     bg = "#d4c6b3"
   },
   IncSearch = {
-    bg = "#a8cabe",
+    bg = "#d7a9b1",
     fg = "#54473f"
   },
   InclineNormal = "StatusLine",
@@ -2165,6 +2164,7 @@ local highlights = {
     fg = "NONE"
   },
   MiniTablineVisible = {
+    bg = "#e3d7c7",
     fg = "#54473f"
   },
   MiniTestEmphasis = {
@@ -2572,6 +2572,13 @@ local highlights = {
     bold = true,
     fg = "#CF9978"
   },
+  PiAttachmentFilename = {
+    fg = "#CF9978",
+    italic = true
+  },
+  PiAttachmentIcon = {
+    fg = "#CF9978"
+  },
   PiBusy = {
     bold = true,
     fg = "#CF9978"
@@ -2579,15 +2586,43 @@ local highlights = {
   PiBusyTime = {
     fg = "#ad9b88"
   },
+  PiChatAttachmentsWinbar = {
+    bg = "#e3d7c7"
+  },
+  PiChatAttachmentsWinbarTitle = {
+    bold = true,
+    fg = "#87786c"
+  },
   PiChatHistoryFloatTitle = {
     bg = "#6660AF",
     bold = true,
     fg = "#ebe0cf"
   },
+  PiChatHistoryWinbar = {
+    bg = "#e3d7c7"
+  },
   PiChatHistoryWinbarTitle = {
     bg = "#6660AF",
     bold = true,
     fg = "#ebe0cf"
+  },
+  PiChatPromptFloatAttentionTitle = {
+    bold = true,
+    fg = "#56AEA9"
+  },
+  PiChatPromptWinbar = {
+    bg = "#e3d7c7"
+  },
+  PiChatPromptWinbarAttentionTitle = {
+    bold = true,
+    fg = "#56AEA9"
+  },
+  PiChatPromptWinbarTitle = {
+    bold = true,
+    fg = "#87786c"
+  },
+  PiDialogSelected = {
+    bg = "#ebe0cf"
   },
   PiDialogTitle = {
     bold = true,
@@ -2602,27 +2637,33 @@ local highlights = {
   PiDiffLineNr = {
     fg = "#ad9b88"
   },
+  PiDiffReviewNote = {
+    fg = "#56AEA9"
+  },
   PiDiffWinbar = {
     bg = "#e3d7c7"
   },
   PiDiffWinbarCurrent = {
     bold = true,
-    fg = "#6c5e55"
+    fg = "#87786c"
   },
   PiDiffWinbarHint = {
     fg = "#87786c"
   },
   PiDiffWinbarProposed = {
     bold = true,
-    fg = "#6c5e55"
+    fg = "#87786c"
   },
   PiError = {
     fg = "#BC495D"
   },
   PiFloat = {
-    bg = "#DED0BF"
+    bg = "#ebe0cf"
   },
-  PiFloatBorder = "FloatBorder",
+  PiFloatBorder = {
+    bg = "#ebe0cf",
+    fg = "#6660AF"
+  },
   PiMention = {
     fg = "#4A74A8",
     underline = true
@@ -2634,16 +2675,28 @@ local highlights = {
   PiMessageDateTime = {
     fg = "#ad9b88"
   },
-  PiStartupLabel = {
-    bg = "#87786c",
+  PiStatusLine = {
+    fg = "#ad9b88"
+  },
+  PiStatusLineAttention = {
     bold = true,
-    fg = "#DED0BF"
+    fg = "#56AEA9"
+  },
+  PiStatusLineError = {
+    fg = "#BC495D"
+  },
+  PiStatusLineWarning = {
+    fg = "#AE984C"
   },
   PiToolBorder = {
-    fg = "#87786c"
+    fg = "#ad9b88"
   },
   PiToolCall = {
-    fg = "#87786c"
+    fg = "#6c5e55"
+  },
+  PiToolCollapsed = {
+    fg = "#ad9b88",
+    italic = true
   },
   PiToolError = {
     fg = "#BC495D",
@@ -2656,6 +2709,10 @@ local highlights = {
   PiToolOutput = {
     fg = "#54473f"
   },
+  PiToolStatus = {
+    fg = "#4E7469",
+    italic = true
+  },
   PiUserMessageLabel = {
     bold = true,
     fg = "#4A74A8"
@@ -2665,7 +2722,7 @@ local highlights = {
     italic = true
   },
   PiWelcome = {
-    fg = "#4A74A8"
+    fg = "#54473f"
   },
   Pmenu = {
     bg = "#DED0BF",
@@ -2727,14 +2784,14 @@ local highlights = {
     fg = "#6660AF"
   },
   RenderMarkdownBullet = {
-    fg = "#C16C90"
+    fg = "#CF9978"
   },
   RenderMarkdownCode = {
     bg = "#e3d7c7"
   },
   RenderMarkdownCodeInline = "@markup.raw.markdown_inline",
   RenderMarkdownDash = {
-    fg = "#C16C90"
+    fg = "#CF9978"
   },
   RenderMarkdownH1Bg = {
     bg = "#ded3cc"
@@ -3129,7 +3186,7 @@ local highlights = {
     fg = "#4E7469"
   },
   Substitute = {
-    bg = "#a8cabe",
+    bg = "#d7a9b1",
     fg = "#54473f"
   },
   SupermavenSuggestion = {
@@ -3276,7 +3333,7 @@ local highlights = {
     fg = "#56AEA9"
   },
   WhichKeyBorder = {
-    bg = "#e3d7c7",
+    bg = "#DED0BF",
     fg = "#6660AF"
   },
   WhichKeyDesc = {
@@ -3286,14 +3343,14 @@ local highlights = {
     fg = "#6660AF"
   },
   WhichKeyNormal = {
-    bg = "#e3d7c7",
+    bg = "#DED0BF",
     fg = "#54473f"
   },
   WhichKeySeparator = {
     fg = "#87786c"
   },
   WhichKeyTitle = {
-    bg = "#e3d7c7",
+    bg = "#DED0BF",
     fg = "#6660AF"
   },
   WhichKeyValue = {

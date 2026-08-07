@@ -8,9 +8,9 @@
   --color-arrowlake-light-bg-hover: oklch(from #d4c6b3 l c h);
   --color-arrowlake-light-bg-menu-sel: oklch(from #d4c6b3 l c h);
   --color-arrowlake-light-bg-search: oklch(from #d4c6b3 l c h);
-  --color-arrowlake-light-bg-search-current: oklch(from #a8cabe l c h);
+  --color-arrowlake-light-bg-search-current: oklch(from #d7a9b1 l c h);
   --color-arrowlake-light-bg-sidebar: oklch(from #DED0BF l c h);
-  --color-arrowlake-light-bg-status: oklch(from ${status.bg} l c h);
+  --color-arrowlake-light-bg-status: oklch(from #e3d7c7 l c h);
   --color-arrowlake-light-bg-visual: oklch(from #d4c6b3 l c h);
   --color-arrowlake-light-ai: oklch(from #CF9978 l c h);
   --color-arrowlake-light-black: oklch(from #DED0BF l c h);
@@ -18,7 +18,7 @@
   --color-arrowlake-light-blue: oklch(from #4A74A8 l c h);
   --color-arrowlake-light-blue-bright: oklch(from #3782cb l c h);
   --color-arrowlake-light-regexp: oklch(from #6a8b89 l c h);
-  --color-arrowlake-light-border: oklch(from #87786c l c h);
+  --color-arrowlake-light-border: oklch(from #ad9b88 l c h);
   --color-arrowlake-light-border-highlight: oklch(from #6660AF l c h);
   --color-arrowlake-light-comment: oklch(from #87786c l c h);
   --color-arrowlake-light-cyan: oklch(from #56AEA9 l c h);

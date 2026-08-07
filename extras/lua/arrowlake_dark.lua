@@ -10,9 +10,9 @@ local colors = {
     fold = "#070614",
     highlight = "#161440",
     hover = "#161440",
-    input = "#070614",
     normal = "#0D0C25",
     notification = "#09081a",
+    popup = "#070614",
     search = "#161440",
     search_current = "#691351",
     sidebar = "#070614",
@@ -20,7 +20,6 @@ local colors = {
     tabline = "#09081a",
     tabline_fill = "#09081a",
     visual = "#161440",
-    which_key = "#09081a",
     winbar = "#09081a"
   },
   bg = "#0D0C25",
@@ -32,7 +31,7 @@ local colors = {
     active_title = "#FB9B00",
     color = "#3F3BF5",
     split = "#09081a",
-    subtle = "#5c6296",
+    subtle = "#312e55",
     title = "#3F3BF5"
   },
   cyan = "#33D4B4",
@@ -2165,6 +2164,7 @@ local highlights = {
     fg = "NONE"
   },
   MiniTablineVisible = {
+    bg = "#09081a",
     fg = "#bec8e8"
   },
   MiniTestEmphasis = {
@@ -2572,6 +2572,13 @@ local highlights = {
     bold = true,
     fg = "#33D4B4"
   },
+  PiAttachmentFilename = {
+    fg = "#33D4B4",
+    italic = true
+  },
+  PiAttachmentIcon = {
+    fg = "#33D4B4"
+  },
   PiBusy = {
     bold = true,
     fg = "#33D4B4"
@@ -2579,15 +2586,43 @@ local highlights = {
   PiBusyTime = {
     fg = "#312e55"
   },
+  PiChatAttachmentsWinbar = {
+    bg = "#09081a"
+  },
+  PiChatAttachmentsWinbarTitle = {
+    bold = true,
+    fg = "#5c6296"
+  },
   PiChatHistoryFloatTitle = {
     bg = "#3F3BF5",
     bold = true,
     fg = "#0D0C25"
   },
+  PiChatHistoryWinbar = {
+    bg = "#09081a"
+  },
   PiChatHistoryWinbarTitle = {
     bg = "#3F3BF5",
     bold = true,
     fg = "#0D0C25"
+  },
+  PiChatPromptFloatAttentionTitle = {
+    bold = true,
+    fg = "#FB9B00"
+  },
+  PiChatPromptWinbar = {
+    bg = "#09081a"
+  },
+  PiChatPromptWinbarAttentionTitle = {
+    bold = true,
+    fg = "#FB9B00"
+  },
+  PiChatPromptWinbarTitle = {
+    bold = true,
+    fg = "#5c6296"
+  },
+  PiDialogSelected = {
+    bg = "#0D0C25"
   },
   PiDialogTitle = {
     bold = true,
@@ -2602,27 +2637,33 @@ local highlights = {
   PiDiffLineNr = {
     fg = "#312e55"
   },
+  PiDiffReviewNote = {
+    fg = "#33D4B4"
+  },
   PiDiffWinbar = {
     bg = "#09081a"
   },
   PiDiffWinbarCurrent = {
     bold = true,
-    fg = "#7e85b8"
+    fg = "#5c6296"
   },
   PiDiffWinbarHint = {
     fg = "#5c6296"
   },
   PiDiffWinbarProposed = {
     bold = true,
-    fg = "#7e85b8"
+    fg = "#5c6296"
   },
   PiError = {
     fg = "#E50050"
   },
   PiFloat = {
-    bg = "#070614"
+    bg = "#0D0C25"
   },
-  PiFloatBorder = "FloatBorder",
+  PiFloatBorder = {
+    bg = "#0D0C25",
+    fg = "#3F3BF5"
+  },
   PiMention = {
     fg = "#5352CD",
     underline = true
@@ -2634,16 +2675,28 @@ local highlights = {
   PiMessageDateTime = {
     fg = "#312e55"
   },
-  PiStartupLabel = {
-    bg = "#5c6296",
+  PiStatusLine = {
+    fg = "#312e55"
+  },
+  PiStatusLineAttention = {
     bold = true,
-    fg = "#070614"
+    fg = "#FB9B00"
+  },
+  PiStatusLineError = {
+    fg = "#E50050"
+  },
+  PiStatusLineWarning = {
+    fg = "#FB9B00"
   },
   PiToolBorder = {
-    fg = "#5c6296"
+    fg = "#312e55"
   },
   PiToolCall = {
-    fg = "#5c6296"
+    fg = "#7e85b8"
+  },
+  PiToolCollapsed = {
+    fg = "#312e55",
+    italic = true
   },
   PiToolError = {
     fg = "#E50050",
@@ -2656,6 +2709,10 @@ local highlights = {
   PiToolOutput = {
     fg = "#bec8e8"
   },
+  PiToolStatus = {
+    fg = "#2A8A6B",
+    italic = true
+  },
   PiUserMessageLabel = {
     bold = true,
     fg = "#5352CD"
@@ -2665,7 +2722,7 @@ local highlights = {
     italic = true
   },
   PiWelcome = {
-    fg = "#5352CD"
+    fg = "#bec8e8"
   },
   Pmenu = {
     bg = "#070614",
@@ -3276,7 +3333,7 @@ local highlights = {
     fg = "#FB9B00"
   },
   WhichKeyBorder = {
-    bg = "#09081a",
+    bg = "#070614",
     fg = "#3F3BF5"
   },
   WhichKeyDesc = {
@@ -3286,14 +3343,14 @@ local highlights = {
     fg = "#3F3BF5"
   },
   WhichKeyNormal = {
-    bg = "#09081a",
+    bg = "#070614",
     fg = "#bec8e8"
   },
   WhichKeySeparator = {
     fg = "#5c6296"
   },
   WhichKeyTitle = {
-    bg = "#09081a",
+    bg = "#070614",
     fg = "#3F3BF5"
   },
   WhichKeyValue = {

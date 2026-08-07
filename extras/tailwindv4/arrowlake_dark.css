@@ -10,7 +10,7 @@
   --color-arrowlake-dark-bg-search: oklch(from #161440 l c h);
   --color-arrowlake-dark-bg-search-current: oklch(from #691351 l c h);
   --color-arrowlake-dark-bg-sidebar: oklch(from #070614 l c h);
-  --color-arrowlake-dark-bg-status: oklch(from ${status.bg} l c h);
+  --color-arrowlake-dark-bg-status: oklch(from #09081a l c h);
   --color-arrowlake-dark-bg-visual: oklch(from #161440 l c h);
   --color-arrowlake-dark-ai: oklch(from #33D4B4 l c h);
   --color-arrowlake-dark-black: oklch(from #070614 l c h);
@@ -18,7 +18,7 @@
   --color-arrowlake-dark-blue: oklch(from #3F3BF5 l c h);
   --color-arrowlake-dark-blue-bright: oklch(from #4f4cff l c h);
   --color-arrowlake-dark-regexp: oklch(from #9AC1E5 l c h);
-  --color-arrowlake-dark-border: oklch(from #5c6296 l c h);
+  --color-arrowlake-dark-border: oklch(from #312e55 l c h);
   --color-arrowlake-dark-border-highlight: oklch(from #3F3BF5 l c h);
   --color-arrowlake-dark-comment: oklch(from #5c6296 l c h);
   --color-arrowlake-dark-cyan: oklch(from #33D4B4 l c h);

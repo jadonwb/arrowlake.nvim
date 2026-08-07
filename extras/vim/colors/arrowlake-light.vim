@@ -90,7 +90,7 @@ hi Identifier guibg=NONE guifg=#6c5e55
 hi IlluminatedWordRead guibg=#d4c6b3
 hi IlluminatedWordText guibg=#d4c6b3
 hi IlluminatedWordWrite guibg=#d4c6b3
-hi IncSearch guibg=#a8cabe guifg=#54473f
+hi IncSearch guibg=#d7a9b1 guifg=#54473f
 hi Italic gui=italic guibg=NONE guifg=#54473f
 hi Keyword gui=italic guibg=NONE guifg=#C16C90
 hi LineNr guibg=NONE guifg=#ad9b88
@@ -163,7 +163,7 @@ hi MiniTablineModifiedCurrent guibg=#d4c6b3 guifg=#AE984C
 hi MiniTablineModifiedHidden guibg=#e3d7c7 guifg=#c0ae73
 hi MiniTablineModifiedVisible guibg=#e3d7c7 guifg=#AE984C
 hi MiniTablineTabpagesection guibg=#d4c6b3 guifg=NONE
-hi MiniTablineVisible guibg=NONE guifg=#54473f
+hi MiniTablineVisible guibg=#e3d7c7 guifg=#54473f
 hi MiniTestEmphasis gui=bold guibg=NONE
 hi MiniTestFail gui=bold guibg=NONE guifg=#BC495D
 hi MiniTestPass gui=bold guibg=NONE guifg=#4E7469
@@ -224,7 +224,7 @@ hi Statement guibg=NONE guifg=#C16C90
 hi StatusLine guibg=#e3d7c7 guifg=#87786c
 hi StatusLineNC guibg=#e3d7c7 guifg=#ad9b88
 hi String guibg=NONE guifg=#4E7469
-hi Substitute guibg=#a8cabe guifg=#54473f
+hi Substitute guibg=#d7a9b1 guifg=#54473f
 hi TabLine guibg=#e3d7c7 guifg=#ad9b88
 hi TabLineFill guibg=#e3d7c7
 hi TabLineSel guibg=#6660AF guifg=#e3d7c7

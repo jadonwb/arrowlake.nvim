@@ -3,9 +3,9 @@
   "name": "Arrowlake",
   "colors": {
     "accent": "${syntax.title}",
-    "border": "#5c6296",
+    "border": "#312e55",
     "borderAccent": "#3F3BF5",
-    "borderMuted": "#5c6296",
+    "borderMuted": "#312e55",
     "success": "#2A8A6B",
     "error": "#E50050",
     "warning": "#FB9B00",
@@ -31,9 +31,9 @@
     "mdLinkUrl": "#5c6296",
     "mdCode": "#FFD888",
     "mdCodeBlock": "#7e85b8",
-    "mdCodeBlockBorder": "#5c6296",
+    "mdCodeBlockBorder": "#312e55",
     "mdQuote": "#5c6296",
-    "mdQuoteBorder": "#5c6296",
+    "mdQuoteBorder": "#312e55",
     "mdHr": "#FB9B00",
     "mdListBullet": "#FB9B00",
 

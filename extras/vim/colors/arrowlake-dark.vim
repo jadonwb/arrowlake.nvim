@@ -163,7 +163,7 @@ hi MiniTablineModifiedCurrent guibg=#161440 guifg=#FB9B00
 hi MiniTablineModifiedHidden guibg=#09081a guifg=#b4700b
 hi MiniTablineModifiedVisible guibg=#09081a guifg=#FB9B00
 hi MiniTablineTabpagesection guibg=#161440 guifg=NONE
-hi MiniTablineVisible guibg=NONE guifg=#bec8e8
+hi MiniTablineVisible guibg=#09081a guifg=#bec8e8
 hi MiniTestEmphasis gui=bold guibg=NONE
 hi MiniTestFail gui=bold guibg=NONE guifg=#E50050
 hi MiniTestPass gui=bold guibg=NONE guifg=#2A8A6B
