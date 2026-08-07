@@ -7,8 +7,8 @@ M.url = "https://github.com/alex35mil/pi.nvim"
 function M.get(c, opts)
   return {
     -- Chat message labels (pill badges)
-    PiUserMessageLabel = { fg = c.ui.label, bold = true }, -- TEST: same as below
-    PiAgentResponseLabel = { fg = c.ui.ai, bold = true }, -- TEST: trying out the fg as the color, no bg
+    PiUserMessageLabel = { fg = c.ui.label, bold = true },
+    PiAgentResponseLabel = { fg = c.ui.ai, bold = true },
     PiMessageDateTime = { fg = c.foregrounds.muted },
     PiMessageAttachments = { fg = c.syntax.link, italic = true },
 
@@ -32,6 +32,9 @@ function M.get(c, opts)
     -- Float windows
     PiFloat = { bg = c.backgrounds.normal },
     PiFloatBorder = { bg = c.backgrounds.normal, fg = c.border.color },
+
+    -- Dialog popups
+    PiDialogSelected = { bg = c.backgrounds.visual },
     PiDialogTitle = { fg = c.border.title, bold = true },
 
     -- Tool blocks
