@@ -8,6 +8,7 @@ M.url = "https://github.com/folke/snacks.nvim"
 ---@param c arrowlake.ColorScheme
 ---@param opts arrowlake.Config
 function M.get(c, opts)
+  --TODO!: when I configure the plugin here too, make terminals be normal not float bg here
   -- stylua: ignore
   local ret = {
     SnacksNotifierDebug       = { fg = c.foregrounds.normal, bg = c.backgrounds.notification },
