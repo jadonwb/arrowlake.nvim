@@ -64,7 +64,18 @@ function M.get(c, opts)
     SnacksPickerPickWinCurrent= { fg = c.foregrounds.normal, bg = c.focus, bold = true },
     SnacksPickerPickWin       = { fg = c.foregrounds.normal, bg = c.backgrounds.search, bold = true },
     SnacksGhLabel             = { fg = c.ui.label, bold = true },
-    SnacksGhDiffHeader        = { bg = Util.blend_bg(c.ui.label, 0.1), fg = c.ui.label } -- same
+    SnacksGhDiffHeader        = { bg = Util.blend_bg(c.ui.label, 0.1), fg = c.ui.label }, -- same
+
+    -- SnacksPickerGitStatus = {},
+    -- SnacksPickerGitStatusIgnored = {},
+    -- SnacksPickerGitStatusUntracked = {},
+    SnacksPickerGitStatusAdded = "diffAdd",
+    SnacksPickerGitStatusStaged = "diffAdd",
+    SnacksPickerGitStatusModified = "diffChanged",
+    SnacksPickerGitStatusUnmerged = "diffChanged",
+    SnacksPickerGitStatusDeleted = "diffRemoved",
+    SnacksPickerGitStatusCopied = "diffChanged",
+    SnacksPickerGitStatusRenamed = "diffChanged",
   }
   for i, color in ipairs(c.rainbow) do
     ret["SnacksIndent" .. i] = { fg = color, nocombine = true }
