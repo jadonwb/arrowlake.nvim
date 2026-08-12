@@ -59,10 +59,11 @@ function M.get(c, opts)
     SnacksPickerBoxTitle      = { fg = c.border.title, bg = c.backgrounds.float },
     SnacksPickerSelected      = { fg = c.ui.attention},
     SnacksPickerToggle        = "SnacksProfilerBadgeInfo",
-    SnacksPickerSearch        = "CurSearch",
+    SnacksPickerSearch        = "CurSearch", -- TODO: what does this do?
+    SnacksPickerMatch         = "CurSearch",
     SnacksPickerPickWinCurrent= { fg = c.foregrounds.normal, bg = c.focus, bold = true },
     SnacksPickerPickWin       = { fg = c.foregrounds.normal, bg = c.backgrounds.search, bold = true },
-    SnacksGhLabel             = { fg = c.ui.label, bold = true }, -- TODO?: consolidate with groups/base.lua diff*?
+    SnacksGhLabel             = { fg = c.ui.label, bold = true },
     SnacksGhDiffHeader        = { bg = Util.blend_bg(c.ui.label, 0.1), fg = c.ui.label } -- same
   }
   for i, color in ipairs(c.rainbow) do
