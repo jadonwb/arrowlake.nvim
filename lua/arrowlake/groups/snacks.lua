@@ -67,15 +67,15 @@ function M.get(c, opts)
     SnacksGhDiffHeader        = { bg = Util.blend_bg(c.ui.label, 0.1), fg = c.ui.label }, -- same
 
     -- SnacksPickerGitStatus = {},
-    -- SnacksPickerGitStatusIgnored = {},
-    -- SnacksPickerGitStatusUntracked = {},
-    SnacksPickerGitStatusAdded = "diffAdd",
-    SnacksPickerGitStatusStaged = "diffAdd",
-    SnacksPickerGitStatusModified = "diffChanged",
-    SnacksPickerGitStatusUnmerged = "diffChanged",
-    SnacksPickerGitStatusDeleted = "diffRemoved",
-    SnacksPickerGitStatusCopied = "diffChanged",
-    SnacksPickerGitStatusRenamed = "diffChanged",
+    SnacksPickerGitStatusIgnored   = { fg = c.git.ignore },
+    SnacksPickerGitStatusUntracked = { fg = c.git.ignore },
+    SnacksPickerGitStatusAdded     =  { fg = c.git.add } ,
+    SnacksPickerGitStatusStaged    = { fg = c.git.add },
+    SnacksPickerGitStatusModified  = { fg = c.git.change },
+    SnacksPickerGitStatusUnmerged  = { fg = c.git.change }, -- TODO: make red?
+    SnacksPickerGitStatusDeleted   = { fg = c.git.delete },
+    SnacksPickerGitStatusCopied    = { fg = c.git.change },
+    SnacksPickerGitStatusRenamed   = { fg = c.git.change },
   }
   for i, color in ipairs(c.rainbow) do
     ret["SnacksIndent" .. i] = { fg = color, nocombine = true }
