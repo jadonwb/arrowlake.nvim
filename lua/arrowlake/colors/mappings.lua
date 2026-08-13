@@ -1,26 +1,8 @@
 local M = {}
 
---[[
-
-  Takes the base palette (c.bg, c.red, c.primary, etc.) and derives every
-  semantic color used by highlight groups.  Dark-theme overrides live in
-  dark.lua's map() which calls apply() then reassigns a few fields.
-
-  Naming conventions:
-    c.backgrounds.*   — UI surface colors (sidebar, float, code block, …)
-    c.foregrounds.*   — UI text colors (comment, muted, gutter, …)
-    c.border.*        — window divider and border accent colors
-    c.syntax.*        — syntax highlight colors
-    c.diagnostics.*   — LSP / diagnostic / status colors
-    c.git.*           — git status colors
-    c.diff.*          — diff background colors
-    c.terminal.*      — 16-color ANSI terminal palette
-    c.status.*        — statusline mode colors
-    c.rainbow         — rainbow array for indent guides / headings
----]]
-
 -- TODO: add a swap magenta|purple option?
--- TODO: add comments for lsp purposes
+-- TODO: add comments for lsp purposes (document)
+-- move types into here?
 
 ---@param c arrowlake.Palette
 function M.apply(c)
