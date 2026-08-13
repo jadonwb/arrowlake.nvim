@@ -1648,7 +1648,7 @@ local highlights = {
     italic = true
   },
   LazyLocal = {
-    fg = "#FFD888"
+    fg = "#5352CD"
   },
   LazyNoCond = {
     fg = "#FB9B00"
@@ -1669,10 +1669,10 @@ local highlights = {
     fg = "#312e55"
   },
   LazyReasonCmd = {
-    fg = "#9AC1E5"
+    fg = "#FFD888"
   },
   LazyReasonEvent = {
-    fg = "#FFD888"
+    fg = "#D91C87"
   },
   LazyReasonFt = {
     fg = "#2A8A6B"
@@ -1681,7 +1681,7 @@ local highlights = {
     fg = "#bec8e8"
   },
   LazyReasonKeys = {
-    fg = "#D91C87"
+    fg = "#FB9B00"
   },
   LazyReasonPlugin = {
     fg = "#3F3BF5"
@@ -1699,7 +1699,7 @@ local highlights = {
     fg = "#7e85b8"
   },
   LazySpecial = {
-    fg = "#FB9B00"
+    fg = "#33D4B4"
   },
   LazyTaskOutput = {
     fg = "#5c6296"
@@ -3100,6 +3100,33 @@ local highlights = {
     bg = "#070614",
     fg = "#3F3BF5"
   },
+  SnacksPickerGitStatusAdded = {
+    fg = "#2A8A6B"
+  },
+  SnacksPickerGitStatusCopied = {
+    fg = "#FFD888"
+  },
+  SnacksPickerGitStatusDeleted = {
+    fg = "#E50050"
+  },
+  SnacksPickerGitStatusIgnored = {
+    fg = "#5c6296"
+  },
+  SnacksPickerGitStatusModified = {
+    fg = "#FFD888"
+  },
+  SnacksPickerGitStatusRenamed = {
+    fg = "#FFD888"
+  },
+  SnacksPickerGitStatusStaged = {
+    fg = "#2A8A6B"
+  },
+  SnacksPickerGitStatusUnmerged = {
+    fg = "#FFD888"
+  },
+  SnacksPickerGitStatusUntracked = {
+    fg = "#5c6296"
+  },
   SnacksPickerInputBorder = {
     bg = "#070614",
     fg = "#FB9B00"
@@ -3108,6 +3135,7 @@ local highlights = {
     bg = "#070614",
     fg = "#3F3BF5"
   },
+  SnacksPickerMatch = "CurSearch",
   SnacksPickerPickWin = {
     bg = "#161440",
     bold = true,
