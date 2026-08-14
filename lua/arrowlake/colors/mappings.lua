@@ -4,6 +4,12 @@ local M = {}
 -- TODO: add comments for lsp purposes (document)
 -- move types into here?
 
+-- TODO: I am seeing an emerging pattern of a fourth main color:
+--primary
+--secondary
+--focus/accent
+--match=search=highlight
+
 ---@param c arrowlake.Palette
 function M.apply(c)
   local U = require("arrowlake.util")
