@@ -18,7 +18,7 @@ function M.get(c, opts)
     BlinkCmpKindTabNine         = { fg = c.ui.ai, bg               = c.none },
     BlinkCmpLabel               = { fg = c.foregrounds.normal, bg               = c.none },
     BlinkCmpLabelDeprecated     = { fg = c.foregrounds.muted, bg        = c.none, strikethrough = true },
-    BlinkCmpLabelMatch          = { fg = c.focus, bg            = c.none },
+    BlinkCmpLabelMatch          = "CurSearch",
     BlinkCmpMenu                = { fg = c.foregrounds.normal, bg               = c.backgrounds.popup },
     BlinkCmpMenuBorder          = { fg = c.border.color, bg = c.backgrounds.popup },
     BlinkCmpSignatureHelp       = { fg = c.foregrounds.normal, bg               = c.backgrounds.popup },
