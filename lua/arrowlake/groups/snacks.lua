@@ -11,6 +11,7 @@ function M.get(c, opts)
   --TODO!: when I configure the plugin here too, make terminals be normal not float bg here
   -- stylua: ignore
   local ret = {
+    SnacksNotifierHistory     = "NormalFloat",
     SnacksNotifierDebug       = { fg = c.foregrounds.normal, bg = c.backgrounds.notification },
     SnacksNotifierBorderDebug = { fg = Util.blend_bg(c.foregrounds.comment, 0.4), bg = c.backgrounds.notification },
     SnacksNotifierIconDebug   = { fg = c.foregrounds.comment, bg = c.backgrounds.notification },
