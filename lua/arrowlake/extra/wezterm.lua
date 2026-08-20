@@ -27,7 +27,7 @@ background = "${backgrounds.normal}"
 
 [colors.tab_bar.active_tab]
 fg_color = "${foregrounds.tabline}"
-bg_color = "${backgrounds.tabline}"
+bg_color = "${backgrounds.normal}"
 
 [colors.tab_bar.inactive_tab]
 fg_color = "${foregrounds.muted}"
@@ -35,12 +35,12 @@ bg_color = "${backgrounds.normal}"
 
 [colors.tab_bar.inactive_tab_hover]
 fg_color = "${focus}"
-bg_color = "${backgrounds.tabline}"
+bg_color = "${backgrounds.normal}"
 # intensity = "Bold"
 
 [colors.tab_bar.new_tab_hover]
 fg_color = "${focus}"
-bg_color = "${backgrounds.tabline}"
+bg_color = "${backgrounds.normal}"
 intensity = "Bold"
 
 [colors.tab_bar.new_tab]
