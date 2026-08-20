@@ -13,7 +13,6 @@ hi BlinkCmpKindSupermaven guibg=NONE guifg=#33D4B4
 hi BlinkCmpKindTabNine guibg=NONE guifg=#33D4B4
 hi BlinkCmpLabel guibg=NONE guifg=#bec8e8
 hi BlinkCmpLabelDeprecated gui=strikethrough guibg=NONE guifg=#312e55
-hi BlinkCmpLabelMatch guibg=NONE guifg=#FB9B00
 hi BlinkCmpMenu guibg=#070614 guifg=#bec8e8
 hi BlinkCmpMenuBorder guibg=#070614 guifg=#3F3BF5
 hi BlinkCmpSignatureHelp guibg=#070614 guifg=#bec8e8
@@ -90,7 +89,7 @@ hi Identifier guibg=NONE guifg=#7e85b8
 hi IlluminatedWordRead guibg=#161440
 hi IlluminatedWordText guibg=#161440
 hi IlluminatedWordWrite guibg=#161440
-hi IncSearch guibg=#691351 guifg=#bec8e8
+hi IncSearch gui=bold guibg=#691351 guifg=#bec8e8
 hi Italic gui=italic guibg=NONE guifg=#bec8e8
 hi Keyword gui=italic guibg=NONE guifg=#D91C87
 hi LineNr guibg=NONE guifg=#312e55
@@ -209,7 +208,7 @@ hi PmenuThumb guibg=#312e55
 hi PreProc gui=bold guibg=NONE guifg=#33D4B4
 hi Question guibg=NONE guifg=#3F3BF5
 hi QuickFixLine gui=bold guibg=#161440
-hi Search guibg=#161440 guifg=#bec8e8
+hi Search gui=bold guibg=#161440 guifg=#bec8e8
 hi SignColumn guibg=NONE guifg=#312e55
 hi SignColumnSB guibg=#070614 guifg=#312e55
 hi Sneak guibg=#D91C87 guifg=#161440

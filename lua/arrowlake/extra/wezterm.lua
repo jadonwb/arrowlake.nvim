@@ -14,7 +14,7 @@ cursor_border = "${fg}"
 cursor_fg = "${bg}"
 selection_bg = "${backgrounds.visual}"
 selection_fg = "${fg}"
-split = "${border.color}"
+split = "${border.split}"
 compose_cursor = "${focus}"
 scrollbar_thumb = "${backgrounds.highlight}"
 
@@ -22,24 +22,24 @@ ansi = ["${terminal.black}", "${terminal.red}", "${terminal.green}", "${terminal
 brights = ["${terminal.black_bright}", "${terminal.red_bright}", "${terminal.green_bright}", "${terminal.yellow_bright}", "${terminal.blue_bright}", "${terminal.magenta_bright}", "${terminal.cyan_bright}", "${terminal.white_bright}"]
 
 [colors.tab_bar]
-inactive_tab_edge = "${bg_dark}"
+inactive_tab_edge = "${border.split}"
 background = "${bg}"
 
 [colors.tab_bar.active_tab]
-fg_color = "${bg_dark}"
-bg_color = "${syntax.title}"
+fg_color = "${foregrounds.tabline}"
+bg_color = "${backgrounds.tabline}"
 
 [colors.tab_bar.inactive_tab]
-fg_color = "${foregrounds.comment}"
-bg_color = "${backgrounds.highlight}"
+fg_color = "${foregrounds.muted}"
+bg_color = "${backgrounds.tabline}"
 
 [colors.tab_bar.inactive_tab_hover]
-fg_color = "${syntax.title}"
+fg_color = "${border.active_title}"
 bg_color = "${backgrounds.hover}"
 # intensity = "Bold"
 
 [colors.tab_bar.new_tab_hover]
-fg_color = "${syntax.title}"
+fg_color = "${border.active_title}"
 bg_color = "${backgrounds.hover}"
 intensity = "Bold"
 

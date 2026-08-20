@@ -571,10 +571,7 @@ local highlights = {
     fg = "#312e55",
     strikethrough = true
   },
-  BlinkCmpLabelMatch = {
-    bg = "NONE",
-    fg = "#FB9B00"
-  },
+  BlinkCmpLabelMatch = "CurSearch",
   BlinkCmpMenu = {
     bg = "#070614",
     fg = "#bec8e8"
@@ -1568,6 +1565,7 @@ local highlights = {
   },
   IncSearch = {
     bg = "#691351",
+    bold = true,
     fg = "#bec8e8"
   },
   InclineNormal = "StatusLine",
@@ -2909,6 +2907,7 @@ local highlights = {
   },
   Search = {
     bg = "#161440",
+    bold = true,
     fg = "#bec8e8"
   },
   SidekickDiffAdd = "DiffAdd",
@@ -3044,6 +3043,7 @@ local highlights = {
     bg = "#09081a",
     fg = "#bec8e8"
   },
+  SnacksNotifierHistory = "NormalFloat",
   SnacksNotifierIconDebug = {
     bg = "#09081a",
     fg = "#5c6296"
