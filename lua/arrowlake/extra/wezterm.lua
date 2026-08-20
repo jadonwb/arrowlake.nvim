@@ -35,16 +35,16 @@ bg_color = "${backgrounds.tabline}"
 
 [colors.tab_bar.inactive_tab_hover]
 fg_color = "${border.active_title}"
-bg_color = "${backgrounds.hover}"
+bg_color = "${backgrounds.tabline}"
 # intensity = "Bold"
 
 [colors.tab_bar.new_tab_hover]
 fg_color = "${border.active_title}"
-bg_color = "${backgrounds.hover}"
+bg_color = "${backgrounds.tabline}"
 intensity = "Bold"
 
 [colors.tab_bar.new_tab]
-fg_color = "${syntax.title}"
+fg_color = "${foregrounds.muted}"
 bg_color = "${bg}"
 
 [metadata]

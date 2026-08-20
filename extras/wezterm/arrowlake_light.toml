@@ -27,16 +27,16 @@ bg_color = "#e3d7c7"
 
 [colors.tab_bar.inactive_tab_hover]
 fg_color = "#56AEA9"
-bg_color = "#d4c6b3"
+bg_color = "#e3d7c7"
 # intensity = "Bold"
 
 [colors.tab_bar.new_tab_hover]
 fg_color = "#56AEA9"
-bg_color = "#d4c6b3"
+bg_color = "#e3d7c7"
 intensity = "Bold"
 
 [colors.tab_bar.new_tab]
-fg_color = "${syntax.title}"
+fg_color = "#ad9b88"
 bg_color = "#ebe0cf"
 
 [metadata]
