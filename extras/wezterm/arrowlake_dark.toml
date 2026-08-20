@@ -23,7 +23,7 @@ bg_color = "#09081a"
 
 [colors.tab_bar.inactive_tab]
 fg_color = "#312e55"
-bg_color = "#09081a"
+bg_color = "#0D0C25"
 
 [colors.tab_bar.inactive_tab_hover]
 fg_color = "#FB9B00"
