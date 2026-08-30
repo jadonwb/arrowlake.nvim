@@ -77,6 +77,8 @@ function M.get(c, opts)
     SnacksPickerGitStatusDeleted   = { fg = c.git.delete },
     SnacksPickerGitStatusCopied    = { fg = c.git.change },
     SnacksPickerGitStatusRenamed   = { fg = c.git.change },
+
+    SnacksBackdrop = { bg = "#ffffff" },
   }
   for i, color in ipairs(c.rainbow) do
     ret["SnacksIndent" .. i] = { fg = color, nocombine = true }
