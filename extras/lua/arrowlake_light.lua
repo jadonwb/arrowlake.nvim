@@ -2929,9 +2929,6 @@ local highlights = {
     bg = "#DED0BF",
     fg = "#ad9b88"
   },
-  SnacksBackdrop = {
-    bg = "#ffffff"
-  },
   SnacksDashboardDesc = {
     fg = "#CF9978"
   },
