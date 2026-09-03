@@ -56,6 +56,26 @@ M.extras = {
   zellij           = { ext = "kdl", url = "https://zellij.dev/", label = "Zellij" },
 }
 
+--- Validate an additional artifact path so generators cannot write outside
+--- the extra's output directory.
+---@param path string
+---@return boolean ok
+---@return string? err
+local function is_safe_artifact_path(path)
+  if type(path) ~= "string" or path == "" then
+    return false, "artifact path must be a non-empty string"
+  end
+  if path:sub(1, 1) == "/" or path:sub(1, 1) == "\\" or path:match("^%a:[/\\]") then
+    return false, "artifact path must be relative: " .. path
+  end
+  for part in path:gmatch("[^/\\]+") do
+    if part == ".." then
+      return false, "artifact path must not traverse parents: " .. path
+    end
+  end
+  return true
+end
+
 function M.setup()
   local arrowlake = require("arrowlake.theme")
   vim.o.background = "dark"
@@ -89,7 +109,19 @@ function M.setup()
       colors["_name"] = "arrowlake_" .. style
       colors["_style"] = style
       print("[write] " .. fname)
-      Util.write("extras/" .. fname, plugin.generate(colors, groups, opts))
+      local generated = { plugin.generate(colors, groups, opts) }
+      local primary = generated[1]
+      local artifacts = generated[2]
+      Util.write("extras/" .. fname, primary)
+      if artifacts then
+        local out_dir = "extras/" .. vim.fn.fnamemodify(fname, ":h")
+        for _, artifact in ipairs(artifacts) do
+          local ok, err = is_safe_artifact_path(artifact and artifact.path)
+          assert(ok, err)
+          assert(type(artifact.content) == "string", "artifact content must be a string")
+          Util.write(out_dir .. "/" .. artifact.path, artifact.content)
+        end
+      end
     end
   end
 end
