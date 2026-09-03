@@ -363,6 +363,9 @@ local highlights = {
   ["@property"] = {
     fg = "#6c5e55"
   },
+  ["@property.json"] = {
+    fg = "#4A74A8"
+  },
   ["@punctuation.bracket"] = {
     fg = "#6c5e55"
   },
