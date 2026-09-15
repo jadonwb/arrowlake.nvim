@@ -28,7 +28,7 @@ function M.apply(c)
 
     -- Surfaces
     code = c.bg_dark,
-    notification = c.bg_dark,
+    notification = c.bg_darker,
     sidebar = c.bg_darker,
     statusline = c.bg_dark,
     tabline = c.bg_dark,

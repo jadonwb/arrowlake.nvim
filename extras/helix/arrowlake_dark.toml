@@ -98,7 +98,7 @@ warning = { fg = "#fb9b00" }
 "backgrounds.highlight" = "#161440"
 "backgrounds.hover" = "#161440"
 "backgrounds.normal" = "#0D0C25"
-"backgrounds.notification" = "#09081a"
+"backgrounds.notification" = "#070614"
 "backgrounds.popup" = "#070614"
 "backgrounds.search" = "#161440"
 "backgrounds.search_current" = "#691351"

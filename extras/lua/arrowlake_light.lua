@@ -11,7 +11,7 @@ local colors = {
     highlight = "#d4c6b3",
     hover = "#d4c6b3",
     normal = "#ebe0cf",
-    notification = "#e3d7c7",
+    notification = "#DED0BF",
     popup = "#DED0BF",
     search = "#d4c6b3",
     search_current = "#d7a9b1",
@@ -3019,84 +3019,84 @@ local highlights = {
     fg = "#56AEA9"
   },
   SnacksNotifierBorderDebug = {
-    bg = "#e3d7c7",
+    bg = "#DED0BF",
     fg = "#c3b6a7"
   },
   SnacksNotifierBorderError = {
-    bg = "#e3d7c7",
+    bg = "#DED0BF",
     fg = "#d8a4a1"
   },
   SnacksNotifierBorderInfo = {
-    bg = "#e3d7c7",
+    bg = "#DED0BF",
     fg = "#abb5bf"
   },
   SnacksNotifierBorderTrace = {
-    bg = "#e3d7c7",
+    bg = "#DED0BF",
     fg = "#b6adc2"
   },
   SnacksNotifierBorderWarn = {
-    bg = "#e3d7c7",
+    bg = "#DED0BF",
     fg = "#d3c39b"
   },
   SnacksNotifierDebug = {
-    bg = "#e3d7c7",
+    bg = "#DED0BF",
     fg = "#54473f"
   },
   SnacksNotifierError = {
-    bg = "#e3d7c7",
+    bg = "#DED0BF",
     fg = "#54473f"
   },
   SnacksNotifierHistory = "NormalFloat",
   SnacksNotifierIconDebug = {
-    bg = "#e3d7c7",
+    bg = "#DED0BF",
     fg = "#87786c"
   },
   SnacksNotifierIconError = {
-    bg = "#e3d7c7",
+    bg = "#DED0BF",
     fg = "#BC495D"
   },
   SnacksNotifierIconInfo = {
-    bg = "#e3d7c7",
+    bg = "#DED0BF",
     fg = "#4A74A8"
   },
   SnacksNotifierIconTrace = {
-    bg = "#e3d7c7",
+    bg = "#DED0BF",
     fg = "#6660AF"
   },
   SnacksNotifierIconWarn = {
-    bg = "#e3d7c7",
+    bg = "#DED0BF",
     fg = "#AE984C"
   },
   SnacksNotifierInfo = {
-    bg = "#e3d7c7",
+    bg = "#DED0BF",
     fg = "#54473f"
   },
   SnacksNotifierTitleDebug = {
-    bg = "#e3d7c7",
+    bg = "#DED0BF",
     fg = "#87786c"
   },
   SnacksNotifierTitleError = {
-    bg = "#e3d7c7",
+    bg = "#DED0BF",
     fg = "#BC495D"
   },
   SnacksNotifierTitleInfo = {
-    bg = "#e3d7c7",
+    bg = "#DED0BF",
     fg = "#4A74A8"
   },
   SnacksNotifierTitleTrace = {
-    bg = "#e3d7c7",
+    bg = "#DED0BF",
     fg = "#6660AF"
   },
   SnacksNotifierTitleWarn = {
-    bg = "#e3d7c7",
+    bg = "#DED0BF",
     fg = "#AE984C"
   },
   SnacksNotifierTrace = {
-    bg = "#e3d7c7",
+    bg = "#DED0BF",
     fg = "#54473f"
   },
   SnacksNotifierWarn = {
-    bg = "#e3d7c7",
+    bg = "#DED0BF",
     fg = "#54473f"
   },
   SnacksPickerBoxTitle = {
