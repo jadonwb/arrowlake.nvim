@@ -1,0 +1,29 @@
+name: Build extras
+
+on:
+  push:
+    branches: [main]
+
+# Allow the default GITHUB_TOKEN to push the follow-up generated-files commit.
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    # Do not react to the generated-files commit pushed by this workflow's
+    # auto-commit step, otherwise the build would loop. Normal (non-bot)
+    # source pushes still rebuild and regenerate under extras/.
+    if: github.actor != 'github-actions[bot]'
+    steps:
+      - uses: actions/checkout@v6
+      - name: Install Neovim
+        uses: folke/github/neovim@main
+      - name: Run Build
+        run: ./scripts/build
+      - name: Commit generated extras
+        uses: stefanzweifel/git-auto-commit-action@v7
+        with:
+          commit_message: "chore(build): auto-generated build files"
+          file_pattern: extras/

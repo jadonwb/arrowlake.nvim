@@ -11,5 +11,5 @@ Add the below to your `~/.vimrc` file.
 ```vim
 set termguicolors
 set rtp+=~/projects/arrowlake.nvim/extras/vim
-colorscheme arrowlake
+colorscheme arrowlake-dark
 ```
