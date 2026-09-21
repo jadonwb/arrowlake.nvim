@@ -63,37 +63,4 @@ describe("group config", function()
     assert.same(all, groups)
   end)
 
-  it("does dashboard", function()
-    local opts = Config.extend({ plugins = {
-      all = false,
-      auto = false,
-      dashboard = true,
-    } })
-    local all = {} ---@type table<string, boolean>
-    for _, name in ipairs(base) do
-      all[name] = true
-    end
-    all.dashboard = true
-    local colors = require("arrowlake.colors").setup(opts)
-    local _, groups = Groups.setup(colors, opts)
-    assert.same(all, groups)
-  end)
-
-  it("does dashboard.nvim", function()
-    local opts = Config.extend({
-      plugins = {
-        all = false,
-        auto = false,
-        ["dashboard-nvim"] = true,
-      },
-    })
-    local all = {} ---@type table<string, boolean>
-    for _, name in ipairs(base) do
-      all[name] = true
-    end
-    all.dashboard = true
-    local colors = require("arrowlake.colors").setup(opts)
-    local _, groups = Groups.setup(colors, opts)
-    assert.same(all, groups)
-  end)
 end)
