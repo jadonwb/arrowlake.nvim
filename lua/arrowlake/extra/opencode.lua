@@ -240,6 +240,61 @@ local function encode(value, indent)
   return "{\n" .. table.concat(parts, ",\n") .. "\n" .. pad .. "}"
 end
 
+-- ── V2 step direction ─────────────────────────────────────────────────────
+--
+-- OpenCode V2 orders hue steps by the mode's contrast direction: light themes
+-- run from the darkest `100` to the lightest `900`, dark themes from the
+-- lightest `100` to the darkest `900`.  Arrowlake's ramps are authored
+-- light-to-dark for both modes, so light output is mirrored: ramp entries are
+-- reversed and every `$hue.<name>.<step>` reference is reflected (100 <-> 900,
+-- 200 <-> 800, ...).
+--
+-- Mirrored ramps and mirrored references resolve to exactly the same colors as
+-- before, but roles that pick a fixed step now land on the palette color
+-- instead of the near-background end of the ramp: agent colors
+-- (`categorical[i][200]`), syntax/prompt accents (`hue.accent[200]`) and the
+-- prompt attachment chip (`hue.accent[light and 300 or 200]`).
+
+local function mirror_step(step)
+  return tostring(1000 - tonumber(step))
+end
+
+local function mirror_hue_scales(hue)
+  for _, entry in ipairs(hue) do
+    local scale = entry[2]
+    if type(scale) == "table" then
+      local reversed = {}
+      for index = 1, #scale do
+        reversed[index] = { tostring(index * 100), scale[#scale - index + 1][2] }
+      end
+      entry[2] = reversed
+    end
+  end
+  return hue
+end
+
+local function mirror_hue_references(value)
+  if type(value) == "string" then
+    local prefix, step = value:match("^(%$hue%.[%w]+%.)(%d+)$")
+    if prefix then
+      return prefix .. mirror_step(step)
+    end
+    return value
+  end
+  if type(value) ~= "table" then
+    return value
+  end
+
+  local result = {}
+  for index = 1, #value do
+    result[index] = mirror_hue_references(value[index])
+  end
+  if value.__array then
+    result.__array = true
+  end
+  return result
+end
+
 -- ── document builder ──────────────────────────────────────────────────────
 
 --- @param colors ColorScheme
@@ -257,7 +312,11 @@ local function build_mode(colors)
   local feedback_step = dark and 200 or 800
   local raised = {
     { "base", hex(panel) },
-    { "high", hex(colors.primary) },
+    -- The prompt input paints `decrease(background.raised.base)`, which for
+    -- Arrowlake's literal panel colors is the panel itself.  Popup menus
+    -- (the `/` command list) paint `background.raised.high`, so match it to
+    -- the prompt instead of stepping up to a separate surface.
+    { "high", hex(panel) },
     { "max", hex(colors.backgrounds.popup) },
   }
 
@@ -301,38 +360,45 @@ local function build_mode(colors)
 
   local context_raised = {
     { "base", hex(panel) },
-    { "high", hex(colors.primary) },
+    -- Dialogs keep a distinct hover shade so row and action hovers stay
+    -- visible against the dialog surface.
+    { "high", hex(colors.backgrounds.highlight) },
     { "max", hex(colors.backgrounds.popup) },
   }
 
   return {
     { "hue", hue },
+    -- Agent colors keep the authored order: the secondary hue colors the
+    -- planner, then the accent hue and the remaining categorical hues.
     { "categorical", array({ secondary_hue, accent_hue, "green", "yellow", primary_hue, "red" }) },
     {
       "text",
       {
-        { "default", "$hue.neutral." .. neutral_text },
-        { "subdued", "$hue.neutral." .. neutral_muted },
+        { "base", "$hue.neutral." .. neutral_text },
+        { "muted", "$hue.neutral." .. neutral_muted },
         {
           "action",
           {
             {
               "primary",
               {
-                { "default", "$text.default" },
+                { "base", "$text.base" },
                 { "$disabled", "$hue.neutral." .. neutral_muted },
                 { "$focused", "$hue.neutral." .. neutral_focus },
                 { "$selected", interactive_ref },
               },
             },
-            { "secondary", { { "default", "$text.subdued" }, { "$hovered", "$text.default" } } },
-            { "destructive", { { "default", "$hue.neutral." .. neutral_focus }, { "$disabled", "$hue.neutral." .. neutral_muted } } },
+            { "secondary", { { "base", "$text.muted" }, { "$hovered", "$text.base" } } },
+            {
+              "destructive",
+              { { "base", "$hue.neutral." .. neutral_focus }, { "$disabled", "$hue.neutral." .. neutral_muted } },
+            },
           },
         },
         {
           "formfield",
           {
-            { "default", "$hue.neutral." .. neutral_text },
+            { "base", "$hue.neutral." .. neutral_text },
             { "$hovered", interactive_ref },
             { "$focused", interactive_ref },
             { "$pressed", interactive_ref },
@@ -343,10 +409,10 @@ local function build_mode(colors)
         {
           "feedback",
           {
-            { "error", { { "default", "$hue.red." .. feedback_step } } },
-            { "warning", { { "default", "$hue.yellow." .. feedback_step } } },
-            { "success", { { "default", "$hue.green." .. feedback_step } } },
-            { "info", { { "default", dark and hex(colors.secondary) or ("$hue.blue." .. feedback_step) } } },
+            { "error", { { "base", "$hue.red." .. feedback_step } } },
+            { "warning", { { "base", "$hue.yellow." .. feedback_step } } },
+            { "success", { { "base", "$hue.green." .. feedback_step } } },
+            { "info", { { "base", dark and hex(colors.secondary) or ("$hue.blue." .. feedback_step) } } },
           },
         },
       },
@@ -354,7 +420,7 @@ local function build_mode(colors)
     {
       "background",
       {
-        { "default", "$hue.neutral." .. neutral_bg },
+        { "base", "$hue.neutral." .. neutral_bg },
         { "raised", raised },
         {
           "action",
@@ -362,30 +428,32 @@ local function build_mode(colors)
             {
               "primary",
               {
-                { "default", "transparent" },
+                { "base", "transparent" },
                 { "$hovered", "$hue.neutral." .. (dark and 700 or 300) },
+                -- Active rows (command palette, selects, tabs) paint their
+                -- background from this state.
                 { "$focused", interactive_ref },
                 { "$selected", "transparent" },
               },
             },
-            { "secondary", { { "default", "transparent" } } },
-            { "destructive", { { "default", "$hue.red." .. feedback_step } } },
+            { "secondary", { { "base", "transparent" } } },
+            { "destructive", { { "base", "$hue.red." .. feedback_step } } },
           },
         },
-        { "formfield", { { "default", "$background.default" } } },
+        { "formfield", { { "base", "$background.base" } } },
         {
           "feedback",
           {
-            { "error", { { "default", "$background.default" } } },
-            { "warning", { { "default", "$background.default" } } },
-            { "success", { { "default", "$background.default" } } },
-            { "info", { { "default", "$background.default" } } },
+            { "error", { { "base", "$background.base" } } },
+            { "warning", { { "base", "$background.base" } } },
+            { "success", { { "base", "$background.base" } } },
+            { "info", { { "base", "$background.base" } } },
           },
         },
       },
     },
-    { "border", { { "default", dark and hex(colors.bg_darker) or interactive_ref } } },
-    { "scrollbar", { { "default", dark and interactive_ref or "$hue.accent.800" } } },
+    { "border", { { "base", dark and hex(colors.bg_darker) or interactive_ref } } },
+    { "scrollbar", { { "base", dark and interactive_ref or "$hue.accent.800" } } },
     {
       "diff",
       {
@@ -462,26 +530,14 @@ local function build_mode(colors)
       },
     },
     {
-      "@context:elevated",
+      "@dialog",
       {
         {
           "background",
           {
-            { "default", "$background.raised.base" },
+            { "base", "$background.raised.base" },
             { "raised", context_raised },
             { "action", { { "primary", { { "$hovered", "$background.raised.high" } } } } },
-          },
-        },
-      },
-    },
-    {
-      "@context:overlay",
-      {
-        {
-          "background",
-          {
-            { "default", "$background.raised.high" },
-            { "raised", context_raised },
           },
         },
       },
@@ -491,8 +547,20 @@ end
 
 --- @param colors ColorScheme
 function M.generate(colors)
-  local mode = encode(build_mode(colors), 2)
-  return '{\n  "version": 2,\n  "standalone": true,\n  "dark": ' .. mode .. ',\n  "light": ' .. mode .. "\n}"
+  local mode = build_mode(colors)
+  local hue = mode[1][2]
+  table.remove(mode, 1)
+  local mode_name = colors._style == "light" and "light" or "dark"
+  if mode_name == "light" then
+    hue = mirror_hue_references(mirror_hue_scales(hue))
+    mode = mirror_hue_references(mode)
+  end
+  local document = {
+    { "$schema", "https://opencode.ai/theme.json" },
+    { "base", mode },
+    { mode_name, { { "hue", hue } } },
+  }
+  return encode(document, 0)
 end
 
 return M

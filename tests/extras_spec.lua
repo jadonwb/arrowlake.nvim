@@ -1,4 +1,5 @@
 local Colors = require("arrowlake.colors")
+local Opencode = require("arrowlake.extra.opencode")
 local Sublime = require("arrowlake.extra.sublime")
 local Yazi = require("arrowlake.extra.yazi")
 
@@ -143,6 +144,215 @@ describe("extra: yazi", function()
         assert.is_nil(section(toml, "help"):find("\n%s*desc%s*="))
         assert.is_nil(section(toml, "help"):find("\n%s*footer%s*="))
         assert.is_nil(section(toml, "filetype"):find("name%s*="))
+      end)
+    end)
+  end
+end)
+
+
+describe("extra: opencode", function()
+  local legacy_keys = { "default", "subdued", "@context:elevated", "@context:overlay", "version", "standalone" }
+  local steps = { "100", "200", "300", "400", "500", "600", "700", "800", "900" }
+
+  --- Relative sRGB luminance of a `#rrggbb` string.
+  ---@param value string
+  ---@return number
+  local function luminance(value)
+    return 0.299 * tonumber(value:sub(2, 3), 16) / 255
+      + 0.587 * tonumber(value:sub(4, 5), 16) / 255
+      + 0.114 * tonumber(value:sub(6, 7), 16) / 255
+  end
+
+  --- Visit every string appearing as a value or an entry key in a decoded document.
+  ---@param node any
+  ---@param visit fun(value: string)
+  local function walk(node, visit)
+    if type(node) ~= "table" then return end
+    for _, value in pairs(node) do
+      if type(value) == "string" then
+        visit(value)
+      else
+        walk(value, visit)
+      end
+    end
+  end
+
+  --- Resolve a theme reference to a hex string, following hue aliases.
+  --- Understands `$hue.<name>.<step>`, `$hue.<name>`, `$text.<path>` and `$background.<path>`.
+  ---@param doc table
+  ---@param mode string
+  ---@param value string
+  ---@return string|table
+  local function resolve(doc, mode, value)
+    local seen = {}
+
+    local function step(token)
+      assert.is_string(token, "reference value must be a string")
+      if token == "transparent" or token:sub(1, 1) == "#" then
+        return token
+      end
+      assert.is_nil(seen[token], "circular reference: " .. token)
+      seen[token] = true
+
+      local parts = vim.split(token, ".", { plain = true })
+      local head = table.remove(parts, 1)
+
+      if head == "$hue" then
+        local name = table.remove(parts, 1)
+        local scale = doc[mode].hue[name]
+        assert.is_not_nil(scale, "undefined hue: " .. tostring(name))
+        local suffix = table.concat(parts, ".")
+        if type(scale) == "string" then
+          return step(suffix == "" and scale or (scale .. "." .. suffix))
+        end
+        if suffix == "" then return scale end
+        assert.is_not_nil(scale[suffix], "undefined step " .. suffix .. " for hue " .. name)
+        return scale[suffix]
+      end
+
+      local node = doc.base[head:sub(2)]
+      assert.is_not_nil(node, "undefined token: " .. head)
+      for index, part in ipairs(parts) do
+        node = node[part]
+        assert.is_not_nil(node, "undefined reference: " .. token)
+        if type(node) == "string" then
+          return step(index < #parts and (node .. "." .. table.concat(parts, ".", index + 1)) or node)
+        end
+      end
+      return node
+    end
+
+    return step(value)
+  end
+
+  for _, style in ipairs({ "dark", "light" }) do
+    describe(style, function()
+      local doc = vim.json.decode(Opencode.generate(colors_for(style)))
+
+      it("uses the current v2 document shape", function()
+        assert.is_not_nil(doc["$schema"])
+        assert.is_not_nil(doc.base)
+        assert.is_nil(doc.version)
+        assert.is_nil(doc.standalone)
+        assert.is_not_nil(doc[style], "mode key " .. style .. " is missing")
+        assert.is_not_nil(doc[style].hue)
+        assert.is_nil(doc.base.hue, "hue belongs to the mode definition")
+        assert.is_not_nil(doc.base.categorical, "categorical belongs to base")
+        for _, key in ipairs(vim.tbl_keys(doc)) do
+          assert.is_true(
+            key == "$schema" or key == "base" or key == style,
+            "unexpected top level key: " .. key
+          )
+        end
+        local other = style == "light" and "dark" or "light"
+        assert.is_nil(doc[other], "unexpected mode key: " .. other)
+      end)
+
+      it("drops legacy v1 keys", function()
+        for _, legacy in ipairs(legacy_keys) do
+          assert.is_false(vim.tbl_contains(vim.tbl_keys(doc.base), legacy), "legacy key in base: " .. legacy)
+        end
+        for _, name in ipairs({ "default", "subdued", "@context:elevated", "@context:overlay" }) do
+          assert.is_nil(doc.base[name], "legacy key still emitted: " .. name)
+        end
+        walk(doc, function(value)
+          assert.are_not.equal("$text.default", value)
+          assert.are_not.equal("$text.subdued", value)
+          assert.are_not.equal("$background.default", value)
+        end)
+      end)
+
+      it("resolves every reference", function()
+        walk(doc, function(value)
+          if value:match("^%$%a+%.") then
+            assert.is_not_nil(resolve(doc, style, value), "unresolved reference: " .. value)
+          end
+        end)
+      end)
+
+      -- V2 orders hue steps by the mode's contrast direction: light themes run
+      -- from the darkest 100 to the lightest 900, dark themes the other way.
+      -- Arrowlake's neutral anchors are not strictly monotonic (the dark page
+      -- background is lighter than the dark raised surface), so compare the
+      -- low half against the high half instead of neighbouring steps.
+      it("orders hue steps by the mode contrast direction", function()
+        local function average(scale, from, to)
+          local total = 0
+          for index = from, to do
+            total = total + luminance(scale[steps[index]])
+          end
+          return total / (to - from + 1)
+        end
+
+        for name, scale in pairs(doc[style].hue) do
+          if type(scale) == "table" then
+            local low = average(scale, 1, 4)
+            local high = average(scale, 6, 9)
+            local first, last = luminance(scale["100"]), luminance(scale["900"])
+            if style == "light" then
+              assert.is_true(high > low, name .. ": light mode must brighten toward step 900")
+              assert.is_true(last > first, name .. ": step 900 must be lighter than step 100")
+            else
+              assert.is_true(high < low, name .. ": dark mode must darken toward step 900")
+              assert.is_true(last < first, name .. ": step 900 must be darker than step 100")
+            end
+          end
+        end
+      end)
+
+      it("keeps agent colors on the authored palette hue", function()
+        -- The planner is the secondary hue of the palette: blue for the light
+        -- scheme, purple for the dark one.
+        local planner = style == "light" and "blue" or "purple"
+        assert.are.same(planner, doc.base.categorical[1], "planner hue changed")
+        for _, name in ipairs(doc.base.categorical) do
+          assert.is_not_nil(doc[style].hue[name], "categorical hue is undefined: " .. name)
+        end
+        assert.is_string(resolve(doc, style, "$hue." .. doc.base.categorical[1] .. ".200"))
+      end)
+
+      it("highlights only the active row", function()
+        local action = doc.base.background.action.primary
+        assert.are_not.equal("transparent", action["$focused"])
+        assert.are.equal("transparent", action["$selected"])
+        assert.is_not_nil(resolve(doc, style, action["$focused"]))
+      end)
+
+      it("keeps feedback text distinct from the page background", function()
+        local background = resolve(doc, style, doc.base.background.base)
+        for _, name in ipairs({ "error", "warning", "success", "info" }) do
+          assert.are_not.equal(
+            resolve(doc, style, doc.base.text.feedback[name].base),
+            background,
+            name .. " text must differ from the page background"
+          )
+        end
+      end)
+
+      it("separates the page from the raised surfaces", function()
+        local page = resolve(doc, style, doc.base.background.base)
+        local raised = resolve(doc, style, doc.base.background.raised.base)
+        assert.are_not.equal(page, raised, "raised surface must lift off the page")
+        assert.are_not.equal(raised, resolve(doc, style, doc.base.border.base), "border must differ from raised")
+      end)
+
+      it("matches the `/` command menu surface to the prompt input", function()
+        -- The prompt paints `decrease(background.raised.base)` and popup menus
+        -- (the `/` command list) paint `background.raised.high`, so the two must
+        -- resolve to the same color.
+        local raised = doc.base.background.raised
+        assert.are.equal(
+          resolve(doc, style, raised.base),
+          resolve(doc, style, raised.high),
+          "the command menu must share the prompt background"
+        )
+        -- Dialog surfaces keep a distinct hover shade so hovers stay visible.
+        local dialog = doc.base["@dialog"].background.raised
+        assert.are_not.equal(
+          resolve(doc, style, dialog.base),
+          resolve(doc, style, dialog.high),
+          "dialog hovers need a distinct shade"
+        )
       end)
     end)
   end
