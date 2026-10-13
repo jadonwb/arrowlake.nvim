@@ -2,6 +2,7 @@ local Colors = require("arrowlake.colors")
 local Opencode = require("arrowlake.extra.opencode")
 local Sublime = require("arrowlake.extra.sublime")
 local Yazi = require("arrowlake.extra.yazi")
+local Codex = require("arrowlake.extra.codex")
 
 ---@param style string
 ---@return ColorScheme
@@ -10,6 +11,46 @@ local function colors_for(style)
   colors._style = style
   return colors
 end
+
+describe("extra: codex", function()
+  for _, style in ipairs({ "dark", "light" }) do
+    it("emits a palette-derived v1 share string for " .. style, function()
+      local colors = colors_for(style)
+      local text = Codex.generate(colors)
+      assert.are.equal("codex-theme-v1:", text:sub(1, 15))
+      local doc = vim.json.decode(text:sub(16))
+      assert.are.equal(style, doc.variant)
+      assert.are.equal("codex", doc.codeThemeId)
+      assert.are.equal(colors.primary, doc.theme.accent)
+      assert.are.equal("custom", doc.theme.accentSource)
+      assert.are.equal(colors.foregrounds.normal, doc.theme.ink)
+      assert.are.equal(colors.backgrounds.normal, doc.theme.surface)
+      assert.are.equal(colors.git.add, doc.theme.semanticColors.diffAdded)
+      assert.are.equal(colors.git.delete, doc.theme.semanticColors.diffRemoved)
+      assert.are.equal(colors.secondary, doc.theme.semanticColors.skill)
+      assert.is_true(doc.theme.opaqueWindows)
+      assert.are.equal(style == "dark" and 60 or 45, doc.theme.contrast)
+      assert.are.equal(vim.NIL, doc.theme.fonts.code)
+      assert.are.equal(vim.NIL, doc.theme.fonts.ui)
+      assert.are.equal(text, Codex.generate(colors))
+    end)
+  end
+
+  it("follows palette overrides", function()
+    local colors = colors_for("dark")
+    colors.primary = "#123456"
+    colors.backgrounds.normal = "#102030"
+    local doc = vim.json.decode(Codex.generate(colors):sub(16))
+    assert.are.equal("#123456", doc.theme.accent)
+    assert.are.equal("#102030", doc.theme.surface)
+  end)
+
+  it("rejects unknown variants", function()
+    local colors = colors_for("dark")
+    colors._style = "unknown"
+    assert.has_error(function() Codex.generate(colors) end)
+  end)
+end)
 
 --- Collect every six-digit hex color nested anywhere in a table.
 ---@param t table

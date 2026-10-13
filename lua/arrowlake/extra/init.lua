@@ -8,6 +8,7 @@ local M = {}
 M.extras = {
   alacritty        = { ext = "toml", url = "https://github.com/alacritty/alacritty", label = "Alacritty" },
   btop             = { ext = "theme", url = "https://github.com/aristocratos/btop", label = "Btop++" },
+  codex            = { ext = "txt", url = "https://learn.chatgpt.com/docs/changelog", label = "Codex / ChatGPT Desktop" },
   delta            = { ext = "gitconfig", url = "https://github.com/dandavison/delta", label = "Delta" },
   discord          = { ext = "css", url ="https://betterdiscord.app/", label = "(Better-)Discord"},
   eza              = { ext = "yml", url = "https://eza.rocks", label = "eza" },
