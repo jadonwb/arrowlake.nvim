@@ -86,6 +86,15 @@ function M.build(opts)
       end
     end
   end
+
+  -- Desktop themes need both modes in one document, so this is outside the
+  -- per-style loop.
+  local dark = require("arrowlake.colors").setup("dark")
+  local light = require("arrowlake.colors").setup("light")
+  write(
+    "extras/opencode/arrowlake-theme/gui-experimental.cjs",
+    require("arrowlake.extra.opencode_desktop").plugin(dark, light)
+  )
 end
 
 return M

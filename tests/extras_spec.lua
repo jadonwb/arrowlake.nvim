@@ -4,6 +4,7 @@ local Sublime = require("arrowlake.extra.sublime")
 local Yazi = require("arrowlake.extra.yazi")
 local Codex = require("arrowlake.extra.codex")
 local Omarchy = require("arrowlake.extra.omarchy")
+local OpenCodeDesktop = require("arrowlake.extra.opencode_desktop")
 local Wezterm = require("arrowlake.extra.wezterm")
 
 ---@param style string
@@ -14,6 +15,47 @@ local function colors_for(style)
   return colors
 end
 
+
+
+describe("extra: opencode desktop", function()
+  local dark = colors_for("dark")
+  local light = colors_for("light")
+  local text = OpenCodeDesktop.plugin(dark, light)
+  local json = text:match("const theme = (.-)\n\nconst plugin")
+  local doc = vim.json.decode(json)
+
+  it("bundles a GUI plugin that contributes the theme", function()
+    assert.is_true(text:find('require("@opencode/plugin/gui")', 1, true) ~= nil)
+    assert.is_true(text:find("ctx.add(Theme, theme)", 1, true) ~= nil)
+    assert.is_true(text:find("module.exports = plugin", 1, true) ~= nil)
+  end)
+
+  it("uses the desktop theme schema and identity", function()
+    assert.are.equal("https://opencode.ai/desktop-theme.json", doc["$schema"])
+    assert.are.equal("Arrowlake", doc.name)
+    assert.are.equal("arrowlake", doc.id)
+  end)
+
+  it("maps both Arrowlake palettes", function()
+    assert.are.equal(light.bg, doc.light.palette.neutral)
+    assert.are.equal(light.fg, doc.light.palette.ink)
+    assert.are.equal(light.primary, doc.light.palette.primary)
+    assert.are.equal(light.focus, doc.light.palette.interactive)
+    assert.are.equal(light.diagnostics.info, doc.light.palette.info)
+    assert.are.equal(dark.bg, doc.dark.palette.neutral)
+    assert.are.equal(dark.fg, doc.dark.palette.ink)
+    assert.are.equal(dark.diagnostics.warning, doc.dark.palette.warning)
+    assert.are.equal(dark.git.add, doc.dark.palette.diffAdd)
+    assert.are.equal(dark.git.delete, doc.dark.palette.diffDelete)
+  end)
+
+  it("pins the Arrowlake syntax colors", function()
+    assert.are.equal(light.syntax.keyword, doc.light.overrides["syntax-keyword"])
+    assert.are.equal(dark.syntax.functions, doc.dark.overrides["syntax-function"])
+    assert.are.equal(dark.foregrounds.comment, doc.dark.overrides["syntax-comment"])
+    assert.are.equal(dark.diagnostics.error, doc.dark.overrides["syntax-critical"])
+  end)
+end)
 
 describe("extra: omarchy", function()
   for _, style in ipairs({ "dark", "light" }) do

@@ -42,7 +42,7 @@ renders the rest from `colors.toml`:
 | `omarchy/themes/*/codex.txt` | Codex desktop import string (manual paste) |
 | `omarchy/themed/btop.theme.tpl` | Custom btop layout, rendered by Omarchy |
 | `omarchy/themed/tmux.theme.tpl` | `@primary` / `@selection_bg` for tmux |
-| `extras/opencode/` | OpenCode TUI theme (computed OKLCH scales) |
+| `extras/opencode/` | OpenCode TUI theme and desktop GUI plugin |
 | `extras/sublime/` | tmTheme used by Sublime and Silicon |
 | `extras/yazi/` | Yazi flavor directory (two files) |
 

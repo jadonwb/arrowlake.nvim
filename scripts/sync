@@ -106,6 +106,10 @@ for file in extras/opencode/*.json; do
   install_file "$file" "$dest_root/opencode/themes/$(basename "$file")"
 done
 
+install_file \
+  extras/opencode/arrowlake-theme/gui-experimental.cjs \
+  "$dest_root/opencode/plugins/arrowlake-theme/gui-experimental.cjs"
+
 install_file extras/sublime/arrowlake_dark.tmTheme "$dest_root/silicon/themes/arrowlake-dark_dark.tmTheme"
 install_file extras/sublime/arrowlake_light.tmTheme "$dest_root/silicon/themes/arrowlake-light_light.tmTheme"
 
