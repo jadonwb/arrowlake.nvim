@@ -1,35 +1,28 @@
-local Config = require("arrowlake.config")
 local Groups = require("arrowlake.groups")
 
-local base = { "base", "kinds", "semantic_tokens", "treesitter" }
+local core = { "base", "kinds", "semantic_tokens", "treesitter" }
 
-before_each(function()
-  Config.setup()
-end)
+local function colors(style)
+  return require("arrowlake.colors").setup(style or "dark")
+end
 
 describe("group is valid", function()
   for name in vim.fs.dir("lua/arrowlake/groups") do
     name = name:match("(.+)%.lua$")
-    if name and name ~= "init" and not vim.list_contains(base, name) then
+    if name and name ~= "init" and not vim.list_contains(core, name) then
       it(name .. " has an url", function()
         local group = Groups.get_group(name)
         assert.is_not_nil(group, group)
         assert.is_not_nil(group.url, group)
       end)
-      it(name .. " has a plugin mapping", function()
-        local mapping = false
-        for k, v in pairs(Groups.plugins) do
-          if v == name then
-            mapping = true
-            break
-          end
-        end
-        assert.is_true(mapping, name)
+
+      it(name .. " is in the load list", function()
+        assert.is_true(vim.list_contains(Groups.groups, name), name)
       end)
     end
   end
 
-  for _, name in pairs(Groups.plugins) do
+  for _, name in ipairs(Groups.groups) do
     it(name .. " exists", function()
       local ok = pcall(Groups.get_group, name)
       assert(ok, name)
@@ -37,30 +30,19 @@ describe("group is valid", function()
   end
 end)
 
-describe("group config", function()
-  it("does all", function()
-    local opts = Config.extend({ plugins = { all = true } })
-    local all = {} ---@type table<string, boolean>
-    for _, name in ipairs(base) do
-      all[name] = true
-    end
-    for _, name in pairs(Groups.plugins) do
-      all[name] = true
-    end
-    local colors = require("arrowlake.colors").setup(opts)
-    local _, groups = Groups.setup(colors, opts)
-    assert.same(all, groups)
+describe("group setup", function()
+  it("merges every configured group", function()
+    local ret, names = Groups.setup(colors("dark"), { cache = false })
+    assert.same(Groups.groups, names)
+    assert.is_true(vim.tbl_count(ret) > 100)
+    assert.is_not_nil(ret.Normal)
+    assert.is_not_nil(ret.TreesitterContext)
   end)
 
-  it("does base", function()
-    local opts = Config.extend({ plugins = { all = false, auto = false } })
-    local all = {} ---@type table<string, boolean>
-    for _, name in ipairs(base) do
-      all[name] = true
-    end
-    local colors = require("arrowlake.colors").setup(opts)
-    local _, groups = Groups.setup(colors, opts)
-    assert.same(all, groups)
+  it("applies the configured transparency to Normal", function()
+    local opaque = Groups.setup(colors("dark"), { cache = false, transparent = false })
+    local transparent = Groups.setup(colors("dark"), { cache = false, transparent = true })
+    assert.is_not_nil(opaque.Normal.bg)
+    assert.are.equal("NONE", transparent.Normal.bg)
   end)
-
 end)

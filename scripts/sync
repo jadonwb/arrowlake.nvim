@@ -1,0 +1,144 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+cd "$(dirname "$0")/.."
+
+check=0
+build=1
+apply=0
+
+for arg in "$@"; do
+  case "$arg" in
+    --check) check=1 ;;
+    --no-build) build=0 ;;
+    --apply) apply=1 ;;
+    -h | --help)
+      cat <<'EOF'
+Usage: scripts/sync [--check] [--no-build] [--apply]
+
+Generate the theme extras and install them into the live configs.
+
+  --check     Report drift without writing anything.
+  --no-build  Reuse the files already generated in the repository.
+  --apply     Re-apply the current Omarchy theme after installing.
+EOF
+      exit 0
+      ;;
+    *)
+      echo "unknown option: $arg" >&2
+      exit 2
+      ;;
+  esac
+done
+
+if (( build )); then
+  ./scripts/build
+fi
+
+home=${HOME:?}
+dest_root="$home/.config"
+changed=()
+drift=0
+
+install_file() {
+  local src=$1 dest=$2
+  if [[ ! -f $src ]]; then
+    echo "missing generated file: $src" >&2
+    exit 1
+  fi
+
+  if (( check )); then
+    if ! cmp -s "$src" "$dest"; then
+      echo "drift: ${dest#"$home"/}"
+      diff -u "$dest" "$src" || true
+      drift=1
+    fi
+    return
+  fi
+
+  if cmp -s "$src" "$dest"; then
+    return
+  fi
+
+  mkdir -p "$(dirname "$dest")"
+  cp "$src" "$dest"
+  changed+=("$dest")
+  echo "updated: ${dest#"$home"/}"
+}
+
+install_dir() {
+  local src=$1 dest=$2
+  if [[ ! -d $src ]]; then
+    echo "missing generated directory: $src" >&2
+    exit 1
+  fi
+
+  if (( check )); then
+    if ! diff -rq "$src" "$dest" >/dev/null 2>&1; then
+      echo "drift: ${dest#"$home"/}"
+      diff -ru "$dest" "$src" || true
+      drift=1
+    fi
+    return
+  fi
+
+  if diff -rq "$src" "$dest" >/dev/null 2>&1; then
+    return
+  fi
+
+  mkdir -p "$dest"
+  rsync -a --delete "$src/" "$dest/"
+  changed+=("$dest")
+  echo "updated: ${dest#"$home"/}"
+}
+
+for slug in arrowlake arrowlake_light; do
+  for file in colors.toml neovim.lua wezterm.json codex.txt; do
+    install_file "omarchy/themes/$slug/$file" "$dest_root/omarchy/themes/$slug/$file"
+  done
+done
+
+for tpl in omarchy/themed/*.tpl; do
+  install_file "$tpl" "$dest_root/omarchy/themed/$(basename "$tpl")"
+done
+
+for file in extras/opencode/*.json; do
+  install_file "$file" "$dest_root/opencode/themes/$(basename "$file")"
+done
+
+install_file extras/sublime/arrowlake_dark.tmTheme "$dest_root/silicon/themes/arrowlake-dark_dark.tmTheme"
+install_file extras/sublime/arrowlake_light.tmTheme "$dest_root/silicon/themes/arrowlake-light_light.tmTheme"
+
+for dir in extras/yazi/*.yazi; do
+  install_dir "$dir" "$dest_root/yazi/flavors/$(basename "$dir")"
+done
+
+if (( check )); then
+  (( drift == 0 )) || exit 1
+  echo "no drift"
+  exit 0
+fi
+
+# Silicon reads named themes from its cache and builds that cache from the
+# themes/ directory in the current working directory.
+if command -v silicon >/dev/null 2>&1 && [[ -d $dest_root/silicon/themes ]]; then
+  mkdir -p "$home/.cache/silicon"
+  (cd "$dest_root/silicon" && silicon --build-cache "$home/.cache/silicon" >/dev/null 2>&1) || true
+fi
+
+if (( ${#changed[@]} > 0 )) && command -v chezmoi >/dev/null 2>&1; then
+  for path in "${changed[@]}"; do
+    chezmoi add "$path" >/dev/null 2>&1 || true
+  done
+fi
+
+if (( apply )); then
+  current=$(cat "$home/.local/state/omarchy/current/theme.name" 2>/dev/null || true)
+  case "$current" in
+    arrowlake | arrowlake_light)
+      echo "applying: omarchy theme set $current"
+      OMARCHY_THEME_SKIP_BACKGROUND=1 omarchy theme set "$current"
+      ;;
+    *) ;;
+  esac
+fi

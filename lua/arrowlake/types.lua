@@ -128,6 +128,7 @@
 ---@field fg_dark string
 ---@field fg_darker string
 ---@field fg_gutter string
+---@field fg_bright string
 ---@field red string
 ---@field orange string
 ---@field yellow string
@@ -154,6 +155,7 @@
 ---@field diagnostics arrowlake.PaletteDiagnostics
 ---@field map? fun(c: arrowlake.Palette)
 ---@field none string
+---@field _style? "dark"|"light"
 
 ---Bare class so ColorScheme resolves everywhere without arrowlake. prefix
 ---(same pattern aether.nvim uses)

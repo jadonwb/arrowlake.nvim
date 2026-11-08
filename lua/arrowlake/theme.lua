@@ -1,10 +1,12 @@
 local M = {}
 
+---Apply the colorscheme.
+---@param style "dark"|"light"
 ---@param opts? arrowlake.Config
-function M.setup(opts)
+function M.setup(style, opts)
   opts = require("arrowlake.config").extend(opts)
 
-  local colors = require("arrowlake.colors").setup(opts)
+  local colors = require("arrowlake.colors").setup(style)
   local groups = require("arrowlake.groups").setup(colors, opts)
 
   -- only needed to clear when not the default colorscheme
@@ -13,16 +15,14 @@ function M.setup(opts)
   end
 
   vim.o.termguicolors = true
-  vim.g.colors_name = "arrowlake-" .. opts.style
+  vim.g.colors_name = "arrowlake-" .. style
 
   for group, hl in pairs(groups) do
     hl = type(hl) == "string" and { link = hl } or hl
     vim.api.nvim_set_hl(0, group, hl)
   end
 
-  if opts.terminal_colors then
-    M.terminal(colors)
-  end
+  M.terminal(colors)
 
   return colors, groups, opts
 end

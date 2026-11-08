@@ -1,3 +1,8 @@
-#!/bin/env bash
+#!/usr/bin/env bash
+set -euo pipefail
 
-nvim -u tests/minit.lua -l lua/arrowlake/extra/init.lua
+cd "$(dirname "$0")/.."
+
+exec nvim --headless -u NONE --cmd 'set rtp+=.' \
+  -c 'lua require("arrowlake.extra").build()' \
+  -c 'qa!'

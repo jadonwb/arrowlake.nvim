@@ -164,7 +164,7 @@ function M.apply(c)
   --  Terminal (16-color ANSI)
   -- ═══════════════════════════════════════════
   c.terminal = {
-    black = c.bg_darker,
+    black = c.bg,
     black_bright = c.fg_gutter,
     red = c.red,
     red_bright = U.brighten(c.red),
@@ -178,8 +178,8 @@ function M.apply(c)
     magenta_bright = U.brighten(c.magenta),
     cyan = c.cyan,
     cyan_bright = U.brighten(c.cyan),
-    white = c.fg_darker,
-    white_bright = c.fg,
+    white = c.fg,
+    white_bright = c.fg_bright or c.fg,
   }
 
   -- ═══════════════════════════════════════════

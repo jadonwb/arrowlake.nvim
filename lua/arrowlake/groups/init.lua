@@ -3,110 +3,76 @@ local Util = require("arrowlake.util")
 
 local M = {}
 
+-- Every group file this theme ships. Plugin groups are cheap table merges, so
+-- loading them unconditionally avoids lazy-load timing bugs where a plugin's
+-- highlights are missing because it was not loaded when the colorscheme ran.
+-- lspconfig/plugin detection is intentionally not part of the theme.
 -- stylua: ignore
-M.plugins = {
-  ["blink.cmp"]                     = "blink",
-  ["colorful-winsep.nvim"]          = "colorful_winsep",
-  ["diffview.nvim"]                 = "diffview",
-  ["diffview-plus.nvim"]            = "diffview-plus",
-  ["flash.nvim"]                    = "flash",
-  ["fff.nvim"]                      = "fff",
-  ["gitsigns.nvim"]                 = "gitsigns",
-  ["grug-far.nvim"]                 = "grug-far",
-  ["lazy.nvim"]                     = "lazy",
-  ["mason.nvim"]                    = "mason",
-  ["mini.hipatterns"]               = "mini_hipatterns",
-  ["mini.icons"]                    = "mini_icons",
-  ["mini.surround"]                 = "mini_surround",
-  ["nvim-dap"]                      = "dap",
-  ["nvim-treesitter-context"]       = "treesitter-context",
-  ["render-markdown.nvim"]          = "render-markdown",
-  ["snacks.nvim"]                   = "snacks",
-  ["todo-comments.nvim"]            = "todo-comments",
-  ["trouble.nvim"]                  = "trouble",
-  ["vimwiki"]                       = "vimwiki",
-  ["which-key.nvim"]                = "which-key",
-  ["yazi.nvim"]                     = "yazi",
+M.groups = {
+  "base",
+  "blink",
+  "diffview-plus",
+  "fff",
+  "flash",
+  "gitsigns",
+  "grug-far",
+  "kinds",
+  "lazy",
+  "mason",
+  "mini_hipatterns",
+  "mini_icons",
+  "mini_surround",
+  "render-markdown",
+  "semantic_tokens",
+  "snacks",
+  "todo-comments",
+  "treesitter",
+  "treesitter-context",
+  "trouble",
+  "which-key",
+  "yazi",
 }
 
-local me = debug.getinfo(1, "S").source:sub(2)
-me = vim.fn.fnamemodify(me, ":h")
-
+---@param name string
+---@return { get: arrowlake.HighlightsFn, url: string }
 function M.get_group(name)
-  ---@type {get: arrowlake.HighlightsFn, url: string}
-  return Util.mod("arrowlake.groups." .. name)
+  return require("arrowlake.groups." .. name)
 end
 
+---@param name string
 ---@param colors ColorScheme
 ---@param opts arrowlake.Config
 function M.get(name, colors, opts)
-  local mod = M.get_group(name)
-  return mod.get(colors, opts)
+  return M.get_group(name).get(colors, opts)
 end
 
 ---@param colors ColorScheme
 ---@param opts arrowlake.Config
+---@return arrowlake.Highlights groups
+---@return string[] names
 function M.setup(colors, opts)
-  local groups = {
-    base = true,
-    kinds = true,
-    semantic_tokens = true,
-    treesitter = true,
-  }
+  opts = Config.extend(opts)
 
-  if opts.plugins.all then
-    for _, group in pairs(M.plugins) do
-      groups[group] = true
-    end
-  elseif opts.plugins.auto and package.loaded.lazy then
-    local plugins = require("lazy.core.config").plugins
-    for plugin, group in pairs(M.plugins) do
-      if plugins[plugin] then
-        groups[group] = true
-      end
-    end
-
-    -- special case for mini.nvim
-    if plugins["mini.nvim"] then
-      for _, group in pairs(M.plugins) do
-        if group:find("^mini_") then
-          groups[group] = true
-        end
-      end
-    end
-  end
-
-  -- manually enable/disable plugins
-  for plugin, group in pairs(M.plugins) do
-    local use = opts.plugins[group]
-    use = use == nil and opts.plugins[plugin] or use
-    if use ~= nil then
-      if type(use) == "table" then
-        use = use.enabled
-      end
-      groups[group] = use or nil
-    end
-  end
-
-  local names = vim.tbl_keys(groups)
+  local names = vim.deepcopy(M.groups)
   table.sort(names)
 
-  local cache_key = opts.style
+  local cache_key = colors._style or "dark"
   local cache = opts.cache and Util.cache.read(cache_key)
 
   local inputs = {
+    format = 2,
     colors = colors,
-    plugins = names,
+    groups = names,
     version = Config.version,
-    opts = { transparent = opts.transparent, styles = opts.styles, dim_inactive = opts.dim_inactive },
+    source = opts.cache and Util.source_fingerprint() or false,
+    transparent = opts.transparent,
   }
 
   local ret = cache and vim.deep_equal(inputs, cache.inputs) and cache.groups
 
   if not ret then
     ret = {}
-    -- merge highlights
-    for group in pairs(groups) do
+    for _, group in ipairs(names) do
       for k, v in pairs(M.get(group, colors, opts)) do
         ret[k] = v
       end
@@ -116,9 +82,8 @@ function M.setup(colors, opts)
       Util.cache.write(cache_key, { groups = ret, inputs = inputs })
     end
   end
-  opts.on_highlights(ret, colors)
 
-  return ret, groups
+  return ret, names
 end
 
 return M

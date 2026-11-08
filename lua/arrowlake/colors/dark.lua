@@ -13,6 +13,7 @@ M.fg = "#bec8e8"
 M.fg_dark = "#7e85b8"
 M.fg_darker = "#5c6296"
 M.fg_gutter = "#312e55"
+M.fg_bright = "#dbe3ff"
 M.special = "#9AC1E5"
 
 -- Core colors

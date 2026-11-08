@@ -1,4 +1,5 @@
 local Util = require("arrowlake.util")
+local style = require("arrowlake.style")
 
 local M = {}
 
@@ -9,11 +10,9 @@ function M.get(c, opts)
 
   -- stylua: ignore
   return {
-    Foo                         = { bg = c.ui.attention, fg = c.foregrounds.normal },
-
     Border                      = { fg = c.border.color, bg = c.backgrounds.normal}, -- border
 
-    Comment                     = { fg = c.foregrounds.comment, style = opts.styles.comments }, -- any comment
+    Comment                     = { fg = c.foregrounds.comment, style = style.comments }, -- any comment
     ColorColumn                 = { bg = c.backgrounds.color_column }, -- used for the columns set with 'colorcolumn'
     Conceal                     = { fg = c.foregrounds.darker }, -- placeholder characters substituted for concealed text (see 'conceallevel')
     Cursor                      = { fg = c.ui.cursor_fg, bg = c.ui.cursor_bg }, -- character under the cursor
@@ -45,7 +44,7 @@ function M.get(c, opts)
     MoreMsg                     = { fg = c.ui.prompt }, -- |more-prompt|
     NonText                     = { fg = c.foregrounds.darker }, -- '@' at the end of the window, characters from 'showbreak' and other characters that do not really exist in the text (e.g., ">" displayed when a double-wide character doesn't fit at the end of the line). See also |hl-EndOfBuffer|.
     Normal                      = { fg = c.foregrounds.normal, bg = opts.transparent and c.none or c.backgrounds.normal }, -- normal text
-    NormalNC                    = { fg = c.foregrounds.normal, bg = opts.transparent and c.none or opts.dim_inactive and c.backgrounds.dark or c.backgrounds.normal }, -- normal text in non-current windows
+    NormalNC                    = { fg = c.foregrounds.normal, bg = opts.transparent and c.none or c.backgrounds.normal }, -- normal text in non-current windows
     NormalSB                    = { fg = c.foregrounds.sidebar, bg = c.backgrounds.sidebar }, -- normal text in sidebar
     NormalFloat                 = { fg = c.foregrounds.normal, bg = c.backgrounds.float }, -- Normal text in floating windows.
     FloatBorder                 = { fg = c.border.color, bg = c.backgrounds.float },
@@ -86,12 +85,12 @@ function M.get(c, opts)
     Debug                       = { fg = c.syntax.constant }, --    debugging statements
     Delimiter                   =  "Special", --  character that needs attention
     Error                       = { fg = c.diagnostics.error }, -- (preferred) any erroneous construct
-    Function                    = { fg = c.syntax.functions, style = opts.styles.functions }, -- function name (also: methods for classes)
-    Identifier                  = { fg = c.foregrounds.member, style = opts.styles.variables }, -- (preferred) any variable name
+    Function                    = { fg = c.syntax.functions, style = style.functions }, -- function name (also: methods for classes)
+    Identifier                  = { fg = c.foregrounds.member, style = style.variables }, -- (preferred) any variable name
     Italic                      = { italic = true, fg = c.foregrounds.normal }, -- (preferred) any italic text
-    Keyword                     = { fg = c.syntax.keyword, style = opts.styles.keywords }, --  any other keyword
+    Keyword                     = { fg = c.syntax.keyword, style = style.keywords }, --  any other keyword
     Operator                    = { fg = c.syntax.operator }, -- "sizeof", "+", "*", etc.
-    PreProc                     = { fg = c.syntax.macro, style = opts.styles.preproc }, -- (preferred) generic Preprocessor
+    PreProc                     = { fg = c.syntax.macro, style = style.preproc }, -- (preferred) generic Preprocessor
     Special                     = { fg = c.syntax.type_builtin }, -- (preferred) any special symbol
     Statement                   = { fg = c.syntax.keyword }, -- (preferred) any statement
     String                      = { fg = c.syntax.string }, --   a string constant: "this is a string"

@@ -2,58 +2,120 @@ local util = require("arrowlake.util")
 
 local M = {}
 
---- @param colors ColorScheme
+---@param colors ColorScheme
+---@return string
 function M.generate(colors)
-  local wezterm = util.template(
-    [[
-[colors]
-foreground = "${foregrounds.normal}"
-background = "${backgrounds.normal}"
-cursor_bg = "${foregrounds.normal}"
-cursor_border = "${foregrounds.normal}"
-cursor_fg = "${backgrounds.normal}"
-selection_bg = "${backgrounds.visual}"
-selection_fg = "${foregrounds.normal}"
-split = "${border.split}"
-compose_cursor = "${focus}"
-scrollbar_thumb = "${backgrounds.highlight}"
+  local style = colors._style or "dark"
 
-ansi = ["${terminal.black}", "${terminal.red}", "${terminal.green}", "${terminal.yellow}", "${terminal.blue}", "${terminal.magenta}", "${terminal.cyan}", "${terminal.white}"]
-brights = ["${terminal.black_bright}", "${terminal.red_bright}", "${terminal.green_bright}", "${terminal.yellow_bright}", "${terminal.blue_bright}", "${terminal.magenta_bright}", "${terminal.cyan_bright}", "${terminal.white_bright}"]
+  -- WezTerm paints the current search match with selection_bg. The light theme
+  -- uses a magenta tint so it stands out from visual selection.
+  local selection_bg = style == "light" and util.blend_bg(colors.magenta, 0.47, colors.bg)
+    or colors.backgrounds.visual
 
-[colors.tab_bar]
-inactive_tab_edge = "${border.split}"
-background = "${backgrounds.normal}"
+  local ansi = {
+    colors.terminal.black,
+    colors.terminal.red,
+    colors.terminal.green,
+    colors.terminal.yellow,
+    colors.terminal.blue,
+    colors.terminal.magenta,
+    colors.terminal.cyan,
+    colors.terminal.white,
+  }
 
-[colors.tab_bar.active_tab]
-fg_color = "${foregrounds.tabline}"
-bg_color = "${backgrounds.normal}"
+  local brights = {
+    colors.terminal.black_bright,
+    colors.terminal.red_bright,
+    colors.terminal.green_bright,
+    colors.terminal.yellow_bright,
+    colors.terminal.blue_bright,
+    colors.terminal.magenta_bright,
+    colors.terminal.cyan_bright,
+    colors.terminal.white_bright,
+  }
 
-[colors.tab_bar.inactive_tab]
-fg_color = "${foregrounds.muted}"
-bg_color = "${backgrounds.normal}"
+  local function list(values)
+    local parts = {}
+    for _, value in ipairs(values) do
+      parts[#parts + 1] = ('    "%s"'):format(value)
+    end
+    return "[\n" .. table.concat(parts, ",\n") .. "\n  ]"
+  end
 
-[colors.tab_bar.inactive_tab_hover]
-fg_color = "${focus}"
-bg_color = "${backgrounds.normal}"
-# intensity = "Bold"
-
-[colors.tab_bar.new_tab_hover]
-fg_color = "${focus}"
-bg_color = "${backgrounds.normal}"
-intensity = "Bold"
-
-[colors.tab_bar.new_tab]
-fg_color = "${foregrounds.muted}"
-bg_color = "${backgrounds.normal}"
-
-[metadata]
-aliases = []
-author = "jadonwb"
-name = "${_name}"]],
-    colors
+  return ([[
+{
+  "foreground": "%s",
+  "background": "%s",
+  "cursor_bg": "%s",
+  "cursor_border": "%s",
+  "cursor_fg": "%s",
+  "selection_bg": "%s",
+  "selection_fg": "%s",
+  "split": "%s",
+  "compose_cursor": "%s",
+  "scrollbar_thumb": "%s",
+  "ansi": %s,
+  "brights": %s,
+  "tab_bar": {
+    "inactive_tab_edge": "%s",
+    "background": "%s",
+    "active_tab": {
+      "fg_color": "%s",
+      "bg_color": "%s"
+    },
+    "inactive_tab": {
+      "fg_color": "%s",
+      "bg_color": "%s"
+    },
+    "inactive_tab_hover": {
+      "fg_color": "%s",
+      "bg_color": "%s"
+    },
+    "new_tab_hover": {
+      "fg_color": "%s",
+      "bg_color": "%s",
+      "intensity": "Bold"
+    },
+    "new_tab": {
+      "fg_color": "%s",
+      "bg_color": "%s"
+    }
+  },
+  "copy_mode_inactive_highlight_bg": {
+    "Color": "%s"
+  },
+  "copy_mode_inactive_highlight_fg": {
+    "Color": "%s"
+  }
+}
+]]):format(
+    colors.fg,
+    colors.bg,
+    colors.fg,
+    colors.fg,
+    colors.bg,
+    selection_bg,
+    colors.fg,
+    colors.border.split,
+    colors.focus,
+    colors.backgrounds.highlight,
+    list(ansi),
+    list(brights),
+    colors.border.split,
+    colors.bg,
+    colors.primary,
+    colors.bg,
+    colors.foregrounds.muted,
+    colors.bg,
+    colors.focus,
+    colors.bg,
+    colors.focus,
+    colors.bg,
+    colors.foregrounds.muted,
+    colors.bg,
+    colors.backgrounds.visual,
+    colors.fg
   )
-  return wezterm
 end
 
 return M

@@ -1,14 +1,14 @@
 local M = {
   module = "arrowlake",
   colorscheme = "arrowlake",
-  opts = { style = "light", plugins = { all = true } },
+  opts = { transparent = false },
   globals = { vim = vim },
   cache = {}, ---@type table<string, boolean>
 }
 
 function M.reset()
   require("arrowlake.util").cache.clear()
-  local colors = require("arrowlake.colors").setup()
+  local colors = require("arrowlake.colors").setup(vim.o.background == "light" and "light" or "dark")
   M.globals.colors = colors
   M.globals.c = colors
 end
@@ -118,6 +118,7 @@ return {
 
         vim.list_extend(exclude, {
           "extras/**",
+          "omarchy/**",
         })
 
         opts.picker.sources[source].exclude = exclude

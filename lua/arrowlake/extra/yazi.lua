@@ -205,7 +205,7 @@ function M.generate(colors)
     { path = flavor_dir .. "/tmtheme.xml", content = require("arrowlake.extra.sublime").generate(colors) },
   }
 
-  return toml, artifacts
+  return nil, artifacts
 end
 
 return M

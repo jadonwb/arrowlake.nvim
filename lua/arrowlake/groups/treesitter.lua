@@ -1,4 +1,5 @@
 local Util = require("arrowlake.util")
+local style = require("arrowlake.style")
 
 local M = {}
 
@@ -49,19 +50,19 @@ function M.get(c, opts)
     ["@diff.minus"]                 = "DiffDelete",
     ["@diff.plus"]                  = "DiffAdd",
     ["@function"]                   = "Function",
-    ["@function.builtin"]           = { fg = c.syntax.functions_builtin, style = opts.styles.functions },
+    ["@function.builtin"]           = { fg = c.syntax.functions_builtin, style = style.functions },
     ["@function.call"]              = "@function",
     ["@function.macro"]             = "Macro",
     ["@function.method"]            = "Function",
     ["@function.method.call"]       = "@function.method",
-    ["@keyword"]                    = { fg = c.syntax.keyword, style = opts.styles.keywords }, -- For keywords that don't fall in previous categories.
+    ["@keyword"]                    = { fg = c.syntax.keyword, style = style.keywords }, -- For keywords that don't fall in previous categories.
     ["@keyword.conditional"]        = "Conditional",
     ["@keyword.coroutine"]          = "@keyword",
     ["@keyword.debug"]              = "Debug",
     ["@keyword.directive"]          = "PreProc",
     ["@keyword.directive.define"]   = "Define",
     ["@keyword.exception"]          = "Exception",
-    ["@keyword.function"]           = { fg = c.syntax.functions, style = opts.styles.functions }, -- For keywords used to define a function.
+    ["@keyword.function"]           = { fg = c.syntax.functions, style = style.functions }, -- For keywords used to define a function.
     ["@keyword.import"]             = "Include",
     ["@keyword.operator"]           = "@keyword",
     ["@keyword.repeat"]             = "Repeat",
@@ -115,7 +116,7 @@ function M.get(c, opts)
     ["@type.builtin"]               = { fg = c.syntax.type_builtin },
     ["@type.definition"]            = "Typedef",
     ["@type.qualifier"]             = "@keyword",
-    ["@variable"]                   = { fg = c.syntax.variable, style = opts.styles.variables }, -- Any variable name that does not have another highlight.
+    ["@variable"]                   = { fg = c.syntax.variable, style = style.variables }, -- Any variable name that does not have another highlight.
     ["@variable.builtin"]           = { fg = c.ui.attention }, -- Variable names that are defined by the languages, like `this` or `self`.
     ["@variable.member"]            = { fg = c.foregrounds.member }, -- For fields.
     ["@variable.parameter"]         = { fg = c.syntax.parameter }, -- For parameters of a function.

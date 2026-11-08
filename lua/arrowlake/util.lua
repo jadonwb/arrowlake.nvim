@@ -2,7 +2,6 @@ local M = {}
 
 M.bg = "#000000"
 M.fg = "#ffffff"
-M.light_brightness = 0.3
 
 local uv = vim.uv or vim.loop
 
@@ -10,18 +9,6 @@ local uv = vim.uv or vim.loop
 local function rgb(c)
   c = string.lower(c)
   return { tonumber(c:sub(2, 3), 16), tonumber(c:sub(4, 5), 16), tonumber(c:sub(6, 7), 16) }
-end
-
-local me = debug.getinfo(1, "S").source:sub(2)
-me = vim.fn.fnamemodify(me, ":h:h")
-
-function M.mod(modname)
-  if package.loaded[modname] then
-    return package.loaded[modname]
-  end
-  local ret = loadfile(me .. "/" .. modname:gsub("%.", "/") .. ".lua")()
-  package.loaded[modname] = ret
-  return ret
 end
 
 ---@param foreground string foreground color
@@ -46,31 +33,9 @@ end
 function M.blend_bg(hex, amount, bg)
   return M.blend(hex, amount, bg or M.bg)
 end
-M.darken = M.blend_bg
 
 function M.blend_fg(hex, amount, fg)
   return M.blend(hex, amount, fg or M.fg)
-end
-M.lighten = M.blend_fg
-
----@param color string|Palette
-function M.invert(color)
-  if type(color) == "table" then
-    for key, value in pairs(color) do
-      color[key] = M.invert(value)
-    end
-  elseif type(color) == "string" then
-    local hsluv = require("arrowlake.hsluv")
-    if color ~= "NONE" then
-      local hsl = hsluv.hex_to_hsluv(color)
-      hsl[3] = 100 - hsl[3]
-      if hsl[3] < 40 then
-        hsl[3] = hsl[3] + (100 - hsl[3]) * M.light_brightness
-      end
-      return hsluv.hsluv_to_hex(hsl)
-    end
-  end
-  return color
 end
 
 ---@param color string  -- The hex color string to be adjusted
@@ -141,6 +106,28 @@ function M.write(file, contents)
 end
 
 M.cache = {}
+
+---Fingerprint the plugin sources so editing a group or palette invalidates
+---the cached highlights. mtime+size is enough: a rewrite always changes one
+---of them, and it costs less than hashing every file's contents.
+---@param dir? string Directory to scan, defaults to this plugin's lua/arrowlake
+---@return string
+function M.source_fingerprint(dir)
+  dir = dir or vim.fn.fnamemodify(debug.getinfo(1, "S").source:sub(2), ":h:h")
+
+  local files = vim.fn.globpath(dir, "**/*.lua", false, true)
+  table.sort(files)
+
+  local parts = {}
+  for _, file in ipairs(files) do
+    local stat = uv.fs_stat(file)
+    if stat then
+      parts[#parts + 1] = ("%s:%d:%d"):format(file, stat.mtime.sec, stat.size)
+    end
+  end
+
+  return vim.fn.sha256(table.concat(parts, "\n"))
+end
 
 function M.cache.file(key)
   return vim.fn.stdpath("cache") .. "/arrowlake-" .. key .. ".json"

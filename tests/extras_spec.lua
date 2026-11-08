@@ -3,14 +3,72 @@ local Opencode = require("arrowlake.extra.opencode")
 local Sublime = require("arrowlake.extra.sublime")
 local Yazi = require("arrowlake.extra.yazi")
 local Codex = require("arrowlake.extra.codex")
+local Omarchy = require("arrowlake.extra.omarchy")
+local Wezterm = require("arrowlake.extra.wezterm")
 
 ---@param style string
 ---@return ColorScheme
 local function colors_for(style)
-  local colors = Colors.setup({ style = style })
+  local colors = Colors.setup(style)
   colors._style = style
   return colors
 end
+
+
+describe("extra: omarchy", function()
+  for _, style in ipairs({ "dark", "light" }) do
+    it("emits the semantic colors.toml for " .. style, function()
+      local colors = colors_for(style)
+      local toml = Omarchy.colors_toml(colors)
+
+      assert.is_true(toml:find('mode = "' .. style .. '"', 1, true) ~= nil)
+      assert.is_nil(toml:match("color%d+"))
+      for _, key in ipairs({
+        "accent", "selection", "muted",
+        "background", "dark_background", "darker_background", "lighter_background",
+        "foreground", "dark_foreground", "light_foreground", "bright_foreground",
+        "red", "yellow", "orange", "green", "cyan", "blue", "magenta",
+        "bright_red", "bright_yellow", "bright_green", "bright_cyan", "bright_blue", "bright_magenta",
+      }) do
+        assert.is_not_nil(toml:find("\n" .. key .. " = ", 1, true), key)
+      end
+    end)
+
+    it("emits a per-theme neovim spec for " .. style, function()
+      local spec = Omarchy.neovim(style)
+      assert.is_true(spec:find('colorscheme = "arrowlake-' .. style .. '"', 1, true) ~= nil)
+      assert.is_true(spec:find("jadonwb/arrowlake.nvim", 1, true) ~= nil)
+    end)
+  end
+end)
+
+describe("extra: wezterm", function()
+  for _, style in ipairs({ "dark", "light" }) do
+    it("emits the JSON shape WezTerm reads for " .. style, function()
+      local colors = colors_for(style)
+      local doc = vim.json.decode(Wezterm.generate(colors))
+      assert.are.equal(colors.fg, doc.foreground)
+      assert.are.equal(colors.bg, doc.background)
+      assert.are.equal(#doc.ansi, 8)
+      assert.are.equal(#doc.brights, 8)
+      assert.are.equal(colors.terminal.white_bright, doc.brights[8])
+      assert.is_not_nil(doc.tab_bar.active_tab)
+      assert.is_not_nil(doc.copy_mode_inactive_highlight_bg.Color)
+    end)
+  end
+
+  it("uses a magenta tint for the light selection", function()
+    local colors = colors_for("light")
+    local doc = vim.json.decode(Wezterm.generate(colors))
+    assert.are.equal("#d7a9b1", doc.selection_bg:lower())
+  end)
+
+  it("uses the normal selection for dark", function()
+    local colors = colors_for("dark")
+    local doc = vim.json.decode(Wezterm.generate(colors))
+    assert.are.equal(colors.backgrounds.visual, doc.selection_bg)
+  end)
+end)
 
 describe("extra: codex", function()
   for _, style in ipairs({ "dark", "light" }) do
@@ -128,10 +186,15 @@ describe("extra: yazi", function()
   for _, style in ipairs({ "dark", "light" }) do
     describe(style, function()
       local colors = colors_for(style)
-      local toml, artifacts = Yazi.generate(colors)
+      local primary, artifacts = Yazi.generate(colors)
       local flavor_dir = "arrowlake-" .. style .. ".yazi"
+      local toml
+      for _, a in ipairs(artifacts) do
+        if a.path == flavor_dir .. "/flavor.toml" then toml = a.content end
+      end
 
       it("returns the expected flavor artifact paths", function()
+        assert.is_nil(primary)
         assert.is_not_nil(artifacts)
         local paths = {}
         for _, a in ipairs(artifacts) do
@@ -143,14 +206,6 @@ describe("extra: yazi", function()
 
       it("contains no unresolved template expressions", function()
         assert.is_nil(toml:match("%${"))
-      end)
-
-      it("flavor.toml equals the standalone theme", function()
-        local flavor = nil
-        for _, a in ipairs(artifacts) do
-          if a.path == flavor_dir .. "/flavor.toml" then flavor = a.content end
-        end
-        assert.same(toml, flavor)
       end)
 
       it("flavor tmtheme.xml equals the sublime generator", function()

@@ -3,79 +3,17 @@ local M = {}
 M.version = "4.14.1" -- x-release-please-version
 
 ---@class arrowlake.Config
----@field on_colors? fun(colors: ColorScheme)
----@field on_highlights? fun(highlights: arrowlake.Highlights, colors: ColorScheme)
+---@field cache? boolean Cache the generated highlights on disk
+---@field transparent? boolean Use the normal background for the main window
+---@field style? "dark"|"light" Load a variant directly (set by colors/arrowlake-*.lua)
+
 M.defaults = {
-  style = "dark", -- The theme comes in two styles, `dark` and `light`
-  light_style = "light", -- The theme is used when the background is set to light
-  -- FIXME: reimplement
-  transparent = false, -- Enable this to disable setting the background color
-  terminal_colors = true, -- Configure the colors used when opening a `:terminal` in Neovim
-  styles = {
-    -- Style to be applied to different syntax groups
-    -- Value is any valid attr-list value for `:help nvim_set_hl`
-    -- TODO: add parameters? some other types of things?
-    comments = { italic = true },
-    keywords = { italic = true },
-    preproc = { bold = true },
-    functions = { bold = true },
-    variables = {},
-    -- UI surface backgrounds. nil keeps the mapping default.
-    -- "transparent" matches the main background, "normal" uses bg_dark, "darker" uses bg_darker.
-    statusline = nil,
-    popup = nil,
-    float = nil,
-    sidebar = nil,
-    code = nil,
-    notification = nil,
-    tabline = nil,
-    winbar = nil,
-    fold = nil,
-
-    -- borders = nil, -- TODO: make functionality to set the fg of borders to their backgrounds to make a border toggle at the highlight level.
-  },
-  -- FIXME: hsv/invert unused right now
-  light_brightness = 0.3, -- Adjusts the brightness of the colors of the **Light** style. Number between 0 and 1, from dull to vibrant colors
-  -- FIXME: this needs to be reimplemented/fixed
-  dim_inactive = false, -- dims inactive windows
-  lualine_bold = false, -- When `true`, section headers in the lualine theme will be bold
-
-  ---@type table<string, string>
-  ---Simple hex color overrides (e.g. { red = "#ff0000", bg = "#111122" }).
-  ---Merged before mappings are derived, so changes cascade
-  ---automatically (changing `red` updates `error`, `git.delete`, etc.).
-  colors = {},
-
-  --- You can override specific color groups to use other groups or a hex color
-  --- function will be called with a ColorScheme table
-  ---@param colors ColorScheme
-  on_colors = function(colors) end,
-
-  --- You can override specific highlights to use other groups or a hex color
-  --- function will be called with a Highlights and ColorScheme table
-  ---@param highlights arrowlake.Highlights
-  ---@param colors ColorScheme
-  on_highlights = function(highlights, colors) end,
-
-  cache = true, -- When set to true, the theme will be cached for better performance
-
-  ---@type table<string, boolean|{enabled:boolean}>
-  plugins = {
-    -- enable all plugins when not using lazy.nvim
-    -- set to false to manually enable/disable plugins
-    all = package.loaded.lazy == nil,
-    -- uses your plugin manager to automatically enable needed plugins
-    -- currently only lazy.nvim is supported
-    auto = true,
-    -- add any plugins here that you want to enable
-    -- for all possible plugins, see:
-    --   * https://github.com/jadonwb/arrowlake.nvim/tree/main/lua/arrowlake/groups
-    -- telescope = true,
-  },
+  cache = true,
+  transparent = false,
 }
 
 ---@type arrowlake.Config
-M.options = nil
+M.options = vim.deepcopy(M.defaults)
 
 ---@param options? arrowlake.Config
 function M.setup(options)
@@ -83,16 +21,9 @@ function M.setup(options)
 end
 
 ---@param opts? arrowlake.Config
+---@return arrowlake.Config
 function M.extend(opts)
   return opts and vim.tbl_deep_extend("force", {}, M.options, opts) or M.options
 end
-
-setmetatable(M, {
-  __index = function(_, k)
-    if k == "options" then
-      return M.defaults
-    end
-  end,
-})
 
 return M
