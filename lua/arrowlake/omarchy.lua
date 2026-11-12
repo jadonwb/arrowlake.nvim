@@ -26,6 +26,12 @@ local function theme_colorscheme()
     return nil
   end
 
+  -- Preferred contract: the theme spec sets the global as it is evaluated.
+  if type(vim.g.arrowlake_colorscheme) == "string" and vim.g.arrowlake_colorscheme ~= "" then
+    return vim.g.arrowlake_colorscheme
+  end
+
+  -- Legacy: the colorscheme used to live in an injected LazyVim entry.
   for _, entry in ipairs(spec) do
     if type(entry) == "table" then
       local name = entry[1] or entry.name

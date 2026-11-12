@@ -65,21 +65,21 @@ end
 
 ---Generate the per-theme lazy.nvim spec Omarchy symlinks into
 ---~/.config/nvim/lua/plugins/theme.lua.
+---
+---The colorscheme travels as a global rather than inside a plugin entry, so a
+---config that does not use LazyVim can read it without adding a distro
+---dependency. `vim.g.arrowlake_colorscheme` is set when the spec is evaluated.
 ---@param style "dark"|"light"
 ---@return string
 function M.neovim(style)
   return ([[
+vim.g.arrowlake_colorscheme = "arrowlake-%s"
+
 return {
   {
     "jadonwb/arrowlake.nvim",
     dev = true,
     priority = 1000,
-  },
-  {
-    "LazyVim/LazyVim",
-    opts = {
-      colorscheme = "arrowlake-%s",
-    },
   },
 }
 ]]):format(style)
