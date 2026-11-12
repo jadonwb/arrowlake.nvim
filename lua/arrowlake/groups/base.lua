@@ -27,8 +27,8 @@ function M.get(c, opts)
     DiffText                    = { bg = c.diff.text }, -- diff mode: Changed text within a changed line |diff.txt|
     EndOfBuffer                 = { fg = c.backgrounds.normal }, -- filler lines (~) after the end of the buffer.  By default, this is highlighted like |hl-NonText|.
     ErrorMsg                    = { fg = c.diagnostics.error }, -- error messages on the command line
-    VertSplit                   = { fg = c.border.split }, -- the column separating vertically split windows
-    WinSeparator                = { fg = c.border.split, bold = true }, -- the column separating vertically split windows
+    VertSplit                   = "WinSeparator",
+    WinSeparator                = { fg = c.backgrounds.highlight, bg = opts.transparent and c.none or c.backgrounds.normal }, -- one hairline style for every split (a 1-cell channel of editor bg)
     Folded                      = { fg = c.ui.prompt, bg = c.backgrounds.fold }, -- line used for closed folds
     FoldColumn                  = { fg = c.foregrounds.darker }, -- 'foldcolumn'
     SignColumn                  = { fg = c.foregrounds.muted }, -- column where |signs| are displayed

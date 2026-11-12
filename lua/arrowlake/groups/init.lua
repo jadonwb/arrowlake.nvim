@@ -22,6 +22,8 @@ M.groups = {
   "mini_hipatterns",
   "mini_icons",
   "mini_surround",
+  "nv",
+  "nvim-tree",
   "render-markdown",
   "semantic_tokens",
   "snacks",
@@ -29,6 +31,7 @@ M.groups = {
   "treesitter",
   "treesitter-context",
   "trouble",
+  "volt",
   "which-key",
   "yazi",
 }

@@ -23,6 +23,9 @@ function M.apply(c)
     normal = c.bg,
     dark = c.bg_dark,
     darker = c.bg_darker,
+    -- Side panels: one small step off the editor background (NvChad's
+    -- `darker_black`), so a surface change separates regions instead of lines.
+    panel = U.blend(c.bg_dark, 0.85, c.bg),
 
     -- TODO: terminal bg
 
