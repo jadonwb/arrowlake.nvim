@@ -42,7 +42,7 @@ function M.get(c)
     NvRaisedBorder   = { fg = raised, bg = raised },
     NvCursorLine     = { bg = hi },
     NvFocusEdge      = { fg = c.focus, bg = hi },
-    NvBackdrop       = { bg = c.backgrounds.darker },
+    NvBackdrop       = { bg = "#000000" }, -- modal dim, drawn at winblend 70 like snacks
 
     -- Text roles
     NvTitle          = { fg = c.foregrounds.normal, bold = true },
@@ -73,6 +73,10 @@ function M.get(c)
     NvPopupBorder    = { fg = raised, bg = raised },
     NvPopupRule      = { fg = Util.blend_bg(c.orange, 0.7, raised), bg = raised },
     NvPopupTitle     = { fg = c.bg, bg = c.primary, bold = true },
+    NvSigActive      = { fg = c.focus, bg = hi, bold = true, underline = true, sp = c.focus }, -- active parameter
+
+    -- blink's insert-mode signature help uses the same accent
+    BlinkCmpSignatureHelpActiveParameter = { fg = c.focus, bg = hi, bold = true, underline = true, sp = c.focus },
   }
 
   -- Statusline pieces (lualine inline groups), all on the statusline surface.

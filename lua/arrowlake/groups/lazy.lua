@@ -23,7 +23,7 @@ function M.get(c, opts)
   -- stylua: ignore
   return {
     LazyNormal            = { fg = c.foregrounds.normal, bg = raised },
-    LazyBackdrop          = { bg = c.backgrounds.darker },
+    LazyBackdrop          = { bg = "#000000" }, -- shared modal dim
 
     -- Header: title chip, tab chips
     LazyH1                = { fg = c.bg, bg = c.primary, bold = true },

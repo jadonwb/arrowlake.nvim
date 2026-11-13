@@ -18,7 +18,7 @@ function M.get(c, opts)
   -- stylua: ignore
   return {
     MasonNormal                      = { fg = c.foregrounds.normal, bg = c.backgrounds.float },
-    MasonBackdrop                    = { bg = c.backgrounds.darker },
+    MasonBackdrop                    = { bg = "#000000" }, -- shared modal dim
 
     MasonHeader                      = chip,
     MasonHeaderSecondary             = { fg = c.bg, bg = c.focus, bold = true },
