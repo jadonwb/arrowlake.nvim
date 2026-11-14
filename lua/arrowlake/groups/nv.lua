@@ -100,6 +100,8 @@ function M.get(c)
     ret["Nv" .. name] = { fg = color }
   end
   ret.NvChipMuted = { fg = c.foregrounds.darker, bg = hi }
+  -- Title chip of every prompt surface: the command line, dialogs.
+  ret.NvPopupTitle = { link = "NvChipPurple" }
 
   -- Statusline mode chips follow the theme's mode colours.
   for mode, color in pairs(c.status) do
