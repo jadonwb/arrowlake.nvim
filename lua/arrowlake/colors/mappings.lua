@@ -160,7 +160,7 @@ function M.apply(c)
     change = U.blend_bg(c.yellow, 0.22, c.bg),
     delete = U.blend_bg(c.red, 0.15, c.bg),
     text = U.blend_bg(c.green, 0.26, c.bg),
-    -- make addtext, deletetext
+    delete_text = U.blend_bg(c.red, 0.26, c.bg),
   }
 
   -- ═══════════════════════════════════════════

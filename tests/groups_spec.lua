@@ -45,4 +45,23 @@ describe("group setup", function()
     assert.is_not_nil(opaque.Normal.bg)
     assert.are.equal("NONE", transparent.Normal.bg)
   end)
+
+  for _, style in ipairs({ "light", "dark" }) do
+    it("uses Diffview's word tints in the " .. style .. " inline hunk preview", function()
+      local groups = Groups.setup(colors(style), { cache = false })
+
+      assert.same(groups.DiffviewDiffAddText, groups.GitSignsAddInline)
+      assert.same(groups.DiffviewDiffDeleteText, groups.GitSignsDeleteInline)
+      assert.same({ link = "GitSignsAddInline" }, groups.GitSignsChangeInline)
+      assert.same({ link = "GitSignsDeleteInline" }, groups.GitSignsDeleteVirtLnInLine)
+
+      for _, side in ipairs({ "Add", "Delete" }) do
+        local word = groups["GitSigns" .. side .. "Inline"]
+        assert.is_not_nil(word.bg)
+        assert.is_nil(word.fg)
+        assert.is_nil(word.reverse)
+        assert.are_not.equal(groups["Diff" .. side].bg, word.bg)
+      end
+    end)
+  end
 end)

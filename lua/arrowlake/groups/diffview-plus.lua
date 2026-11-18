@@ -5,8 +5,6 @@ M.url = "https://github.com/dlyongemallo/diffview-plus.nvim"
 ---@param c arrowlake.ColorScheme
 ---@param opts arrowlake.Config
 function M.get(c, opts)
-  local Util = require("arrowlake.util")
-
   -- TODO?: style the sidebar filepanel as background.sidebar?
 
   return {
@@ -40,7 +38,7 @@ function M.get(c, opts)
 
     -- Diff coloring
     DiffviewDiffAddText = { bg = c.diff.text },
-    DiffviewDiffDeleteText = { bg = Util.blend_bg(c.git.delete, 0.26, c.backgrounds.normal) },
+    DiffviewDiffDeleteText = { bg = c.diff.delete_text },
     DiffviewDiffFill = { fg = c.foregrounds.comment },
 
     -- FH panel refs
