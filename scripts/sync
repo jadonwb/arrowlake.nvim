@@ -93,7 +93,7 @@ install_dir() {
 }
 
 for slug in arrowlake arrowlake_light; do
-  for file in colors.toml neovim.lua wezterm.json codex.txt; do
+  for file in colors.toml neovim.lua wezterm.json; do
     install_file "omarchy/themes/$slug/$file" "$dest_root/omarchy/themes/$slug/$file"
   done
 done
